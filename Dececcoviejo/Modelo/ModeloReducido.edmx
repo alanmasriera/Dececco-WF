@@ -1,0 +1,1174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DececcoModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="id_actividad" />
+          </Key>
+          <Property Name="id_actividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_actividad" Type="varchar" MaxLength="100" />
+          <Property Name="tiempo_standart" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="costo_standart" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="id_tipo_actividad" Type="int" />
+        </EntityType>
+        <EntityType Name="Actividad_proyecto">
+          <Key>
+            <PropertyRef Name="id_actividad_proyecto" />
+          </Key>
+          <Property Name="id_actividad_proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_proyecto" Type="int" />
+          <Property Name="id_actividad" Type="int" />
+          <Property Name="fecha_inicio" Type="datetime" />
+          <Property Name="fecha_fin_previsto" Type="datetime" />
+          <Property Name="fecha_fin_real" Type="datetime" />
+          <Property Name="cantidad_hora" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="objetivo" Type="varchar" MaxLength="200" />
+          <Property Name="prioridad" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="complejidad" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="avance" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="observacion" Type="varchar" MaxLength="500" />
+          <Property Name="orden" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="id_controlador_1" Type="int" />
+          <Property Name="id_controlador_2" Type="int" />
+          <Property Name="nro" Type="int" />
+        </EntityType>
+        <EntityType Name="Calle">
+          <Key>
+            <PropertyRef Name="id_calle" />
+          </Key>
+          <Property Name="id_calle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_calle" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="apellido_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="razon_social" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_fantasia" Type="varchar" MaxLength="50" />
+          <Property Name="contacto" Type="varchar" MaxLength="50" />
+          <Property Name="dni_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="id_tipo_dni" Type="int" />
+          <Property Name="id_calle" Type="int" />
+          <Property Name="direccion_cliente" Type="varchar" MaxLength="200" />
+          <Property Name="id_localidad" Type="int" />
+          <Property Name="id_provincia" Type="int" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="mail" Type="varchar" MaxLength="50" />
+          <Property Name="web" Type="varchar" MaxLength="50" />
+          <Property Name="id_condicion_iva" Type="int" />
+          <Property Name="ingreso_bruto" Type="varchar" MaxLength="50" />
+          <Property Name="lugar_pago" Type="varchar" MaxLength="50" />
+          <Property Name="percepcion_iva" Type="bit" />
+          <Property Name="percepcion_ingreso_bruto" Type="bit" />
+          <Property Name="retencion_iva" Type="bit" />
+          <Property Name="retencion_ingreso_bruto" Type="bit" />
+          <Property Name="numero_proveedor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cuerpo_movimiento_hora">
+          <Key>
+            <PropertyRef Name="id_cuerpo_movimiento_hora" />
+          </Key>
+          <Property Name="id_cuerpo_movimiento_hora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_actividad_proyecto" Type="int" />
+          <Property Name="entrada" Type="datetime" />
+          <Property Name="salida" Type="datetime" />
+          <Property Name="id_movimiento_hora" Type="int" />
+        </EntityType>
+        <EntityType Name="Cuerpo_movimiento_voz">
+          <Key>
+            <PropertyRef Name="id_cuerpo_movimiento_voz" />
+          </Key>
+          <Property Name="id_cuerpo_movimiento_voz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_voz" Type="int" />
+          <Property Name="nc1" Type="bit" />
+          <Property Name="ok1" Type="bit" />
+          <Property Name="corresponde1" Type="bit" />
+          <Property Name="conforme1" Type="bit" />
+          <Property Name="no_conforme1" Type="bit" />
+          <Property Name="tipo1" Type="varchar" MaxLength="50" />
+          <Property Name="detalle1" Type="varchar" MaxLength="5000" />
+          <Property Name="correccion1" Type="bit" />
+          <Property Name="id_movimiento_voz" Type="int" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="corresponde2" Type="bit" />
+          <Property Name="conforme2" Type="bit" />
+          <Property Name="no_conforme2" Type="bit" />
+          <Property Name="tipo2" Type="varchar" MaxLength="50" />
+          <Property Name="detalle2" Type="varchar" MaxLength="5000" />
+          <Property Name="correccion2" Type="bit" />
+          <Property Name="random" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="completado" Type="bit" />
+          <Property Name="completado_pm" Type="bit" />
+          <Property Name="control1" Type="bit" />
+          <Property Name="control2" Type="bit" />
+          <Property Name="control3" Type="bit" />
+          <Property Name="pedido_segundo_control" Type="bit" />
+          <Property Name="numero_revision" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="corresponde" Type="bit" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="id_departamento" />
+          </Key>
+          <Property Name="id_departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_departamento" Type="varchar" MaxLength="50" />
+          <Property Name="id_provincia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+          </Key>
+          <Property Name="id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="dni" Type="varchar" MaxLength="50" />
+          <Property Name="direccion" Type="varchar" MaxLength="500" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="mail" Type="varchar" MaxLength="50" />
+          <Property Name="valor_hora" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="id_tipo_empleado" Type="int" />
+        </EntityType>
+        <EntityType Name="Empleado_renglon">
+          <Key>
+            <PropertyRef Name="id_empleado_renglon" />
+          </Key>
+          <Property Name="id_empleado_renglon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_empleado" Type="int" />
+          <Property Name="id_renglon" Type="int" />
+        </EntityType>
+        <EntityType Name="ITEM">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_item" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="LOCALIDAD">
+          <Key>
+            <PropertyRef Name="id_localidad" />
+          </Key>
+          <Property Name="id_localidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_localidad" Type="varchar" MaxLength="50" />
+          <Property Name="id_provincia" Type="int" />
+          <Property Name="codigo_postal" Type="varchar" MaxLength="50" />
+          <Property Name="caracteristica_telefonica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_persona" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_producto" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="abreviatura" Type="varchar" MaxLength="50" />
+          <Property Name="ubicacion" Type="varchar" MaxLength="50" />
+          <Property Name="pack" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="stock_ideal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="stock_minimo" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="cantidad_compra" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="cantidad_ingreso" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="id_subtipo_producto" Type="int" />
+          <Property Name="id_marca" Type="int" />
+          <Property Name="id_unidad" Type="int" />
+          <Property Name="tilde" Type="bit" />
+          <Property Name="tipo_venta" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_proveedor" Type="varchar" MaxLength="50" />
+          <Property Name="contacto" Type="varchar" MaxLength="50" />
+          <Property Name="cuit" Type="varchar" MaxLength="50" />
+          <Property Name="ingreso_bruto" Type="varchar" MaxLength="50" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="localidad" Type="varchar" MaxLength="50" />
+          <Property Name="provincia" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="web" Type="varchar" MaxLength="50" />
+          <Property Name="id_condicion_iva" Type="int" />
+          <Property Name="id_tipo_proveedor" Type="int" />
+        </EntityType>
+        <EntityType Name="PROVINCIA">
+          <Key>
+            <PropertyRef Name="id_provincia" />
+          </Key>
+          <Property Name="id_provincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_provincia" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="id_proyecto" />
+          </Key>
+          <Property Name="id_proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="nombre_proyecto" Type="varchar" MaxLength="500" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="id_proyecto_padre" Type="int" />
+          <Property Name="id_proyect_manager" Type="int" />
+          <Property Name="fecha_inicio" Type="datetime" />
+          <Property Name="fecha_fin_prevista" Type="datetime" />
+          <Property Name="fecha_fin_real" Type="datetime" />
+          <Property Name="orden" Type="varchar" MaxLength="50" />
+          <Property Name="id_estado" Type="int" />
+          <Property Name="total_hora" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="prioridad" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="observacion" Type="varchar" MaxLength="500" />
+          <Property Name="id_controlador_1" Type="int" />
+          <Property Name="id_controlador_2" Type="int" />
+          <Property Name="path" Type="varchar" MaxLength="5000" />
+          <Property Name="archivado" Type="bit" />
+          <Property Name="indice" Type="int" />
+          <Property Name="nro" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipo_actividad">
+          <Key>
+            <PropertyRef Name="id_tipo_actividad" />
+          </Key>
+          <Property Name="id_tipo_actividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="criticidad" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Tipo_empleado">
+          <Key>
+            <PropertyRef Name="id_tipo_empleado" />
+          </Key>
+          <Property Name="id_tipo_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_tipo_empleado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tipo_proveedor">
+          <Key>
+            <PropertyRef Name="id_tipo_proveedor" />
+          </Key>
+          <Property Name="id_tipo_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_tipo_cliente" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tipo_voz">
+          <Key>
+            <PropertyRef Name="id_tipo_voz" />
+          </Key>
+          <Property Name="id_tipo_voz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_tipo_voz" Type="varchar" MaxLength="50" />
+          <Property Name="codigo" Type="varchar" MaxLength="50" />
+          <Property Name="ponderacion" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="id_control" Type="int" />
+          <Property Name="nro" Type="int" />
+          <Property Name="indice" Type="int" />
+        </EntityType>
+        <EntityType Name="TRANSFERENCIAS_BANCARIAS">
+          <Key>
+            <PropertyRef Name="id_transferencia_bancaria" />
+          </Key>
+          <Property Name="id_transferencia_bancaria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="comprobante" Type="varchar" MaxLength="50" />
+          <Property Name="detalle" Type="varchar" MaxLength="50" />
+          <Property Name="banco_origen" Type="int" />
+          <Property Name="banco_destino" Type="int" />
+          <Property Name="id_cuenta" Type="int" />
+          <Property Name="importe" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="id_empresa" Type="int" />
+          <Property Name="periodo" Type="datetime" />
+          <Property Name="control" Type="bit" />
+          <Property Name="iva" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="id_cliente" Type="int" />
+        </EntityType>
+        <EntityType Name="UNIDAD">
+          <Key>
+            <PropertyRef Name="id_unidad" />
+          </Key>
+          <Property Name="id_unidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_unidad" Type="varchar" MaxLength="50" />
+          <Property Name="abreviatura" Type="varchar" MaxLength="50" />
+          <Property Name="tilde" Type="bit" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_usuario" Type="varchar" MaxLength="50" />
+          <Property Name="password_usuario" Type="varchar" MaxLength="50" />
+          <Property Name="id_grupo_usuario" Type="int" />
+          <Property Name="legajo" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="session_activa" Type="datetime" />
+        </EntityType>
+        <EntityType Name="USUARIO_PERMISO">
+          <Key>
+            <PropertyRef Name="id_usuario_permiso" />
+          </Key>
+          <Property Name="id_usuario_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="id_permiso" Type="int" />
+          <Property Name="habilitado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Versionado">
+          <Key>
+            <PropertyRef Name="id_Versionado" />
+          </Key>
+          <Property Name="id_Versionado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_Versionado" Type="varchar" MaxLength="50" />
+          <Property Name="detalle" Type="varchar" MaxLength="5000" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Voz">
+          <Key>
+            <PropertyRef Name="id_voz" />
+          </Key>
+          <Property Name="id_voz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_voz" Type="varchar" MaxLength="500" />
+          <Property Name="icono" Type="varchar" MaxLength="5000" />
+          <Property Name="codigo" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_2" Type="varchar" MaxLength="50" />
+          <Property Name="ponderacion" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="random" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="corresp" Type="bit" />
+        </EntityType>
+        <EntityType Name="Voz_tipo_voz">
+          <Key>
+            <PropertyRef Name="id_voz_tipo_voz" />
+          </Key>
+          <Property Name="id_voz_tipo_voz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_voz" Type="int" />
+          <Property Name="id_tipo_voz" Type="int" />
+          <Property Name="porcentaje_voz" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="porcentaje_tipo_voz" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="indice" Type="int" />
+          <Property Name="nro" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DececcoModel1StoreContainer">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Actividad_proyecto" EntityType="Self.Actividad_proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calle" EntityType="Self.Calle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cuerpo_movimiento_hora" EntityType="Self.Cuerpo_movimiento_hora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cuerpo_movimiento_voz" EntityType="Self.Cuerpo_movimiento_voz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado_renglon" EntityType="Self.Empleado_renglon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ITEM" EntityType="Self.ITEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOCALIDAD" EntityType="Self.LOCALIDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROVINCIA" EntityType="Self.PROVINCIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_actividad" EntityType="Self.Tipo_actividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_empleado" EntityType="Self.Tipo_empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_proveedor" EntityType="Self.Tipo_proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_voz" EntityType="Self.Tipo_voz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSFERENCIAS_BANCARIAS" EntityType="Self.TRANSFERENCIAS_BANCARIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNIDAD" EntityType="Self.UNIDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO_PERMISO" EntityType="Self.USUARIO_PERMISO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Versionado" EntityType="Self.Versionado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voz" EntityType="Self.Voz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voz_tipo_voz" EntityType="Self.Voz_tipo_voz" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DececcoModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="id_actividad" />
+          </Key>
+          <Property Name="id_actividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_actividad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tiempo_standart" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="costo_standart" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="id_tipo_actividad" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Actividad_proyecto">
+          <Key>
+            <PropertyRef Name="id_actividad_proyecto" />
+          </Key>
+          <Property Name="id_actividad_proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_proyecto" Type="Int32" />
+          <Property Name="id_actividad" Type="Int32" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="3" />
+          <Property Name="fecha_fin_previsto" Type="DateTime" Precision="3" />
+          <Property Name="fecha_fin_real" Type="DateTime" Precision="3" />
+          <Property Name="cantidad_hora" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="objetivo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="prioridad" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="complejidad" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="avance" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="orden" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="id_controlador_1" Type="Int32" />
+          <Property Name="id_controlador_2" Type="Int32" />
+          <Property Name="nro" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Calle">
+          <Key>
+            <PropertyRef Name="id_calle" />
+          </Key>
+          <Property Name="id_calle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="razon_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_fantasia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dni_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_dni" Type="Int32" />
+          <Property Name="id_calle" Type="Int32" />
+          <Property Name="direccion_cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="id_localidad" Type="Int32" />
+          <Property Name="id_provincia" Type="Int32" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_condicion_iva" Type="Int32" />
+          <Property Name="ingreso_bruto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lugar_pago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="percepcion_iva" Type="Boolean" />
+          <Property Name="percepcion_ingreso_bruto" Type="Boolean" />
+          <Property Name="retencion_iva" Type="Boolean" />
+          <Property Name="retencion_ingreso_bruto" Type="Boolean" />
+          <Property Name="numero_proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cuerpo_movimiento_hora">
+          <Key>
+            <PropertyRef Name="id_cuerpo_movimiento_hora" />
+          </Key>
+          <Property Name="id_cuerpo_movimiento_hora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_actividad_proyecto" Type="Int32" />
+          <Property Name="entrada" Type="DateTime" Precision="3" />
+          <Property Name="salida" Type="DateTime" Precision="3" />
+          <Property Name="id_movimiento_hora" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cuerpo_movimiento_voz">
+          <Key>
+            <PropertyRef Name="id_cuerpo_movimiento_voz" />
+          </Key>
+          <Property Name="id_cuerpo_movimiento_voz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_voz" Type="Int32" />
+          <Property Name="nc1" Type="Boolean" />
+          <Property Name="ok1" Type="Boolean" />
+          <Property Name="corresponde1" Type="Boolean" />
+          <Property Name="conforme1" Type="Boolean" />
+          <Property Name="no_conforme1" Type="Boolean" />
+          <Property Name="tipo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="detalle1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="correccion1" Type="Boolean" />
+          <Property Name="id_movimiento_voz" Type="Int32" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="corresponde2" Type="Boolean" />
+          <Property Name="conforme2" Type="Boolean" />
+          <Property Name="no_conforme2" Type="Boolean" />
+          <Property Name="tipo2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="detalle2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="correccion2" Type="Boolean" />
+          <Property Name="random" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="completado" Type="Boolean" />
+          <Property Name="completado_pm" Type="Boolean" />
+          <Property Name="control1" Type="Boolean" />
+          <Property Name="control2" Type="Boolean" />
+          <Property Name="control3" Type="Boolean" />
+          <Property Name="pedido_segundo_control" Type="Boolean" />
+          <Property Name="numero_revision" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="corresponde" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="id_departamento" />
+          </Key>
+          <Property Name="id_departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_provincia" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+          </Key>
+          <Property Name="id_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dni" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="valor_hora" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="id_tipo_empleado" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Empleado_renglon">
+          <Key>
+            <PropertyRef Name="id_empleado_renglon" />
+          </Key>
+          <Property Name="id_empleado_renglon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_empleado" Type="Int32" />
+          <Property Name="id_renglon" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ITEM">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_item" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LOCALIDAD">
+          <Key>
+            <PropertyRef Name="id_localidad" />
+          </Key>
+          <Property Name="id_localidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_localidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_provincia" Type="Int32" />
+          <Property Name="codigo_postal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="caracteristica_telefonica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_persona" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_producto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="abreviatura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pack" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="stock_ideal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="stock_minimo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="cantidad_compra" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="cantidad_ingreso" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="id_subtipo_producto" Type="Int32" />
+          <Property Name="id_marca" Type="Int32" />
+          <Property Name="id_unidad" Type="Int32" />
+          <Property Name="tilde" Type="Boolean" />
+          <Property Name="tipo_venta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cuit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ingreso_bruto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="localidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_condicion_iva" Type="Int32" />
+          <Property Name="id_tipo_proveedor" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PROVINCIA">
+          <Key>
+            <PropertyRef Name="id_provincia" />
+          </Key>
+          <Property Name="id_provincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="id_proyecto" />
+          </Key>
+          <Property Name="id_proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_proyecto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="id_proyecto_padre" Type="Int32" />
+          <Property Name="id_proyect_manager" Type="Int32" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="3" />
+          <Property Name="fecha_fin_prevista" Type="DateTime" Precision="3" />
+          <Property Name="fecha_fin_real" Type="DateTime" Precision="3" />
+          <Property Name="orden" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_estado" Type="Int32" />
+          <Property Name="total_hora" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="prioridad" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="id_controlador_1" Type="Int32" />
+          <Property Name="id_controlador_2" Type="Int32" />
+          <Property Name="path" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="archivado" Type="Boolean" />
+          <Property Name="indice" Type="Int32" />
+          <Property Name="nro" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Tipo_actividad">
+          <Key>
+            <PropertyRef Name="id_tipo_actividad" />
+          </Key>
+          <Property Name="id_tipo_actividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="criticidad" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Tipo_empleado">
+          <Key>
+            <PropertyRef Name="id_tipo_empleado" />
+          </Key>
+          <Property Name="id_tipo_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_tipo_empleado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tipo_proveedor">
+          <Key>
+            <PropertyRef Name="id_tipo_proveedor" />
+          </Key>
+          <Property Name="id_tipo_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_tipo_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tipo_voz">
+          <Key>
+            <PropertyRef Name="id_tipo_voz" />
+          </Key>
+          <Property Name="id_tipo_voz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_tipo_voz" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ponderacion" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="id_control" Type="Int32" />
+          <Property Name="nro" Type="Int32" />
+          <Property Name="indice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TRANSFERENCIAS_BANCARIAS">
+          <Key>
+            <PropertyRef Name="id_transferencia_bancaria" />
+          </Key>
+          <Property Name="id_transferencia_bancaria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="comprobante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="detalle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="banco_origen" Type="Int32" />
+          <Property Name="banco_destino" Type="Int32" />
+          <Property Name="id_cuenta" Type="Int32" />
+          <Property Name="importe" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="id_empresa" Type="Int32" />
+          <Property Name="periodo" Type="DateTime" Precision="3" />
+          <Property Name="control" Type="Boolean" />
+          <Property Name="iva" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="id_cliente" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UNIDAD">
+          <Key>
+            <PropertyRef Name="id_unidad" />
+          </Key>
+          <Property Name="id_unidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_unidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="abreviatura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tilde" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_grupo_usuario" Type="Int32" />
+          <Property Name="legajo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="session_activa" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="USUARIO_PERMISO">
+          <Key>
+            <PropertyRef Name="id_usuario_permiso" />
+          </Key>
+          <Property Name="id_usuario_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="id_permiso" Type="Int32" />
+          <Property Name="habilitado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Versionado">
+          <Key>
+            <PropertyRef Name="id_Versionado" />
+          </Key>
+          <Property Name="id_Versionado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_Versionado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="detalle" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Voz">
+          <Key>
+            <PropertyRef Name="id_voz" />
+          </Key>
+          <Property Name="id_voz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_voz" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="icono" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ponderacion" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="random" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="corresp" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Voz_tipo_voz">
+          <Key>
+            <PropertyRef Name="id_voz_tipo_voz" />
+          </Key>
+          <Property Name="id_voz_tipo_voz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_voz" Type="Int32" />
+          <Property Name="id_tipo_voz" Type="Int32" />
+          <Property Name="porcentaje_voz" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="porcentaje_tipo_voz" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="indice" Type="Int32" />
+          <Property Name="nro" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" />
+          <EntitySet Name="Actividad_proyecto" EntityType="Self.Actividad_proyecto" />
+          <EntitySet Name="Calle" EntityType="Self.Calle" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Cuerpo_movimiento_hora" EntityType="Self.Cuerpo_movimiento_hora" />
+          <EntitySet Name="Cuerpo_movimiento_voz" EntityType="Self.Cuerpo_movimiento_voz" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <EntitySet Name="Empleado_renglon" EntityType="Self.Empleado_renglon" />
+          <EntitySet Name="ITEM" EntityType="Self.ITEM" />
+          <EntitySet Name="LOCALIDAD" EntityType="Self.LOCALIDAD" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" />
+          <EntitySet Name="PROVINCIA" EntityType="Self.PROVINCIA" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" />
+          <EntitySet Name="Tipo_actividad" EntityType="Self.Tipo_actividad" />
+          <EntitySet Name="Tipo_empleado" EntityType="Self.Tipo_empleado" />
+          <EntitySet Name="Tipo_proveedor" EntityType="Self.Tipo_proveedor" />
+          <EntitySet Name="Tipo_voz" EntityType="Self.Tipo_voz" />
+          <EntitySet Name="TRANSFERENCIAS_BANCARIAS" EntityType="Self.TRANSFERENCIAS_BANCARIAS" />
+          <EntitySet Name="UNIDAD" EntityType="Self.UNIDAD" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="USUARIO_PERMISO" EntityType="Self.USUARIO_PERMISO" />
+          <EntitySet Name="Versionado" EntityType="Self.Versionado" />
+          <EntitySet Name="Voz" EntityType="Self.Voz" />
+          <EntitySet Name="Voz_tipo_voz" EntityType="Self.Voz_tipo_voz" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DececcoModel1StoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Actividad">
+            <EntityTypeMapping TypeName="DececcoModel1.Actividad">
+              <MappingFragment StoreEntitySet="Actividad">
+                <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+                <ScalarProperty Name="nombre_actividad" ColumnName="nombre_actividad" />
+                <ScalarProperty Name="tiempo_standart" ColumnName="tiempo_standart" />
+                <ScalarProperty Name="costo_standart" ColumnName="costo_standart" />
+                <ScalarProperty Name="id_tipo_actividad" ColumnName="id_tipo_actividad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Actividad_proyecto">
+            <EntityTypeMapping TypeName="DececcoModel1.Actividad_proyecto">
+              <MappingFragment StoreEntitySet="Actividad_proyecto">
+                <ScalarProperty Name="id_actividad_proyecto" ColumnName="id_actividad_proyecto" />
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin_previsto" ColumnName="fecha_fin_previsto" />
+                <ScalarProperty Name="fecha_fin_real" ColumnName="fecha_fin_real" />
+                <ScalarProperty Name="cantidad_hora" ColumnName="cantidad_hora" />
+                <ScalarProperty Name="objetivo" ColumnName="objetivo" />
+                <ScalarProperty Name="prioridad" ColumnName="prioridad" />
+                <ScalarProperty Name="complejidad" ColumnName="complejidad" />
+                <ScalarProperty Name="avance" ColumnName="avance" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="id_controlador_1" ColumnName="id_controlador_1" />
+                <ScalarProperty Name="id_controlador_2" ColumnName="id_controlador_2" />
+                <ScalarProperty Name="nro" ColumnName="nro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calle">
+            <EntityTypeMapping TypeName="DececcoModel1.Calle">
+              <MappingFragment StoreEntitySet="Calle">
+                <ScalarProperty Name="id_calle" ColumnName="id_calle" />
+                <ScalarProperty Name="nombre_calle" ColumnName="nombre_calle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="DececcoModel1.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+                <ScalarProperty Name="apellido_cliente" ColumnName="apellido_cliente" />
+                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+                <ScalarProperty Name="nombre_fantasia" ColumnName="nombre_fantasia" />
+                <ScalarProperty Name="contacto" ColumnName="contacto" />
+                <ScalarProperty Name="dni_cliente" ColumnName="dni_cliente" />
+                <ScalarProperty Name="id_tipo_dni" ColumnName="id_tipo_dni" />
+                <ScalarProperty Name="id_calle" ColumnName="id_calle" />
+                <ScalarProperty Name="direccion_cliente" ColumnName="direccion_cliente" />
+                <ScalarProperty Name="id_localidad" ColumnName="id_localidad" />
+                <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="id_condicion_iva" ColumnName="id_condicion_iva" />
+                <ScalarProperty Name="ingreso_bruto" ColumnName="ingreso_bruto" />
+                <ScalarProperty Name="lugar_pago" ColumnName="lugar_pago" />
+                <ScalarProperty Name="percepcion_iva" ColumnName="percepcion_iva" />
+                <ScalarProperty Name="percepcion_ingreso_bruto" ColumnName="percepcion_ingreso_bruto" />
+                <ScalarProperty Name="retencion_iva" ColumnName="retencion_iva" />
+                <ScalarProperty Name="retencion_ingreso_bruto" ColumnName="retencion_ingreso_bruto" />
+                <ScalarProperty Name="numero_proveedor" ColumnName="numero_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cuerpo_movimiento_hora">
+            <EntityTypeMapping TypeName="DececcoModel1.Cuerpo_movimiento_hora">
+              <MappingFragment StoreEntitySet="Cuerpo_movimiento_hora">
+                <ScalarProperty Name="id_cuerpo_movimiento_hora" ColumnName="id_cuerpo_movimiento_hora" />
+                <ScalarProperty Name="id_actividad_proyecto" ColumnName="id_actividad_proyecto" />
+                <ScalarProperty Name="entrada" ColumnName="entrada" />
+                <ScalarProperty Name="salida" ColumnName="salida" />
+                <ScalarProperty Name="id_movimiento_hora" ColumnName="id_movimiento_hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cuerpo_movimiento_voz">
+            <EntityTypeMapping TypeName="DececcoModel1.Cuerpo_movimiento_voz">
+              <MappingFragment StoreEntitySet="Cuerpo_movimiento_voz">
+                <ScalarProperty Name="id_cuerpo_movimiento_voz" ColumnName="id_cuerpo_movimiento_voz" />
+                <ScalarProperty Name="id_voz" ColumnName="id_voz" />
+                <ScalarProperty Name="nc1" ColumnName="nc1" />
+                <ScalarProperty Name="ok1" ColumnName="ok1" />
+                <ScalarProperty Name="corresponde1" ColumnName="corresponde1" />
+                <ScalarProperty Name="conforme1" ColumnName="conforme1" />
+                <ScalarProperty Name="no_conforme1" ColumnName="no_conforme1" />
+                <ScalarProperty Name="tipo1" ColumnName="tipo1" />
+                <ScalarProperty Name="detalle1" ColumnName="detalle1" />
+                <ScalarProperty Name="correccion1" ColumnName="correccion1" />
+                <ScalarProperty Name="id_movimiento_voz" ColumnName="id_movimiento_voz" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="corresponde2" ColumnName="corresponde2" />
+                <ScalarProperty Name="conforme2" ColumnName="conforme2" />
+                <ScalarProperty Name="no_conforme2" ColumnName="no_conforme2" />
+                <ScalarProperty Name="tipo2" ColumnName="tipo2" />
+                <ScalarProperty Name="detalle2" ColumnName="detalle2" />
+                <ScalarProperty Name="correccion2" ColumnName="correccion2" />
+                <ScalarProperty Name="random" ColumnName="random" />
+                <ScalarProperty Name="completado" ColumnName="completado" />
+                <ScalarProperty Name="completado_pm" ColumnName="completado_pm" />
+                <ScalarProperty Name="control1" ColumnName="control1" />
+                <ScalarProperty Name="control2" ColumnName="control2" />
+                <ScalarProperty Name="control3" ColumnName="control3" />
+                <ScalarProperty Name="pedido_segundo_control" ColumnName="pedido_segundo_control" />
+                <ScalarProperty Name="numero_revision" ColumnName="numero_revision" />
+                <ScalarProperty Name="corresponde" ColumnName="corresponde" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTAMENTO">
+            <EntityTypeMapping TypeName="DececcoModel1.DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="DEPARTAMENTO">
+                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+                <ScalarProperty Name="nombre_departamento" ColumnName="nombre_departamento" />
+                <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="DececcoModel1.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="valor_hora" ColumnName="valor_hora" />
+                <ScalarProperty Name="id_tipo_empleado" ColumnName="id_tipo_empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado_renglon">
+            <EntityTypeMapping TypeName="DececcoModel1.Empleado_renglon">
+              <MappingFragment StoreEntitySet="Empleado_renglon">
+                <ScalarProperty Name="id_empleado_renglon" ColumnName="id_empleado_renglon" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="id_renglon" ColumnName="id_renglon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ITEM">
+            <EntityTypeMapping TypeName="DececcoModel1.ITEM">
+              <MappingFragment StoreEntitySet="ITEM">
+                <ScalarProperty Name="id_item" ColumnName="id_item" />
+                <ScalarProperty Name="nombre_item" ColumnName="nombre_item" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOCALIDAD">
+            <EntityTypeMapping TypeName="DececcoModel1.LOCALIDAD">
+              <MappingFragment StoreEntitySet="LOCALIDAD">
+                <ScalarProperty Name="id_localidad" ColumnName="id_localidad" />
+                <ScalarProperty Name="nombre_localidad" ColumnName="nombre_localidad" />
+                <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+                <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
+                <ScalarProperty Name="caracteristica_telefonica" ColumnName="caracteristica_telefonica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persona">
+            <EntityTypeMapping TypeName="DececcoModel1.Persona">
+              <MappingFragment StoreEntitySet="Persona">
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="nombre_persona" ColumnName="nombre_persona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO">
+            <EntityTypeMapping TypeName="DececcoModel1.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="nombre_producto" ColumnName="nombre_producto" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="abreviatura" ColumnName="abreviatura" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="pack" ColumnName="pack" />
+                <ScalarProperty Name="stock_ideal" ColumnName="stock_ideal" />
+                <ScalarProperty Name="stock_minimo" ColumnName="stock_minimo" />
+                <ScalarProperty Name="cantidad_compra" ColumnName="cantidad_compra" />
+                <ScalarProperty Name="cantidad_ingreso" ColumnName="cantidad_ingreso" />
+                <ScalarProperty Name="id_subtipo_producto" ColumnName="id_subtipo_producto" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+                <ScalarProperty Name="id_unidad" ColumnName="id_unidad" />
+                <ScalarProperty Name="tilde" ColumnName="tilde" />
+                <ScalarProperty Name="tipo_venta" ColumnName="tipo_venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVEEDOR">
+            <EntityTypeMapping TypeName="DececcoModel1.PROVEEDOR">
+              <MappingFragment StoreEntitySet="PROVEEDOR">
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="nombre_proveedor" ColumnName="nombre_proveedor" />
+                <ScalarProperty Name="contacto" ColumnName="contacto" />
+                <ScalarProperty Name="cuit" ColumnName="cuit" />
+                <ScalarProperty Name="ingreso_bruto" ColumnName="ingreso_bruto" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="localidad" ColumnName="localidad" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="id_condicion_iva" ColumnName="id_condicion_iva" />
+                <ScalarProperty Name="id_tipo_proveedor" ColumnName="id_tipo_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVINCIA">
+            <EntityTypeMapping TypeName="DececcoModel1.PROVINCIA">
+              <MappingFragment StoreEntitySet="PROVINCIA">
+                <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+                <ScalarProperty Name="nombre_provincia" ColumnName="nombre_provincia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proyecto">
+            <EntityTypeMapping TypeName="DececcoModel1.Proyecto">
+              <MappingFragment StoreEntitySet="Proyecto">
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre_proyecto" ColumnName="nombre_proyecto" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_proyecto_padre" ColumnName="id_proyecto_padre" />
+                <ScalarProperty Name="id_proyect_manager" ColumnName="id_proyect_manager" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin_prevista" ColumnName="fecha_fin_prevista" />
+                <ScalarProperty Name="fecha_fin_real" ColumnName="fecha_fin_real" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+                <ScalarProperty Name="total_hora" ColumnName="total_hora" />
+                <ScalarProperty Name="prioridad" ColumnName="prioridad" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="id_controlador_1" ColumnName="id_controlador_1" />
+                <ScalarProperty Name="id_controlador_2" ColumnName="id_controlador_2" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="archivado" ColumnName="archivado" />
+                <ScalarProperty Name="indice" ColumnName="indice" />
+                <ScalarProperty Name="nro" ColumnName="nro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_actividad">
+            <EntityTypeMapping TypeName="DececcoModel1.Tipo_actividad">
+              <MappingFragment StoreEntitySet="Tipo_actividad">
+                <ScalarProperty Name="id_tipo_actividad" ColumnName="id_tipo_actividad" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="criticidad" ColumnName="criticidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_empleado">
+            <EntityTypeMapping TypeName="DececcoModel1.Tipo_empleado">
+              <MappingFragment StoreEntitySet="Tipo_empleado">
+                <ScalarProperty Name="id_tipo_empleado" ColumnName="id_tipo_empleado" />
+                <ScalarProperty Name="nombre_tipo_empleado" ColumnName="nombre_tipo_empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_proveedor">
+            <EntityTypeMapping TypeName="DececcoModel1.Tipo_proveedor">
+              <MappingFragment StoreEntitySet="Tipo_proveedor">
+                <ScalarProperty Name="id_tipo_proveedor" ColumnName="id_tipo_proveedor" />
+                <ScalarProperty Name="nombre_tipo_cliente" ColumnName="nombre_tipo_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_voz">
+            <EntityTypeMapping TypeName="DececcoModel1.Tipo_voz">
+              <MappingFragment StoreEntitySet="Tipo_voz">
+                <ScalarProperty Name="id_tipo_voz" ColumnName="id_tipo_voz" />
+                <ScalarProperty Name="nombre_tipo_voz" ColumnName="nombre_tipo_voz" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="ponderacion" ColumnName="ponderacion" />
+                <ScalarProperty Name="id_control" ColumnName="id_control" />
+                <ScalarProperty Name="nro" ColumnName="nro" />
+                <ScalarProperty Name="indice" ColumnName="indice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSFERENCIAS_BANCARIAS">
+            <EntityTypeMapping TypeName="DececcoModel1.TRANSFERENCIAS_BANCARIAS">
+              <MappingFragment StoreEntitySet="TRANSFERENCIAS_BANCARIAS">
+                <ScalarProperty Name="id_transferencia_bancaria" ColumnName="id_transferencia_bancaria" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="comprobante" ColumnName="comprobante" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="banco_origen" ColumnName="banco_origen" />
+                <ScalarProperty Name="banco_destino" ColumnName="banco_destino" />
+                <ScalarProperty Name="id_cuenta" ColumnName="id_cuenta" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="control" ColumnName="control" />
+                <ScalarProperty Name="iva" ColumnName="iva" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNIDAD">
+            <EntityTypeMapping TypeName="DececcoModel1.UNIDAD">
+              <MappingFragment StoreEntitySet="UNIDAD">
+                <ScalarProperty Name="id_unidad" ColumnName="id_unidad" />
+                <ScalarProperty Name="nombre_unidad" ColumnName="nombre_unidad" />
+                <ScalarProperty Name="abreviatura" ColumnName="abreviatura" />
+                <ScalarProperty Name="tilde" ColumnName="tilde" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="DececcoModel1.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+                <ScalarProperty Name="password_usuario" ColumnName="password_usuario" />
+                <ScalarProperty Name="id_grupo_usuario" ColumnName="id_grupo_usuario" />
+                <ScalarProperty Name="legajo" ColumnName="legajo" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="session_activa" ColumnName="session_activa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO_PERMISO">
+            <EntityTypeMapping TypeName="DececcoModel1.USUARIO_PERMISO">
+              <MappingFragment StoreEntitySet="USUARIO_PERMISO">
+                <ScalarProperty Name="id_usuario_permiso" ColumnName="id_usuario_permiso" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Versionado">
+            <EntityTypeMapping TypeName="DececcoModel1.Versionado">
+              <MappingFragment StoreEntitySet="Versionado">
+                <ScalarProperty Name="id_Versionado" ColumnName="id_Versionado" />
+                <ScalarProperty Name="nombre_Versionado" ColumnName="nombre_Versionado" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voz">
+            <EntityTypeMapping TypeName="DececcoModel1.Voz">
+              <MappingFragment StoreEntitySet="Voz">
+                <ScalarProperty Name="id_voz" ColumnName="id_voz" />
+                <ScalarProperty Name="nombre_voz" ColumnName="nombre_voz" />
+                <ScalarProperty Name="icono" ColumnName="icono" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="codigo_2" ColumnName="codigo_2" />
+                <ScalarProperty Name="ponderacion" ColumnName="ponderacion" />
+                <ScalarProperty Name="random" ColumnName="random" />
+                <ScalarProperty Name="corresp" ColumnName="corresp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voz_tipo_voz">
+            <EntityTypeMapping TypeName="DececcoModel1.Voz_tipo_voz">
+              <MappingFragment StoreEntitySet="Voz_tipo_voz">
+                <ScalarProperty Name="id_voz_tipo_voz" ColumnName="id_voz_tipo_voz" />
+                <ScalarProperty Name="id_voz" ColumnName="id_voz" />
+                <ScalarProperty Name="id_tipo_voz" ColumnName="id_tipo_voz" />
+                <ScalarProperty Name="porcentaje_voz" ColumnName="porcentaje_voz" />
+                <ScalarProperty Name="porcentaje_tipo_voz" ColumnName="porcentaje_tipo_voz" />
+                <ScalarProperty Name="indice" ColumnName="indice" />
+                <ScalarProperty Name="nro" ColumnName="nro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

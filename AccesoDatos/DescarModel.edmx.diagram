@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f6566f36d5b14550811183e33a5bf320" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="DescarModel.C_Prueba_hora" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Actividad" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Actividad_proyecto" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.ACTIVIDAD_TIPO_SUBPROYECTO" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Anotaciones_Proyecto" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Categoria" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Cliente" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Control" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CONTROL_SUBPROYECTO" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Cuerpo_movimiento_hora" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Cuerpo_movimiento_libro" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Cuerpo_movimiento_voz" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Detalle_recurso" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.GRUPO_USUARIO" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Movimiento_hora" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Movimiento_voz" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.ORDEN_TRABAJO" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Proyecto" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.SUBPROYECTO" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_voz" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.USUARIO" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Usuario_Proyecto" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Voz" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Voz_ponderacion" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Voz_tipo_voz" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.ALMACEN" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Asiento_modelo" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.ASIGNACION_Iva" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.BANCO" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Calendario" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Calendario_usuario" Width="1.5" PointX="16.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Calle" Width="1.5" PointX="16.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Categoria_voz" Width="1.5" PointX="14.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CHEQUE_LIBRADO" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CHEQUE_PROVEEDOR" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CHEQUE_PROVEEDOR_2" Width="1.5" PointX="4.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CHEQUE_RECIBIDO" Width="1.5" PointX="6.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CHEQUE_TEMPORAL" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CHEQUERA" Width="1.5" PointX="18.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CHEQUES_LIBRADOS" Width="1.5" PointX="8.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CHEQUES_RECIBIDOS" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CLIENTE_MAESTRO" Width="1.5" PointX="10.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Codigo" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CONDICION" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CONDICION_EXPORTA" Width="1.5" PointX="12.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Condicion_iva" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.condicion_venta" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Consulta_saldo_cliente" Width="1.5" PointX="2.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Consulta_saldo_proveedor" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Contacto" Width="1.5" PointX="20.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CREDITO" Width="1.5" PointX="20.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Cuenta_imputable" Width="1.5" PointX="20.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CUENTA" Width="1.5" PointX="20.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CUERPO_FACTURA" Width="1.5" PointX="14.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CUERPO_FACTURA_EXPORTA" Width="1.5" PointX="16.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.CUERPO_FACTURA_PROVEEDOR" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Cuerpo_orden_compra" Width="1.5" PointX="22.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Cuerpo_presupuesto" Width="1.5" PointX="22.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Cuerpo_remito" Width="1.5" PointX="22.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.DEBITO" Width="1.5" PointX="10.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.DEPARTAMENTO" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.DEPOSITOS_EFECTIVO" Width="1.5" PointX="22.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Dia" Width="1.5" PointX="18.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Dia_tarde" Width="1.5" PointX="22.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.EGRESO_EFECTIVO" Width="1.5" PointX="0.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Egreso_efectivo_proveedor" Width="1.5" PointX="2.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Empleado" Width="1.5" PointX="4.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Empleado_renglon" Width="1.5" PointX="6.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.EMPRESA" Width="1.5" PointX="20.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Estado" Width="1.5" PointX="22.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.ESTADO_SUBPROYECTO" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.FACTURA" Width="1.5" PointX="24.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.FACTURA_EXPORTA" Width="1.5" PointX="24.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.FACTURA_PROVEEDOR" Width="1.5" PointX="24.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Factura_recibo_proveedor" Width="1.5" PointX="12.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Forma_pago" Width="1.5" PointX="14.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.GASTO" Width="1.5" PointX="16.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.GRUPO_PERMISO" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.GRUPO_PRODUCTO" Width="1.5" PointX="26.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Hora_a_devolver" Width="1.5" PointX="26.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.HORA_TIPO_SUBPROYECTO" Width="1.5" PointX="6.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.INGRESO_EFECTIVO" Width="1.5" PointX="8.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.ITEM" Width="1.5" PointX="26.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Iva" Width="1.5" PointX="26.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Iva_compra" Width="1.5" PointX="26.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Iva_compra_temp" Width="1.5" PointX="26.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Iva_venta" Width="1.5" PointX="26.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Iva_venta_temp" Width="1.5" PointX="2.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Libro" Width="1.5" PointX="18.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.LIMITE" Width="1.5" PointX="20.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.LOCALIDAD" Width="1.5" PointX="22.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Log_Error" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Logueo" Width="1.5" PointX="28.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Mail" Width="1.5" PointX="28.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Mail_contacto" Width="1.5" PointX="28.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.MARCA" Width="1.5" PointX="10.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Medio_entrega" Width="1.5" PointX="28.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Modificacion_arbol" Width="1.5" PointX="12.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Moneda" Width="1.5" PointX="28.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Movimiento_libro" Width="1.5" PointX="28.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Movimiento_manual" Width="1.5" PointX="28.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Nivel1" Width="1.5" PointX="28.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Nivel2" Width="1.5" PointX="28.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Nivel3" Width="1.5" PointX="4.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Obra" Width="1.5" PointX="14.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Obra_social" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Orden_compra" Width="1.5" PointX="30.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Pago_cliente" Width="1.5" PointX="6.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.PAGO_Iva" Width="1.5" PointX="30.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Pago_proveedor" Width="1.5" PointX="30.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Periodo" Width="1.5" PointX="30.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.PERMISO" Width="1.5" PointX="30.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Persona" Width="1.5" PointX="20.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Precedencia" Width="1.5" PointX="30.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.PRECIO" Width="1.5" PointX="22.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Prepago" Width="1.5" PointX="24.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Presupuesto" Width="1.5" PointX="30.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.PRODUCTO" Width="1.5" PointX="26.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.PROVEEDOR" Width="1.5" PointX="8.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.PROVINCIA" Width="1.5" PointX="16.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Recibo" Width="1.5" PointX="32.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Recibo_cliente" Width="1.5" PointX="0.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Recibo_cliente_cheque" Width="1.5" PointX="2.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Recibo_cliente_cheque_2" Width="1.5" PointX="32.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Recibo_cliente_ingreso_efectivo" Width="1.5" PointX="32.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Recibo_proveedor" Width="1.5" PointX="32.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Recibo_sueldo" Width="1.5" PointX="32.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Recibo_sueldo_temporal" Width="1.5" PointX="32.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Remito" Width="1.5" PointX="32.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Renglon" Width="1.5" PointX="32.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.RESUMEN_CAJA_TEMPORAL" Width="1.5" PointX="28.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Resumen_cliente" Width="1.5" PointX="32.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Resumen_cliente_temporal" Width="1.5" PointX="10.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.RESUMEN_CUENTA" Width="1.5" PointX="12.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.RESUMEN_CUENTA_2" Width="1.5" PointX="18.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.RESUMEN_CUENTA_CAJA" Width="1.5" PointX="30.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.RESUMEN_CUENTA_CAJA_2" Width="1.5" PointX="32.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.RESUMEN_Iva" Width="1.5" PointX="34.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.RESUMEN_Iva_TEMPORAL" Width="1.5" PointX="34.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Resumen_proveedor" Width="1.5" PointX="34.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Resumen_proveedor_temporal" Width="1.5" PointX="34.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.RESUMEN_TEMPORAL" Width="1.5" PointX="34.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.SALDO_BANCOS" Width="1.5" PointX="14.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.SALDO_CAJA" Width="1.5" PointX="34.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Saldo_cliente" Width="1.5" PointX="34.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.SALDO_Iva" Width="1.5" PointX="34.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Saldo_proveedor" Width="1.5" PointX="34.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.SALDO" Width="1.5" PointX="34.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Sereno" Width="1.5" PointX="34.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Stock" Width="1.5" PointX="0.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.SUBTIPO_PRODUCTO" Width="1.5" PointX="2.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Sucursal" Width="1.5" PointX="4.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.SUGERENCIA" Width="1.5" PointX="20.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Temp_actividad_proyecto" Width="1.5" PointX="22.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Temp_grilla_pago_cliente" Width="1.5" PointX="24.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Temp1" Width="1.5" PointX="26.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_actividad" Width="1.5" PointX="36.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_Actividad_usuario" Width="1.5" PointX="36.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_asiento" Width="1.5" PointX="36.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_comprobante" Width="1.5" PointX="6.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_dni" Width="1.5" PointX="8.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_egreso" Width="1.5" PointX="36.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_empleado" Width="1.5" PointX="36.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_hora" Width="1.5" PointX="36.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.TIPO_LOGUEO" Width="1.5" PointX="36.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_moneda" Width="1.5" PointX="36.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_periodo" Width="1.5" PointX="36.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.TIPO_PRODUCTO" Width="1.5" PointX="36.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_proveedor" Width="1.5" PointX="36.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Tipo_renglon" Width="1.5" PointX="36.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.TIPO_SUBPROYECTO" Width="1.5" PointX="36.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Total_sueldo" Width="1.5" PointX="10.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.TRANSFERENCIAS_BANCARIAS" Width="1.5" PointX="12.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.UNIDAD" Width="1.5" PointX="14.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.USUARIO_PERMISO" Width="1.5" PointX="16.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.Versionado" Width="1.5" PointX="28.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DescarModel.EstadoTarea" Width="1.5" PointX="31.375" PointY="37.75" />
+        <EntityTypeShape EntityType="DescarModel.Estado_Proyecto" Width="1.5" PointX="33.375" PointY="37.75" />
+        <EntityTypeShape EntityType="DescarModel.Calendario_Laboral" Width="1.5" PointX="0.75" PointY="39.375" />
+        <EntityTypeShape EntityType="DescarModel.Detalle_Calendario_Laboral" Width="1.5" PointX="3" PointY="39" />
+        <EntityTypeShape EntityType="DescarModel.Definicion_Calendario_Laboral" Width="1.5" PointX="3" PointY="46.25" />
+        <AssociationConnector Association="DescarModel.FK_Definicion_Calendario_Laboral_Calendario_Laboral" />
+        <AssociationConnector Association="DescarModel.FK_Detalle_Calendario_Laboral_Definicion_Calendario_Laboral" />
+        <AssociationConnector Association="DescarModel.FK_Detalle_Calendario_Laboral_Dia" />
+        <EntityTypeShape EntityType="DescarModel.Excepcion_Calendario" Width="1.5" PointX="19.375" PointY="38.75" />
+        <EntityTypeShape EntityType="DescarModel.Programacion_Actividad" Width="1.5" PointX="5" PointY="50.25" />
+        <AssociationConnector Association="DescarModel.FK_Programacion_Actividad_Actividad_proyecto" />
+        <AssociationConnector Association="DescarModel.FK_Proyecto_Calendario_Laboral" />
+        <AssociationConnector Association="DescarModel.FK_USUARIO_Calendario_Laboral" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

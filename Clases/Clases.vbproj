@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AAAD29A3-715B-487F-9D35-DE0B67F348E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Clases</RootNamespace>
+    <AssemblyName>Clases</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile136</TargetFrameworkProfile>
+    <ProjectTypeGuids>{14182A97-F7F0-4C62-8B27-98AA8AE2109A};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug</OutputPath>
+    <DocumentationFile>Clases.xml</DocumentationFile>
+    <NoWarn>42016,41999,42020,42021,42022</NoWarn>
+    <WarningsAsErrors>42017,42018,42019,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DocumentationFile>Clases.xml</DocumentationFile>
+    <NoWarn>42016,41999,42020,42021,42022</NoWarn>
+    <WarningsAsErrors>42017,42018,42019,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clase\CalculoSueldo.vb" />
+    <Compile Include="Clase\ClaseDB.vb" />
+    <Compile Include="Clase\ClaseHora.vb" />
+    <Compile Include="Clase\clsActividad.vb" />
+    <Compile Include="Clase\clsActividad_proyecto.vb" />
+    <Compile Include="Clase\clsAlmacen.vb" />
+    <Compile Include="Clase\clsAsiento_modelo.vb" />
+    <Compile Include="Clase\clsAsignacion_iva.vb" />
+    <Compile Include="Clase\clsBanco.vb" />
+    <Compile Include="Clase\clsCalendario.vb" />
+    <Compile Include="Clase\clsCalendario_usuario.vb" />
+    <Compile Include="Clase\clsCalle.vb" />
+    <Compile Include="Clase\clsCategoria.vb" />
+    <Compile Include="Clase\clsCategoria_voz.vb" />
+    <Compile Include="Clase\clsChequeras.vb" />
+    <Compile Include="Clase\clsCheques_librados.vb" />
+    <Compile Include="Clase\clsCheques_recibidos.vb" />
+    <Compile Include="Clase\clsCheque_librado.vb" />
+    <Compile Include="Clase\clsCheque_proveedor.vb" />
+    <Compile Include="Clase\clsCheque_proveedor_2.vb" />
+    <Compile Include="Clase\clsCheque_recibido.vb" />
+    <Compile Include="Clase\clsCheque_temporal.vb" />
+    <Compile Include="Clase\clsCliente.vb" />
+    <Compile Include="Clase\clsCliente_maestro.vb" />
+    <Compile Include="Clase\clsCodigo.vb" />
+    <Compile Include="Clase\clsCondicion_iva.vb" />
+    <Compile Include="Clase\clsCondicion_venta.vb" />
+    <Compile Include="Clase\clsConsulta_saldo_cliente.vb" />
+    <Compile Include="Clase\clsConsulta_saldo_proveedor.vb" />
+    <Compile Include="Clase\clsContacto.vb" />
+    <Compile Include="Clase\clsControl.vb" />
+    <Compile Include="Clase\clsCreditos.vb" />
+    <Compile Include="Clase\clsCuentas.vb" />
+    <Compile Include="Clase\clsCuenta_imputable.vb" />
+    <Compile Include="Clase\clsCuerpo_factura.vb" />
+    <Compile Include="Clase\clsCuerpo_factura_exporta.vb" />
+    <Compile Include="Clase\clsCuerpo_factura_proveedor.vb" />
+    <Compile Include="Clase\clsCuerpo_movimiento_hora.vb" />
+    <Compile Include="Clase\clsCuerpo_movimiento_libro.vb" />
+    <Compile Include="Clase\clsCuerpo_movimiento_voz.vb" />
+    <Compile Include="Clase\clsCuerpo_orden_compra.vb" />
+    <Compile Include="Clase\clsCuerpo_presupuesto.vb" />
+    <Compile Include="Clase\clsCuerpo_remito.vb" />
+    <Compile Include="Clase\clsDebitos.vb" />
+    <Compile Include="Clase\clsDepositos_efectivo.vb" />
+    <Compile Include="Clase\clsDetalle_recurso.vb" />
+    <Compile Include="Clase\clsDia.vb" />
+    <Compile Include="Clase\clsDia_tarde.vb" />
+    <Compile Include="Clase\clsEgreso_efectivo.vb" />
+    <Compile Include="Clase\clsEgreso_efectivo_proveedor.vb" />
+    <Compile Include="Clase\clsEmpleado.vb" />
+    <Compile Include="Clase\clsEmpleado_renglon.vb" />
+    <Compile Include="Clase\clsEmpresa.vb" />
+    <Compile Include="Clase\clsEstado.vb" />
+    <Compile Include="Clase\clsFactura.vb" />
+    <Compile Include="Clase\clsFactura_exporta.vb" />
+    <Compile Include="Clase\clsFactura_proveedor.vb" />
+    <Compile Include="Clase\clsFactura_recibo_proveedor.vb" />
+    <Compile Include="Clase\clsForma_pago.vb" />
+    <Compile Include="Clase\clsGastos.vb" />
+    <Compile Include="Clase\clsGrupo_permiso.vb" />
+    <Compile Include="Clase\clsGrupo_producto.vb" />
+    <Compile Include="Clase\clsGrupo_usuario.vb" />
+    <Compile Include="Clase\clsHora_a_devolver.vb" />
+    <Compile Include="Clase\clsIngreso_efectivo.vb" />
+    <Compile Include="Clase\clsItem.vb" />
+    <Compile Include="Clase\clsIva.vb" />
+    <Compile Include="Clase\clsIva_compra.vb" />
+    <Compile Include="Clase\clsIva_compra_temp.vb" />
+    <Compile Include="Clase\clsIva_venta.vb" />
+    <Compile Include="Clase\clsIva_venta_temp.vb" />
+    <Compile Include="Clase\clsLibro.vb" />
+    <Compile Include="Clase\clsLimite.vb" />
+    <Compile Include="Clase\clsLocalidad.vb" />
+    <Compile Include="Clase\clsLogueo.vb" />
+    <Compile Include="Clase\clsLog_error.vb" />
+    <Compile Include="Clase\clsMail.vb" />
+    <Compile Include="Clase\clsMail_contacto.vb" />
+    <Compile Include="Clase\clsMarca.vb" />
+    <Compile Include="Clase\clsMedio_entrega.vb" />
+    <Compile Include="Clase\clsMensual.vb" />
+    <Compile Include="Clase\clsModificacion_arbol.vb" />
+    <Compile Include="Clase\clsMoneda.vb" />
+    <Compile Include="Clase\clsMovimiento_hora.vb" />
+    <Compile Include="Clase\clsMovimiento_libro.vb" />
+    <Compile Include="Clase\clsMovimiento_manual.vb" />
+    <Compile Include="Clase\clsMovimiento_voz.vb" />
+    <Compile Include="Clase\clsNivel1.vb" />
+    <Compile Include="Clase\clsNivel2.vb" />
+    <Compile Include="Clase\clsNivel3.vb" />
+    <Compile Include="Clase\clsObra.vb" />
+    <Compile Include="Clase\clsObra_social.vb" />
+    <Compile Include="Clase\clsOrden_compra.vb" />
+    <Compile Include="Clase\clsPago_cliente.vb" />
+    <Compile Include="Clase\clsPago_iva.vb" />
+    <Compile Include="Clase\clsPago_proveedor.vb" />
+    <Compile Include="Clase\clsPeriodo.vb" />
+    <Compile Include="Clase\clsPermiso.vb" />
+    <Compile Include="Clase\clsPersona.vb" />
+    <Compile Include="Clase\clsPrecedencia.vb" />
+    <Compile Include="Clase\clsPrecio.vb" />
+    <Compile Include="Clase\clsPrepago.vb" />
+    <Compile Include="Clase\clsPresupuesto.vb" />
+    <Compile Include="Clase\clsProducto.vb" />
+    <Compile Include="Clase\clsProveedor.vb" />
+    <Compile Include="Clase\clsProvincia.vb" />
+    <Compile Include="Clase\clsProyecto.vb" />
+    <Compile Include="Clase\clsRecibo.vb" />
+    <Compile Include="Clase\clsRecibo_cliente.vb" />
+    <Compile Include="Clase\clsRecibo_cliente_cheque.vb" />
+    <Compile Include="Clase\clsRecibo_cliente_cheque_2.vb" />
+    <Compile Include="Clase\clsRecibo_cliente_ingreso_efectivo.vb" />
+    <Compile Include="Clase\clsRecibo_proveedor.vb" />
+    <Compile Include="Clase\clsRecibo_sueldo.vb" />
+    <Compile Include="Clase\clsRecibo_sueldo_temporal.vb" />
+    <Compile Include="Clase\clsRemito.vb" />
+    <Compile Include="Clase\clsRenglon.vb" />
+    <Compile Include="Clase\clsResumen_caja_temporal.vb" />
+    <Compile Include="Clase\clsResumen_cliente.vb" />
+    <Compile Include="Clase\clsResumen_cliente_temporal.vb" />
+    <Compile Include="Clase\clsResumen_cuenta.vb" />
+    <Compile Include="Clase\clsResumen_cuenta_2.vb" />
+    <Compile Include="Clase\clsResumen_cuenta_caja.vb" />
+    <Compile Include="Clase\clsResumen_cuenta_caja_2.vb" />
+    <Compile Include="Clase\clsResumen_iva.vb" />
+    <Compile Include="Clase\clsResumen_iva_temporal.vb" />
+    <Compile Include="Clase\clsResumen_proveedor.vb" />
+    <Compile Include="Clase\clsResumen_proveedor_temporal.vb" />
+    <Compile Include="Clase\clsResumen_temporal.vb" />
+    <Compile Include="Clase\clsSaldos.vb" />
+    <Compile Include="Clase\clsSaldo_bancos.vb" />
+    <Compile Include="Clase\clsSaldo_caja.vb" />
+    <Compile Include="Clase\clsSaldo_cliente.vb" />
+    <Compile Include="Clase\clsSaldo_iva.vb" />
+    <Compile Include="Clase\clsSaldo_proveedor.vb" />
+    <Compile Include="Clase\clsSereno.vb" />
+    <Compile Include="Clase\clsStock.vb" />
+    <Compile Include="Clase\clsSubtipo_producto.vb" />
+    <Compile Include="Clase\clsSucursal.vb" />
+    <Compile Include="Clase\clsTemp1.vb" />
+    <Compile Include="Clase\clsTemp_actividad_proyecto.vb" />
+    <Compile Include="Clase\clsTemp_grilla_pago_cliente.vb" />
+    <Compile Include="Clase\clsTipo_actividad.vb" />
+    <Compile Include="Clase\clsTipo_asiento.vb" />
+    <Compile Include="Clase\clsTipo_comprobante.vb" />
+    <Compile Include="Clase\clsTipo_dni.vb" />
+    <Compile Include="Clase\clsTipo_egreso.vb" />
+    <Compile Include="Clase\clsTipo_empleado.vb" />
+    <Compile Include="Clase\clsTipo_hora.vb" />
+    <Compile Include="Clase\clsTipo_moneda.vb" />
+    <Compile Include="Clase\clsTipo_periodo.vb" />
+    <Compile Include="Clase\clsTipo_producto.vb" />
+    <Compile Include="Clase\clsTipo_proveedor.vb" />
+    <Compile Include="Clase\clsTipo_renglon.vb" />
+    <Compile Include="Clase\clsTipo_voz.vb" />
+    <Compile Include="Clase\clsTotal_sueldo.vb" />
+    <Compile Include="Clase\clsTransferencias_bancarias.vb" />
+    <Compile Include="Clase\clsUnidad.vb" />
+    <Compile Include="Clase\clsUsuario.vb" />
+    <Compile Include="Clase\clsUsuario_permiso.vb" />
+    <Compile Include="Clase\clsVoz.vb" />
+    <Compile Include="Clase\clsVoz_tipo_voz.vb" />
+    <Compile Include="Clase\Numalet.vb" />
+    <Compile Include="Class1.vb" />
+    <Compile Include="Entidad\entActividad.vb" />
+    <Compile Include="Entidad\entActividad_proyecto.vb" />
+    <Compile Include="Entidad\entActividad_Tipo_Subproyecto.vb" />
+    <Compile Include="Entidad\entAlmacen.vb" />
+    <Compile Include="Entidad\entAnotaciones_Proyecto.vb" />
+    <Compile Include="Entidad\entAsiento_modelo.vb" />
+    <Compile Include="Entidad\entAsignacion_iva.vb" />
+    <Compile Include="Entidad\entBanco.vb" />
+    <Compile Include="Entidad\entCalendario.vb" />
+    <Compile Include="Entidad\entCalendario_usuario.vb" />
+    <Compile Include="Entidad\entCalle.vb" />
+    <Compile Include="Entidad\entCategoria.vb" />
+    <Compile Include="Entidad\entCategoria_voz.vb" />
+    <Compile Include="Entidad\entChequeras.vb" />
+    <Compile Include="Entidad\entCheques_librados.vb" />
+    <Compile Include="Entidad\entCheques_recibidos.vb" />
+    <Compile Include="Entidad\entCheque_librado.vb" />
+    <Compile Include="Entidad\entCheque_proveedor.vb" />
+    <Compile Include="Entidad\entCheque_proveedor_2.vb" />
+    <Compile Include="Entidad\entCheque_recibido.vb" />
+    <Compile Include="Entidad\entCheque_temporal.vb" />
+    <Compile Include="Entidad\entCliente.vb" />
+    <Compile Include="Entidad\entCliente_maestro.vb" />
+    <Compile Include="Entidad\entCodigo.vb" />
+    <Compile Include="Entidad\entCondicion_iva.vb" />
+    <Compile Include="Entidad\entCondicion_venta.vb" />
+    <Compile Include="Entidad\entConsulta_saldo_cliente.vb" />
+    <Compile Include="Entidad\entConsulta_saldo_proveedor.vb" />
+    <Compile Include="Entidad\entContacto.vb" />
+    <Compile Include="Entidad\entControl.vb" />
+    <Compile Include="Entidad\entControl_Subproyecto.vb" />
+    <Compile Include="Entidad\entCreditos.vb" />
+    <Compile Include="Entidad\entCuentas.vb" />
+    <Compile Include="Entidad\entCuenta_imputable.vb" />
+    <Compile Include="Entidad\entCuerpo_factura.vb" />
+    <Compile Include="Entidad\entCuerpo_factura_exporta.vb" />
+    <Compile Include="Entidad\entCuerpo_factura_proveedor.vb" />
+    <Compile Include="Entidad\entCuerpo_movimiento_hora.vb" />
+    <Compile Include="Entidad\entCuerpo_movimiento_libro.vb" />
+    <Compile Include="Entidad\entCuerpo_movimiento_voz.vb" />
+    <Compile Include="Entidad\entCuerpo_orden_compra.vb" />
+    <Compile Include="Entidad\entCuerpo_presupuesto.vb" />
+    <Compile Include="Entidad\entCuerpo_remito.vb" />
+    <Compile Include="Entidad\entDebitos.vb" />
+    <Compile Include="Entidad\entDepositos_efectivo.vb" />
+    <Compile Include="Entidad\entDetalle_recurso.vb" />
+    <Compile Include="Entidad\entDia.vb" />
+    <Compile Include="Entidad\entDia_tarde.vb" />
+    <Compile Include="Entidad\entEgreso_efectivo.vb" />
+    <Compile Include="Entidad\entEgreso_efectivo_proveedor.vb" />
+    <Compile Include="Entidad\entEmpleado.vb" />
+    <Compile Include="Entidad\entEmpleado_renglon.vb" />
+    <Compile Include="Entidad\entEmpresa.vb" />
+    <Compile Include="Entidad\entEstado.vb" />
+    <Compile Include="Entidad\entEstado_Subproyecto.vb" />
+    <Compile Include="Entidad\entFactura.vb" />
+    <Compile Include="Entidad\entFactura_exporta.vb" />
+    <Compile Include="Entidad\entFactura_proveedor.vb" />
+    <Compile Include="Entidad\entFactura_recibo_proveedor.vb" />
+    <Compile Include="Entidad\entForma_pago.vb" />
+    <Compile Include="Entidad\entGastos.vb" />
+    <Compile Include="Entidad\entGrupo_permiso.vb" />
+    <Compile Include="Entidad\entGrupo_producto.vb" />
+    <Compile Include="Entidad\entGrupo_usuario.vb" />
+    <Compile Include="Entidad\entHora_a_devolver.vb" />
+    <Compile Include="Entidad\entHora_Tipo_Subproyecto.vb" />
+    <Compile Include="Entidad\entIngreso_efectivo.vb" />
+    <Compile Include="Entidad\entItem.vb" />
+    <Compile Include="Entidad\entIva.vb" />
+    <Compile Include="Entidad\entIva_compra.vb" />
+    <Compile Include="Entidad\entIva_compra_temp.vb" />
+    <Compile Include="Entidad\entIva_venta.vb" />
+    <Compile Include="Entidad\entIva_venta_temp.vb" />
+    <Compile Include="Entidad\entLibro.vb" />
+    <Compile Include="Entidad\entLimite.vb" />
+    <Compile Include="Entidad\entLocalidad.vb" />
+    <Compile Include="Entidad\entLogueo.vb" />
+    <Compile Include="Entidad\entLog_error.vb" />
+    <Compile Include="Entidad\entMail.vb" />
+    <Compile Include="Entidad\entMail_contacto.vb" />
+    <Compile Include="Entidad\entMarca.vb" />
+    <Compile Include="Entidad\entMedio_entrega.vb" />
+    <Compile Include="Entidad\entMensual.vb" />
+    <Compile Include="Entidad\entModificacion_arbol.vb" />
+    <Compile Include="Entidad\entMoneda.vb" />
+    <Compile Include="Entidad\entMovimiento_hora.vb" />
+    <Compile Include="Entidad\entMovimiento_libro.vb" />
+    <Compile Include="Entidad\entMovimiento_manual.vb" />
+    <Compile Include="Entidad\entMovimiento_voz.vb" />
+    <Compile Include="Entidad\entNivel1.vb" />
+    <Compile Include="Entidad\entNivel2.vb" />
+    <Compile Include="Entidad\entNivel3.vb" />
+    <Compile Include="Entidad\entObra.vb" />
+    <Compile Include="Entidad\entObra_social.vb" />
+    <Compile Include="Entidad\entOrden_compra.vb" />
+    <Compile Include="Entidad\entPago_cliente.vb" />
+    <Compile Include="Entidad\entPago_iva.vb" />
+    <Compile Include="Entidad\entPago_proveedor.vb" />
+    <Compile Include="Entidad\entPeriodo.vb" />
+    <Compile Include="Entidad\entPermiso.vb" />
+    <Compile Include="Entidad\entPersona.vb" />
+    <Compile Include="Entidad\entPrecedencia.vb" />
+    <Compile Include="Entidad\entPrecio.vb" />
+    <Compile Include="Entidad\entPrepago.vb" />
+    <Compile Include="Entidad\entPresupuesto.vb" />
+    <Compile Include="Entidad\entProducto.vb" />
+    <Compile Include="Entidad\entProveedor.vb" />
+    <Compile Include="Entidad\entProvincia.vb" />
+    <Compile Include="Entidad\entProyecto.vb" />
+    <Compile Include="Entidad\entRecibo.vb" />
+    <Compile Include="Entidad\entRecibo_cliente.vb" />
+    <Compile Include="Entidad\entRecibo_cliente_cheque.vb" />
+    <Compile Include="Entidad\entRecibo_cliente_cheque_2.vb" />
+    <Compile Include="Entidad\entRecibo_cliente_ingreso_efectivo.vb" />
+    <Compile Include="Entidad\entRecibo_proveedor.vb" />
+    <Compile Include="Entidad\entRecibo_sueldo.vb" />
+    <Compile Include="Entidad\entRecibo_sueldo_temporal.vb" />
+    <Compile Include="Entidad\entRemito.vb" />
+    <Compile Include="Entidad\entRenglon.vb" />
+    <Compile Include="Entidad\entResumen_caja_temporal.vb" />
+    <Compile Include="Entidad\entResumen_cliente.vb" />
+    <Compile Include="Entidad\entResumen_cliente_temporal.vb" />
+    <Compile Include="Entidad\entResumen_cuenta.vb" />
+    <Compile Include="Entidad\entResumen_cuenta_2.vb" />
+    <Compile Include="Entidad\entResumen_cuenta_caja.vb" />
+    <Compile Include="Entidad\entResumen_cuenta_caja_2.vb" />
+    <Compile Include="Entidad\entResumen_iva.vb" />
+    <Compile Include="Entidad\entResumen_iva_temporal.vb" />
+    <Compile Include="Entidad\entResumen_proveedor.vb" />
+    <Compile Include="Entidad\entResumen_proveedor_temporal.vb" />
+    <Compile Include="Entidad\entResumen_temporal.vb" />
+    <Compile Include="Entidad\entSaldos.vb" />
+    <Compile Include="Entidad\entSaldo_bancos.vb" />
+    <Compile Include="Entidad\entSaldo_caja.vb" />
+    <Compile Include="Entidad\entSaldo_cliente.vb" />
+    <Compile Include="Entidad\entSaldo_iva.vb" />
+    <Compile Include="Entidad\entSaldo_proveedor.vb" />
+    <Compile Include="Entidad\entSereno.vb" />
+    <Compile Include="Entidad\entStock.vb" />
+    <Compile Include="Entidad\entSubproyecto.vb" />
+    <Compile Include="Entidad\entSubtipo_producto.vb" />
+    <Compile Include="Entidad\entSucursal.vb" />
+    <Compile Include="Entidad\entTemp1.vb" />
+    <Compile Include="Entidad\entTemp_actividad_proyecto.vb" />
+    <Compile Include="Entidad\entTemp_grilla_pago_cliente.vb" />
+    <Compile Include="Entidad\entTipo_actividad.vb" />
+    <Compile Include="Entidad\entTipo_Actividad_Usuario.vb" />
+    <Compile Include="Entidad\entTipo_asiento.vb" />
+    <Compile Include="Entidad\entTipo_comprobante.vb" />
+    <Compile Include="Entidad\entTipo_dni.vb" />
+    <Compile Include="Entidad\entTipo_egreso.vb" />
+    <Compile Include="Entidad\entTipo_empleado.vb" />
+    <Compile Include="Entidad\entTipo_hora.vb" />
+    <Compile Include="Entidad\entTipo_moneda.vb" />
+    <Compile Include="Entidad\entTipo_periodo.vb" />
+    <Compile Include="Entidad\entTipo_producto.vb" />
+    <Compile Include="Entidad\entTipo_proveedor.vb" />
+    <Compile Include="Entidad\entTipo_renglon.vb" />
+    <Compile Include="Entidad\entTipo_Subproyecto.vb" />
+    <Compile Include="Entidad\entTipo_voz.vb" />
+    <Compile Include="Entidad\entTotal_sueldo.vb" />
+    <Compile Include="Entidad\entTransferencias_bancarias.vb" />
+    <Compile Include="Entidad\entUnidad.vb" />
+    <Compile Include="Entidad\entUsuario.vb" />
+    <Compile Include="Entidad\entUsuario_permiso.vb" />
+    <Compile Include="Entidad\entUsuario_Proyecto.vb" />
+    <Compile Include="Entidad\entVoz.vb" />
+    <Compile Include="Entidad\entVoz_tipo_voz.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

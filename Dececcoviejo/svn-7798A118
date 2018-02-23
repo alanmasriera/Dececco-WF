@@ -1,0 +1,3503 @@
+﻿Imports System.Text
+
+Public Class frmLoginInicio
+    Dim banderaProyectoLoguin As String '''''
+    Dim copia1 As Integer = 0
+
+
+    Private Sub frmLoginInicio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Load_tree()
+
+        Me.RefrescarControl()
+        Me.RefrescarPermisos()
+        Me.RefrescarLogueo()
+        Me.RefrescarTarea()
+        Me.txtUsuarioLogueado.Text = vgNombreUsuario
+
+
+        oProyecto.Cargar()
+
+        Me.Timer1.Start()
+
+        Me.BackColor = Color.Gainsboro
+        'agregado 
+        'Me.Timer3.Start()
+    End Sub
+
+    Sub RefrescarGrillaLogueo()
+        Dim odtMovimientoHora As New DataTable
+        Dim odtDetalle As New DataTable
+        Dim decTotal As Decimal = 0
+        Dim decTotalHora As Decimal = 0
+        Dim decMinuto As Decimal = 0
+        Dim dtInicio As DateTime
+        Dim dtFin As DateTime
+
+        Dim IDMov As Integer = 0
+
+        odtMovimientoHora = oMovimiento_hora.GetAll_3(CInt(vgCodigoUsuario), DateTime.Now.Date, DateAdd(DateInterval.Day, 1, DateTime.Now.Date), False)
+        Me.dgvLogueo.DataSource = odtMovimientoHora
+        Me.dgvLogueo.Columns(0).Visible = False
+        Me.dgvLogueo.Columns(1).Visible = False
+        Me.dgvLogueo.Columns("nombre_dia").Visible = False
+        Me.dgvLogueo.Columns("nombre_usuario").Visible = False
+
+        For Each row As DataRow In odtMovimientoHora.Rows
+            dtInicio = CDate(row("entrada"))
+            dtFin = CDate(row("salida"))
+            'calcula la cantidad de horas trabajadas
+            decMinuto = DateDiff(DateInterval.Minute, dtInicio, dtFin)
+            decTotal = CDec(FormatNumber(decMinuto / 60, 1))
+            decTotalHora = decTotalHora + decTotal
+        Next
+        Me.txtTotalHoraLogueo.Text = CStr(decTotalHora)
+    End Sub
+
+    Sub RefrescarTarea()
+        Dim odtTarea As New DataTable
+
+        odtTarea = oDetalle_recurso.GetPendiente(vgCodigoUsuario)
+
+        Me.dgvTarea.DataSource = odtTarea
+        Me.dgvTarea.Columns(0).Visible = False
+        Me.dgvTarea.Columns("id_proyecto").Visible = False
+        Me.dgvTarea.Columns("id_actividad_proyecto").Visible = False
+        Me.dgvTarea.Columns("id_actividad").Visible = False
+
+        If odtTarea.Rows.Count <= 0 Then
+            ' Me.txtEstado.Text = "CONTROLES REALIZADOS"
+            Me.txtEstadoTarea.BackColor = Color.YellowGreen
+        Else
+            ' Me.txtEstado.Text = "CONTROLES PENDIENTES"
+            Me.txtEstadoTarea.BackColor = Color.Red
+        End If
+    End Sub
+
+    Sub RefrescarPermisos()
+
+        Me.tsAdministrarControl.Enabled = False
+        Me.tsAdministrarCuentaCliente.Enabled = False
+        Me.tsAdministrarCuentaProveedor.Enabled = False
+        Me.tsAdministrarIva.Enabled = False
+        Me.tsAdministrarHora.Enabled = False
+        Me.tsAdministrarSeguridad.Enabled = False
+        Me.tsAdministrarBanco.Enabled = False
+        Me.tsAdministrarCaja.Enabled = False
+
+        Me.tsAgregarActividad.Enabled = False
+        Me.tsAgregarControl.Enabled = False
+        Me.tsAgregarFactura.Enabled = False
+        Me.tsAgregarProyecto.Enabled = False
+        Me.tsAgregarProyectoInicial.Enabled = False
+
+        Me.tsAsignarRecurso.Enabled = False
+        Me.tsBorrarActividad.Enabled = False
+        Me.tsBorrarHoraDevolver.Enabled = False
+        Me.tsBorrarProyecto.Enabled = False
+
+        Me.tsCalendarioAnual.Enabled = False
+        Me.tsCopiarEstructura.Enabled = False
+        Me.tsCopiarProyecto.Enabled = False
+        Me.tsHorasADevolver.Enabled = False
+
+        Me.tsModificarActividad.Enabled = False
+        Me.tsModificarHoraDevolver.Enabled = False
+        Me.tsModificarProyecto.Enabled = False
+
+        Me.tsMostrarProyectosOcultos.Enabled = False
+        Me.tsNuevoCalendario.Enabled = False
+        Me.tsPegarEstructura.Enabled = False
+        Me.tsPegarProyecto.Enabled = False
+        Me.tsReordenarVoz.Enabled = False
+        Me.tsRevisarCalendario.Enabled = False
+        Me.tsPegarEstructuraProyectoInicial.Enabled = False
+
+
+        'botones
+        Me.tsCliente.Enabled = False
+        Me.tsControl.Enabled = False
+
+        Me.tsHora.Enabled = False
+        Me.tsIva.Enabled = False
+        Me.tsProveedor.Enabled = False
+        Me.tsProyecto.Enabled = False
+        Me.tsSeguridad.Enabled = False
+        Me.tsCaja.Enabled = False
+        Me.tsBanco.Enabled = False
+
+
+        Dim odt As New DataTable
+        odt = oUsuario.GetPermiso_2(vgNombreUsuario)
+
+
+
+        For Each dr As DataRow In odt.Rows
+            Select Case CStr(dr("formulario"))
+
+                Case "tsAdministrarControl"
+                    Me.tsAdministrarControl.Enabled = CBool(dr("habilitado"))
+                Case "tsAdministrarCuentaCliente"
+                    Me.tsAdministrarCuentaCliente.Enabled = CBool(dr("habilitado"))
+                Case "tsAdministrarCuentaProveedor"
+                    Me.tsAdministrarCuentaProveedor.Enabled = CBool(dr("habilitado"))
+                Case "tsAdministrarIva"
+                    Me.tsAdministrarIva.Enabled = CBool(dr("habilitado"))
+                Case "tsAdministrarHora"
+                    Me.tsAdministrarHora.Enabled = CBool(dr("habilitado"))
+                Case "tsAdministrarSeguridad"
+                    Me.tsAdministrarSeguridad.Enabled = CBool(dr("habilitado"))
+                Case "tsAdministrarCaja"
+                    Me.tsAdministrarCaja.Enabled = CBool(dr("habilitado"))
+                Case "tsAdministrarBanco"
+                    Me.tsAdministrarBanco.Enabled = CBool(dr("habilitado"))
+
+
+                Case "tsAgregarActividad"
+                    Me.tsAgregarActividad.Enabled = CBool(dr("habilitado"))
+                Case "tsAgregarControl"
+                    Me.tsAgregarControl.Enabled = CBool(dr("habilitado"))
+                Case "tsAgregarFactura"
+                    Me.tsAgregarFactura.Enabled = CBool(dr("habilitado"))
+                Case "tsAgregarProyecto"
+                    Me.tsAgregarProyecto.Enabled = CBool(dr("habilitado"))
+                Case "tsAgregarProyectoInicial"
+                    Me.tsAgregarProyectoInicial.Enabled = CBool(dr("habilitado"))
+                Case "tsPegarEstructuraProyectoInicial"
+                    Me.tsPegarEstructuraProyectoInicial.Enabled = CBool(dr("habilitado")) 'agregado
+
+                Case "tsAsignarRecurso"
+                    Me.tsAsignarRecurso.Enabled = CBool(dr("habilitado"))
+                Case "tsBorrarActividad"
+                    Me.tsBorrarActividad.Enabled = CBool(dr("habilitado"))
+                Case "tsBorrarHoraDevolver"
+                    Me.tsBorrarHoraDevolver.Enabled = CBool(dr("habilitado"))
+                Case "tsBorrarProyecto"
+                    Me.tsBorrarProyecto.Enabled = CBool(dr("habilitado"))
+                Case "tsCalendarioAnual"
+                    Me.tsCalendarioAnual.Enabled = CBool(dr("habilitado"))
+                Case "tsCopiarEstructura"
+                    Me.tsCopiarEstructura.Enabled = CBool(dr("habilitado"))
+                Case "tsCopiarProyecto"
+                    Me.tsCopiarProyecto.Enabled = CBool(dr("habilitado"))
+                Case "tsHorasADevolver"
+                    Me.tsHorasADevolver.Enabled = CBool(dr("habilitado"))
+                Case "tsModificarActividad"
+                    Me.tsModificarActividad.Enabled = CBool(dr("habilitado"))
+                Case "tsModificarHoraDevolver"
+                    Me.tsModificarHoraDevolver.Enabled = CBool(dr("habilitado"))
+                Case "tsModificarProyecto"
+                    Me.tsModificarProyecto.Enabled = CBool(dr("habilitado"))
+                Case "tsMostrarProyectosOcultos"
+                    Me.tsMostrarProyectosOcultos.Enabled = CBool(dr("habilitado"))
+                Case "tsNuevoCalendario"
+                    Me.tsNuevoCalendario.Enabled = CBool(dr("habilitado"))
+                Case "tsPegarEstructura"
+                    Me.tsPegarEstructura.Enabled = CBool(dr("habilitado"))
+                Case "tsPegarProyecto"
+                    Me.tsPegarProyecto.Enabled = CBool(dr("habilitado"))
+                Case "tsReordenarVoz"
+                    Me.tsReordenarVoz.Enabled = CBool(dr("habilitado"))
+                Case "tsRevisarCalendario"
+                    Me.tsRevisarCalendario.Enabled = CBool(dr("habilitado"))
+
+                Case "tsCliente"
+                    Me.tsCliente.Enabled = CBool(dr("habilitado"))
+                Case "tsControl"
+                    Me.tsControl.Enabled = CBool(dr("habilitado"))
+                Case "tsFactura"
+
+                Case "tsHora"
+                    Me.tsHora.Enabled = CBool(dr("habilitado"))
+                Case "tsIva"
+                    Me.tsIva.Enabled = CBool(dr("habilitado"))
+                Case "tsProveedor"
+                    Me.tsProveedor.Enabled = CBool(dr("habilitado"))
+                Case "tsProyecto"
+                    Me.tsProyecto.Enabled = CBool(dr("habilitado"))
+                Case "tsSeguridad"
+                    Me.tsSeguridad.Enabled = CBool(dr("habilitado"))
+                Case "tsCaja"
+                    Me.tsCaja.Enabled = CBool(dr("habilitado"))
+                Case "tsBanco"
+                    Me.tsBanco.Enabled = CBool(dr("habilitado"))
+
+            End Select
+
+        Next
+
+
+        'Select Case vgPermisoUsuario
+        '    'administrador
+        '    Case 1
+
+        '        'usuario
+        '    Case 2
+
+        '        'proyect manager
+        '    Case 3
+        '        Me.tsAgregarProyecto.Visible = True
+
+        '        Me.tsAgregarProyecto.Visible = True
+        '        Me.tsAgregarActividad.Visible = True
+        '        Me.tsModificarProyecto.Visible = True
+        '        Me.tsModificarActividad.Visible = True
+        '        Me.tsBorrarProyecto.Visible = True
+        '        Me.tsBorrarActividad.Visible = True
+
+        '        Me.tsProyecto.Visible = True
+        '        Me.tsControl.Visible = True
+        '        Me.tsHora.Visible = True
+        '        Me.tsSeguridad.Visible = True
+
+        '        Me.chkControlProyecto.Visible = True
+
+        '        'cadista
+        '    Case 4
+        '        Me.ContextMenuStrip1.Items("tsAgregarControl").Visible = True
+        '        Me.tsProyecto.Enabled = True
+        '        Me.tsControl.Enabled = False
+        '        Me.tsHora.Enabled = True
+        '        Me.tsSeguridad.Enabled = True
+
+        '        Me.tsProyecto.Visible = False
+        '        Me.tsControl.Visible = False
+        '        Me.tsReordenarVoz.Visible = False
+        '        Me.tsAdministrarControl.Visible = False
+        '        Me.tsHora.Visible = False
+        '        Me.tsSeguridad.Visible = False
+
+        '        Me.chkControlProyecto.Visible = False
+
+        '        'administrativos
+        '    Case 5
+
+        'End Select
+    End Sub
+
+    Sub RefrescarControl()
+        Dim odt As New DataTable
+
+
+        If Me.chkControlProyecto.Checked = True Then
+            odt = oVoz.GetAllInicio_4_PM(vgCodigoUsuario)
+        Else
+            odt = oVoz.GetAllInicio_3_PM(CInt(Me.lblid_proyecto.Text), vgCodigoUsuario)
+        End If
+
+        Me.dgvControl.DataSource = odt
+        Me.dgvControl.Columns(0).Visible = False
+        Me.dgvControl.Columns(1).Visible = False
+        Me.dgvControl.Columns(2).Visible = False
+        Me.dgvControl.Columns(3).Visible = False
+        Me.dgvControl.Columns("id_movimiento_voz").Visible = False
+
+
+  
+
+
+
+        'Select Case vgPermisoUsuario
+        '    'administrador
+        '    Case 1
+        '        'usuario
+        '        'agregado pq podia agregar un control pero no refrescaba la grilla
+        '        'odt = oVoz.GetAllInicio_2(vgCodigoUsuario)
+
+        '        If Me.chkControlProyecto.Checked = True Then
+        '            odt = oVoz.GetAllInicio_4_PM(vgCodigoUsuario)
+        '        Else
+        '            odt = oVoz.GetAllInicio_3_PM(CInt(Me.lblid_proyecto.Text), vgCodigoUsuario)
+        '        End If
+
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(0).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(1).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(2).Visible = False
+
+        '    Case 2
+
+        '        'proyect manager
+        '    Case 3
+
+        '        If Me.chkControlProyecto.Checked = True Then
+        '            odt = oVoz.GetAllInicio_4_PM(vgCodigoUsuario)
+        '        Else
+        '            odt = oVoz.GetAllInicio_3_PM(CInt(Me.lblid_proyecto.Text), vgCodigoUsuario)
+        '        End If
+
+
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(0).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(1).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(2).Visible = False
+
+        '        'cadista
+        '    Case 4
+        '        odt = oVoz.GetAllInicio_2(vgCodigoUsuario)
+
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(0).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(1).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(2).Visible = False
+
+        '        'administrativos
+        '    Case 5
+        '        'agregado pq podia agregar un control pero no refrescaba la grilla
+        '        odt = oVoz.GetAllInicio_2(vgCodigoUsuario)
+
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(0).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(1).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(2).Visible = False
+
+        '    Case 6
+        '        'piloto de proyecto agregado
+        '        odt = oVoz.GetAllInicio_2(vgCodigoUsuario)
+
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(0).Visible = False
+        '        Me.dgvControl.DataSource = odt
+
+        '        Me.dgvControl.Columns(1).Visible = False
+        '        Me.dgvControl.DataSource = odt
+        '        Me.dgvControl.Columns(2).Visible = False
+        'End Select
+
+
+
+        If odt.Rows.Count <= 0 Then
+            ' Me.txtEstado.Text = "CONTROLES REALIZADOS"
+            Me.txtEstadoControl.BackColor = Color.YellowGreen
+        Else
+            ' Me.txtEstado.Text = "CONTROLES PENDIENTES"
+            Me.txtEstadoControl.BackColor = Color.Red
+
+            '  Me.lblid_cuerpo_movimiento_voz.Text = CStr(odt.Rows(0).Item("id_cuerpo_movimiento_voz"))
+            '   Me.txtPendiente.Text = CStr(oCuerpo_movimiento_voz.GetPath(CInt(Me.lblid_cuerpo_movimiento_voz.Text)).Rows(0).Item("Path_proyecto"))
+        End If
+    End Sub
+
+    Sub RefrescarLogueo()
+        If vgControlLogueo = True Then
+            '  Me.txtControlLogueo.Text = "LOGUEO REALIZADO"
+            Me.txtEstadoLogueo.BackColor = Color.YellowGreen
+        Else
+            ' Me.txtControlLogueo.Text = "LOGUEO PENDIENTE"
+            Me.txtEstadoLogueo.BackColor = Color.Red
+        End If
+        Me.RefrescarGrillaLogueo()
+    End Sub
+
+    Sub LoguearUsuario()
+        If Me.TreeView1.SelectedNode Is Nothing Then
+            Exit Sub
+        End If
+        If Me.TreeView1.SelectedNode.SelectedImageIndex <> 3 Then
+            MessageBox.Show("Debe seleccionar una actividad")
+            Exit Sub
+        End If
+
+        If Me.lblid_actividad_proyecto.Text = "" Or Me.lblid_actividad_proyecto.Text = "0" Then
+            MessageBox.Show("Debe seleccionar un proyecto")
+            Exit Sub
+        End If
+
+        Dim dtHoraLogueo As DateTime
+
+        If opInicio = True Then
+            dtHoraLogueo = vgHoraIngreso
+
+            With oMovimiento_hora
+                .Cargar()
+                .Insertar()
+                .fecha = Date.Now
+                .id_dia = 1
+                .id_usuario = vgCodigoUsuario
+                .Guardar()
+
+                vgCodigoMovimientoHora = .id_movimiento_hora
+            End With
+        Else
+            dtHoraLogueo = DateTime.Now
+        End If
+
+        opInicio = False
+
+        If Me.lblid_cuerpo_movimiento_hora.Text = "0" Then
+            With oCuerpo_movimiento_hora
+                .Cargar()
+                .Insertar()
+                .entrada = dtHoraLogueo
+                .salida = dtHoraLogueo
+                .id_actividad_proyecto = CInt(Me.lblid_actividad_proyecto.Text)
+                .id_movimiento_hora = vgCodigoMovimientoHora
+                .Guardar()
+
+                Me.lblid_cuerpo_movimiento_hora.Text = CStr(.id_cuerpo_movimiento_hora)
+            End With
+        Else
+            If oCuerpo_movimiento_hora.salida = oCuerpo_movimiento_hora.entrada Then
+                With oCuerpo_movimiento_hora
+                    .Cargar()
+                    .Modificar(CInt(Me.lblid_cuerpo_movimiento_hora.Text))
+                    .salida = dtHoraLogueo
+                    .Guardar()
+                End With
+                With oCuerpo_movimiento_hora
+                    .Cargar()
+                    .Insertar()
+                    .entrada = dtHoraLogueo
+                    .salida = dtHoraLogueo
+                    .id_actividad_proyecto = CInt(Me.lblid_actividad_proyecto.Text)
+                    .id_movimiento_hora = vgCodigoMovimientoHora
+                    .Guardar()
+
+                    Me.lblid_cuerpo_movimiento_hora.Text = CStr(.id_cuerpo_movimiento_hora)
+                End With
+            Else
+                With oCuerpo_movimiento_hora
+                    .Cargar()
+                    .Insertar()
+                    .entrada = dtHoraLogueo
+                    .salida = dtHoraLogueo
+                    .id_actividad_proyecto = CInt(Me.lblid_actividad_proyecto.Text)
+                    .id_movimiento_hora = vgCodigoMovimientoHora
+                    .Guardar()
+
+                    Me.lblid_cuerpo_movimiento_hora.Text = CStr(.id_cuerpo_movimiento_hora)
+                End With
+            End If
+        End If
+
+        vgControlLogueo = True
+        Me.RefrescarLogueo()
+
+        'agregado() '''''''''''
+        'If lblid_proyecto_origen.Text <> "" Then
+        '    'banderaProyectoLoguin = TreeView1.Nodes(CInt(lblid_proyecto_origen.Text)).Text
+        'End If
+        ''''''''''''''''''''''''
+
+    End Sub
+
+    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
+        Me.LoguearUsuario()
+        'activa el temporizador
+        Me.Timer2.Start()
+        'Me.Timer3.Start()
+
+        'agregado
+        'Me.Load_tree()
+    End Sub
+
+    Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        If Me.lblid_cuerpo_movimiento_hora.Text = "0" Then
+            Me.Close()
+        End If
+        Try
+            With oCuerpo_movimiento_hora
+                .Cargar()
+                .Modificar(CInt(Me.lblid_cuerpo_movimiento_hora.Text))
+                .salida = DateTime.Now
+                .Guardar()
+            End With
+        Catch ex As Exception
+        End Try
+
+        Me.Close()
+    End Sub
+
+
+    Dim odtProyecto As New DataTable
+    Dim odtActividad As New DataTable
+    Dim odtActividad_proyecto As New DataTable
+
+    Private Sub TreeView1_AfterSelect(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterSelect
+        'If Me.TreeView1.SelectedNode.SelectedImageIndex = 0 Then
+
+        'End If
+        Try
+            'If Me.TreeView1.SelectedNode.Level = 0 Then
+            '    Me.lblid_proyecto.Text = Me.TreeView1.SelectedNode.Name
+            '    Me.lblid_actividad.Text = CStr(0)
+            '    odtProyecto = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+            '    With odtProyecto.Rows(0)
+            '        Me.txtnombre_proyecto.Text = CStr(.Item("nombre_proyecto"))
+            '    End With
+            'End If
+
+            Dim odr As New stArbol
+
+            odr = CType(Me.TreeView1.SelectedNode.Tag, stArbol)
+
+            If odr.tipo = "p" Then
+                Me.lblid_proyecto.Text = CStr(odr.id_proyecto)
+                Me.lblid_actividad.Text = CStr(odr.id_actividad)
+                Me.lblid_actividad_proyecto.Text = CStr(0)
+
+
+
+                Me.lblVariableProyecto.Text = CStr(1)
+                'vgProyectoSeleccionado = CStr(oProyecto.GetOne(CInt(Me.lblid_proyecto.Text)).Rows(0).Item("path"))
+                vgProyectoSeleccionado = Me.TreeView1.SelectedNode.FullPath
+            ElseIf odr.tipo = "a" Then
+                Me.lblid_proyecto.Text = CStr(odr.id_proyecto)
+                Me.lblid_actividad.Text = CStr(odr.id_actividad)
+
+                odtProyecto = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+                With odtProyecto.Rows(0)
+                    vgProyectoSeleccionado = CStr(.Item("path"))
+                End With
+
+                odtActividad = oActividad.GetOne(CInt(Me.lblid_actividad.Text))
+                With odtActividad.Rows(0)
+                    vgProyectoSeleccionado = vgProyectoSeleccionado & "-" & CStr(.Item("nombre_Actividad"))
+                End With
+
+                odtActividad_proyecto = oActividad_proyecto.GetOne_3(CInt(Me.lblid_proyecto.Text), CInt(Me.lblid_actividad.Text))
+                With odtActividad_proyecto.Rows(0)
+                    Me.lblid_actividad_proyecto.Text = CStr(.Item("id_actividad_proyecto"))
+                End With
+
+                Me.lblVariableProyecto.Text = CStr(2)
+                'vgProyectoSeleccionado = CStr(oProyecto.GetOne(CInt(Me.lblid_proyecto.Text)).Rows(0).Item("path"))
+                vgProyectoSeleccionado = Me.TreeView1.SelectedNode.FullPath
+            End If
+
+
+
+
+            ' Select Case Me.TreeView1.SelectedNode.SelectedImageIndex
+            '    Case -1
+
+            '        Me.lblid_proyecto.Text = Me.TreeView1.SelectedNode.Name
+            '        Me.lblid_actividad.Text = CStr(0)
+            '        ' Me.gbActividad.Enabled = True
+            '        ' Me.gbProyecto.Enabled = True
+
+            '        Me.lblVariableProyecto.Text = CStr(1)
+
+            '        vgProyectoSeleccionado = CStr(oProyecto.GetOne(CInt(Me.lblid_proyecto.Text)).Rows(0).Item("path"))
+            '    Case 3
+            '        Me.lblid_proyecto.Text = Me.TreeView1.SelectedNode.Parent.Name
+
+            '        'Dim tnTemp As New TreeNode
+            '        'tnTemp = Me.TreeView1.SelectedNode.Nodes(1).Name
+            '        Me.lblid_proyecto.Text = CStr(Me.TreeView1.SelectedNode.Tag)
+            '        odtProyecto = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+            '        With odtProyecto.Rows(0)
+            '            vgProyectoSeleccionado = CStr(.Item("path"))
+            '        End With
+
+            '        Me.lblid_actividad.Text = Me.TreeView1.SelectedNode.Name
+            '        odtActividad = oActividad.GetOne(CInt(Me.lblid_actividad.Text))
+            '        With odtActividad.Rows(0)
+            '            vgProyectoSeleccionado = vgProyectoSeleccionado & "-" & CStr(.Item("nombre_Actividad"))
+            '            '     Me.txtNombre_actividad.Text = CStr(.Item("nombre_Actividad"))
+            '        End With
+
+            '        odtActividad_proyecto = oActividad_proyecto.GetOne_3(CInt(Me.lblid_proyecto.Text), CInt(Me.lblid_actividad.Text))
+            '        With odtActividad_proyecto.Rows(0)
+            '            Me.lblid_actividad_proyecto.Text = CStr(.Item("id_actividad_proyecto"))
+            '        End With
+
+            '        Dim id_path As Integer = 0
+            '        Dim nom_path As String = ""
+            '        id_path = CInt(Me.lblid_proyecto.Text)
+
+            '        Dim odtProy As New DataTable
+            '        odtProy = oProyecto.GetTree_2(CInt(id_path))
+
+            '        '   Me.gbActividad.Enabled = True
+            '        '  Me.gbProyecto.Enabled = False
+
+            '        Me.lblVariableProyecto.Text = CStr(2)
+
+
+
+            'End Select
+
+            Try
+                Me.lblNodo.Text = CStr(TreeView1.SelectedNode.Parent.Name)
+            Catch ex As Exception
+                Me.lblNodo.Text = CStr(TreeView1.SelectedNode.Name)
+            End Try
+
+            Me.lblNodoSeleccionado.Text = Me.TreeView1.SelectedNode.Name
+
+            Me.Text = vgProyectoSeleccionado
+
+            If vgPermisoUsuario = 3 Then
+                Dim odt As New DataTable
+                odt = oVoz.GetAllInicio_2_PM(CInt(Me.lblid_proyecto.Text))
+
+                Me.dgvControl.DataSource = odt
+                Me.dgvControl.Columns(0).Visible = False
+                Me.dgvControl.DataSource = odt
+                Me.dgvControl.Columns(1).Visible = False
+                Me.dgvControl.DataSource = odt
+                Me.dgvControl.Columns(2).Visible = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+
+    End Sub
+
+    Structure stArbol
+        Dim tipo As String
+        Dim id_actividad As Integer
+        Dim icono As Integer
+        Dim icono_seleccionado As Integer
+        Dim id_proyecto As Integer
+        Dim id_factura As Integer
+    End Structure
+
+    Public Sub Load_tree()
+        ' Dim PrSet As DataSet = PDataset("SELECT * FROM proyecto where id_proyecto_padre = 1 AND id_proyecto <> 1")
+        Dim odr As New stArbol
+        Dim id_color_proyecto As Integer = 0
+
+
+        Dim odt As New DataTable
+        If Me.chkProyectoOculto.Checked = True Then
+            odt = oProyecto.GetTree()
+        Else
+            odt = oProyecto.GetTreeArchivado()
+        End If
+
+        Try
+
+        Catch ex As Exception
+        End Try
+
+
+        TreeView1.Nodes.Clear()
+
+
+
+        ' For Each dr As DataRow In PrSet.Tables(0).Rows
+        For Each dr As DataRow In odt.Rows
+            If DirectCast(dr("id_proyecto"), Integer) <> 0 Then
+                Dim tnParent As New TreeNode()
+                tnParent.Text = dr("nombre_proyecto").ToString()
+                Dim value As String = dr("id_proyecto").ToString()
+
+                tnParent.Name = value
+
+
+
+                If id_color_proyecto = CInt(dr("id_proyecto")) Then
+                    tnParent.ImageIndex = 5
+                Else
+                    tnParent.ImageIndex = 0
+                End If
+
+                odr.tipo = "p"
+                odr.id_proyecto = CInt(dr("id_proyecto"))
+                odr.id_actividad = 0
+                odr.icono = 0
+
+                tnParent.Tag = odr
+
+                tnParent.Expand()
+
+
+                TreeView1.Nodes.Add(tnParent)
+
+
+
+                FillChild(tnParent, value)
+
+                'agregado para cuando precione en factura solo muestre el arbol sin las actividades
+                If Not cbx_factura.Checked Then
+                    Me.FillChild_actividad(tnParent, value)
+                End If
+
+                'agregado para traer lsa facturas del proyecto
+                If cbx_factura.Checked Then
+                    Me.FillChild_factura(tnParent, CInt(value))
+                End If
+
+            End If
+        Next
+        'Me.TreeView1.CollapseAll()
+
+        Try
+
+            Me.TreeView1.SelectedNode = Me.GetNodeKeyProyecto(CInt(Me.lblNodoSeleccionado.Text), Me.TreeView1.Nodes)
+
+            Me.TreeView1.SelectedNode.ExpandAll()
+
+            'If Me.lblVariableProyecto.Text = "1" Then
+            '    Me.TreeView1.SelectedNode = Me.GetNodeKeyProyecto(CInt(Me.lblNodoSeleccionado.Text), Me.TreeView1.Nodes)
+            'ElseIf Me.lblVariableProyecto.Text = "2" Then
+            '    Me.TreeView1.SelectedNode = Me.GetNodeKey(CInt(Me.lblid_proyecto.Text), CInt((Me.lblid_actividad.Text)), Me.TreeView1.Nodes)
+            'End If
+
+        Catch ex As Exception
+
+        End Try
+
+
+        Try
+            ' Me.TreeView1.Nodes(CInt(Me.lblNodo.Text)).ExpandAll()
+            ''  Me.TreeView1.SelectedNode = Me.TreeView1.GetNodeAt(CInt(Me.lblX.Text), CInt(Me.lblY.Text))
+        Catch ex As Exception
+
+        End Try
+
+        Dim odtPendiente As New DataTable
+        odtPendiente = oModificacion_arbol.GetAllPendiente(vgCodigoUsuario)
+
+        For Each row As DataRow In odtPendiente.Rows
+            oModificacion_arbol.Cargar()
+            oModificacion_arbol.Modificar(CInt(row("id modificacion arbol")))
+            oModificacion_arbol.realizado = True
+            oModificacion_arbol.Guardar()
+        Next
+
+
+
+    End Sub
+
+
+    Public Function FillChild(ByVal parent As TreeNode, ByVal IID As String) As Integer
+        'Dim ds As DataSet = PDataset("SELECT * FROM proyecto WHERE id_proyecto_padre = " & IID)
+        Dim odr As New stArbol
+
+        Dim odtProy As New DataTable
+        odtProy = oProyecto.GetTree_2(CInt(IID))
+
+        ' If ds.Tables(0).Rows.Count > 0 Then
+        If odtProy.Rows.Count > 0 Then
+            ' For Each dr As DataRow In ds.Tables(0).Rows
+            For Each dr As DataRow In odtProy.Rows
+
+                Dim child As New TreeNode()
+                child.Text = dr("nombre_proyecto").ToString().Trim()
+                Dim temp As String = dr("id_proyecto").ToString()
+
+                odr.tipo = "p"
+                odr.id_proyecto = CInt(dr("id_proyecto"))
+                odr.id_actividad = 0
+                odr.icono = 0
+
+                child.Collapse()
+
+                'parent.Nodes.Add(child)
+
+                'AGREGADO
+                'If parent.Name = banderaProyectoLoguin Then '
+                '    child = parent.Nodes.Add(CStr(dr("id_proyecto")), CStr(dr("nombre_proyecto")), 5) '
+                'Else ''''
+                child = parent.Nodes.Add(CStr(dr("id_proyecto")), CStr(dr("nombre_proyecto")), parent.ImageIndex)
+                'End If '
+
+                child.Tag = odr
+
+                'agregado
+                If Not cbx_factura.Checked Then
+                    Me.FillChild_actividad(child, temp)
+                End If
+
+                ''Dim odt As New DataTable
+                ''odt = oActividad_proyecto.GetAllProyecto(CInt(temp))
+                '' ''odt = oActividad_proyecto.GetAllProyecto(CInt(IID))
+
+                ''Dim contador As Integer = 1
+                ''For Each row As DataRow In odt.Rows
+                ''    Dim child_2 As New TreeNode()
+                ''    child_2.Text = row("nombre_actividad").ToString().Trim()
+                ''    Dim temp_2 As String = row("id_actividad").ToString()
+                ''    child_2.Collapse()
+
+                ''    child_2.Tag = dr("id_proyecto")
+                ''    If contador = 1 Then
+                ''        TreeView1.Nodes.Add(child_2)
+                ''    End If
+
+                ''    child_2 = parent.Nodes.Add(CStr(row("id_actividad")), CStr(row("nombre_actividad")), 1, 3)
+                ''    'child_2.Tag = row("id_actividad")
+                ''    child_2.Tag = dr("id_proyecto")
+                ''    ''child_2.Tag = IID
+
+
+
+
+                ''    '  parent.Nodes.Add(temp_2, child_2.Text, 1)
+                ''    contador = contador + 1
+                ''Next
+
+                FillChild(child, temp)
+            Next
+            Return 0
+        Else
+            Return 0
+        End If
+    End Function
+
+    Public Function FillChild_actividad(ByVal parent As TreeNode, ByVal IID As String) As Integer
+        'Dim ds As DataSet = PDataset("SELECT * FROM proyecto WHERE id_proyecto_padre = " & IID)
+
+        Dim odr As New stArbol
+
+        Dim odtAct As New DataTable
+        odtAct = oActividad_proyecto.GetAllProyecto(CInt(IID))
+
+        Dim intIconoActividad As Integer = 0
+        Dim intIconoActividadSeleccionado As Integer = 0
+
+        Dim odtTempCont As New DataTable
+
+
+        ' If ds.Tables(0).Rows.Count > 0 Then
+        If odtAct.Rows.Count > 0 Then
+            ' For Each dr As DataRow In ds.Tables(0).Rows
+            For Each dr As DataRow In odtAct.Rows
+
+                Dim child As New TreeNode()
+                child.Text = dr("nombre_actividad").ToString().Trim()
+                Dim temp As String = dr("id_actividad").ToString()
+
+                Dim odtActividadenProceso As New DataTable
+                odtActividadenProceso = oMovimiento_voz.GetActividadProyectoEnProceso(CInt(dr("id_actividad_proyecto")))
+
+                odtTempCont = oMovimiento_voz.GetActividadProyecto(CInt(dr("id_actividad_proyecto")))
+                If odtTempCont.Rows.Count > 0 Then
+                    odtTempCont = oMovimiento_voz.GetActividadProyectoCompleto(CInt(dr("id_actividad_proyecto")))
+
+                    If odtTempCont.Rows.Count > 0 Then
+                        intIconoActividad = 8
+                        If odtActividadenProceso.Rows.Count > 0 Then
+                            intIconoActividad = 9
+                        End If
+                    Else
+                        intIconoActividad = 6
+                    End If
+                    
+                Else
+                    intIconoActividad = 1
+                End If
+
+                odr.tipo = "a"
+                odr.id_proyecto = CInt(IID)
+                odr.id_actividad = CInt(dr("id_actividad"))
+                odr.icono = intIconoActividad
+                odr.icono_seleccionado = 3
+
+                child.Tag = odr
+
+                child.Collapse()
+
+                ' parent.Nodes.Add(child)
+
+                child = parent.Nodes.Add(CStr(CDec(dr("id_actividad")) * -1), CStr(dr("nombre_actividad")), intIconoActividad, 3)
+                child.Tag = odr
+
+                '  FillChild_actividad(child, temp)
+            Next
+            Return 0
+        Else
+            Return 0
+        End If
+    End Function
+
+
+    Public Function FillChild_factura(ByVal parent As TreeNode, ByVal IID As Integer) As Integer
+        'Dim ds As DataSet = PDataset("SELECT * FROM proyecto WHERE id_proyecto_padre = " & IID)
+
+        Dim odr As New stArbol
+
+        Dim odtAct As New DataTable
+        odtAct = oProyecto.GetAll_facturas(CInt(IID))
+
+        ' If ds.Tables(0).Rows.Count > 0 Then
+        If odtAct.Rows.Count > 0 Then
+            ' For Each dr As DataRow In ds.Tables(0).Rows
+            For Each dr As DataRow In odtAct.Rows
+
+                Dim child As New TreeNode()
+                child.Text = dr("nombre").ToString().Trim()
+                Dim temp As String = dr("id_factura").ToString()
+
+
+                odr.tipo = "f"
+                odr.id_proyecto = CInt(IID)
+                odr.id_factura = CInt(dr("id_factura"))
+                odr.icono = 1
+                odr.icono_seleccionado = 3
+
+                child.Tag = odr
+
+                child.Collapse()
+
+                ' parent.Nodes.Add(child)
+                'child = parent.Nodes.Add(CStr(CInt(dr("id_factura")) * -1), CStr(dr("nombre")), 1, 3)
+                child = parent.Nodes.Add(CStr(CInt(dr("id_factura"))), CStr(dr("nombre")), 1, 3)
+                child.Tag = odr
+
+                '  FillChild_actividad(child, temp)
+            Next
+            Return 0
+        Else
+            Return 0
+        End If
+    End Function
+
+    'copiar un arbol
+    Public Sub Load_treeCopiar()
+        ' Dim PrSet As DataSet = PDataset("SELECT * FROM proyecto where id_proyecto_padre = 1 AND id_proyecto <> 1")
+        Dim odr As New stArbol
+
+        Dim odt As New DataTable
+        odt = oProyecto.GetOne(CInt(Me.lblid_proyecto_origen.Text))
+        'odt = oProyecto.GetTree_2(CInt(Me.lblid_proyecto_origen.Text))
+
+        Dim odtDestino As New DataTable
+        odtDestino = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+
+        TreeView2.Nodes.Clear()
+
+        ' For Each dr As DataRow In PrSet.Tables(0).Rows
+        For Each dr As DataRow In odt.Rows
+            If DirectCast(dr("id_proyecto"), Integer) <> 0 Then
+                Dim tnParent As New TreeNode()
+                tnParent.Text = dr("nombre_proyecto").ToString()
+                Dim value As String = dr("id_proyecto").ToString()
+                tnParent.Name = value
+
+                odr.tipo = "p"
+                odr.id_proyecto = CInt(dr("id_proyecto"))
+                odr.id_actividad = 0
+                odr.icono = 0
+
+                tnParent.Tag = odr
+
+                tnParent.Expand()
+
+                TreeView2.Nodes.Add(tnParent)
+
+                With oProyecto
+                    .Cargar()
+                    .Insertar()
+                    .descripcion = "copia_" & CStr(odt.Rows(0).Item("descripcion")) & ""
+                    .fecha_fin_real = DateTime.Now
+                    .fecha_inicio = DateTime.Now
+                    .id_cliente = CInt(odt.Rows(0).Item("id_cliente"))
+                    .id_controlador_1 = CInt(odt.Rows(0).Item("id_controlador_1"))
+                    .id_controlador_2 = CInt(odt.Rows(0).Item("id_controlador_2"))
+                    .id_estado = CInt(odt.Rows(0).Item("id_estado"))
+                    .id_proyect_manager = CInt(odt.Rows(0).Item("id_proyect_manager"))
+                    If copia1 = 1 Then
+                        .id_proyecto_padre = CInt(1)
+                    Else
+                        .id_proyecto_padre = CInt(Me.lblid_proyecto.Text)
+                    End If
+                    .nombre_proyecto = "copia_" & CStr(odt.Rows(0).Item("nombre_proyecto")) & ""
+                    .observacion = CStr(odt.Rows(0).Item("observacion"))
+                    .orden = CStr(odt.Rows(0).Item("orden"))
+                    If odtDestino.Rows.Count <> 0 Then
+                        .path = CStr(odtDestino.Rows(0).Item("path")) & "-copia_" & CStr(odt.Rows(0).Item("descripcion")) & ""
+                    Else
+                        .path = "copia_" & CStr(odt.Rows(0).Item("descripcion")) & ""
+                    End If
+                    .prioridad = CDec(odt.Rows(0).Item("prioridad"))
+                    .total_hora = CDec(odt.Rows(0).Item("total_hora"))
+                    .Guardar()
+                End With
+                copia1 = 2
+                Me.lblid_proyecto_temporal.Text = CStr(oProyecto.id_proyecto)
+
+                FillChildCopiar(tnParent, value, CInt(Me.lblid_proyecto_temporal.Text))
+
+                Me.FillChildCopiar_actividad(tnParent, value, CInt(Me.lblid_proyecto_temporal.Text))
+
+            End If
+        Next
+        'Me.TreeView2.CollapseAll()
+
+        Try
+
+            Me.TreeView2.SelectedNode = Me.GetNodeKeyProyecto(CInt(Me.lblNodoSeleccionado.Text), Me.TreeView2.Nodes)
+
+            Me.TreeView2.SelectedNode.ExpandAll()
+
+            'If Me.lblVariableProyecto.Text = "1" Then
+            '    Me.TreeView2.SelectedNode = Me.GetNodeKeyProyecto(CInt(Me.lblNodoSeleccionado.Text), Me.TreeView2.Nodes)
+            'ElseIf Me.lblVariableProyecto.Text = "2" Then
+            '    Me.TreeView2.SelectedNode = Me.GetNodeKey(CInt(Me.lblid_proyecto.Text), CInt((Me.lblid_actividad.Text)), Me.TreeView2.Nodes)
+            'End If
+
+        Catch ex As Exception
+
+        End Try
+
+
+        Try
+            ' Me.TreeView2.Nodes(CInt(Me.lblNodo.Text)).ExpandAll()
+            ''  Me.TreeView2.SelectedNode = Me.TreeView2.GetNodeAt(CInt(Me.lblX.Text), CInt(Me.lblY.Text))
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Public Function FillChildCopiar(ByVal parent As TreeNode, ByVal IID As String, ByVal id_proyecto_copia As Integer) As Integer
+        'Dim ds As DataSet = PDataset("SELECT * FROM proyecto WHERE id_proyecto_padre = " & IID)
+        Dim odr As New stArbol
+
+        Dim odtProy As New DataTable
+        odtProy = oProyecto.GetTree_2(CInt(IID))
+
+        Dim odtDestino As New DataTable
+        odtDestino = oProyecto.GetOne(id_proyecto_copia)
+
+        ' If ds.Tables(0).Rows.Count > 0 Then
+        If odtProy.Rows.Count > 0 Then
+            ' For Each dr As DataRow In ds.Tables(0).Rows
+            For Each dr As DataRow In odtProy.Rows
+
+                Dim child As New TreeNode()
+                child.Text = dr("nombre_proyecto").ToString().Trim()
+                Dim temp As String = dr("id_proyecto").ToString()
+
+                odr.tipo = "p"
+                odr.id_proyecto = CInt(dr("id_proyecto"))
+                odr.id_actividad = 0
+                odr.icono = 0
+
+                child.Collapse()
+
+                ' parent.Nodes.Add(child)
+
+                child = parent.Nodes.Add(CStr(dr("id_proyecto")), CStr(dr("nombre_proyecto")), 0)
+                child.Tag = odr
+
+                With oProyecto
+                    .Cargar()
+                    .Insertar()
+                    .descripcion = "" & CStr(dr("descripcion")) & ""
+                    .fecha_fin_real = DateTime.Now
+                    .fecha_inicio = DateTime.Now
+                    .id_cliente = CInt(dr("id_cliente"))
+                    .id_controlador_1 = CInt(dr("id_controlador_1"))
+                    .id_controlador_2 = CInt(dr("id_controlador_2"))
+                    .id_estado = CInt(dr("id_estado"))
+                    .id_proyect_manager = CInt(dr("id_proyect_manager"))
+                    .id_proyecto_padre = id_proyecto_copia
+                    .nombre_proyecto = "" & CStr(dr("nombre_proyecto")) & ""
+                    .observacion = CStr(dr("observacion"))
+                    .orden = CStr(dr("orden"))
+                    .path = CStr(odtDestino.Rows(0).Item("path")) & "-" & CStr(dr("nombre_proyecto"))
+                    .prioridad = CDec(dr("prioridad"))
+                    .total_hora = CDec(dr("total_hora"))
+                    .Guardar()
+                End With
+
+                ' Me.lblid_proyecto_temporal.Text = CStr(oProyecto.id_proyecto)
+
+                Me.FillChildCopiar_actividad(child, temp, oProyecto.id_proyecto)
+
+                FillChildCopiar(child, temp, oProyecto.id_proyecto)
+            Next
+            Return 0
+        Else
+            Return 0
+        End If
+    End Function
+
+    Public Function FillChildCopiar_actividad(ByVal parent As TreeNode, ByVal IID As String, ByVal id_proyecto_copia As Integer) As Integer
+        'Dim ds As DataSet = PDataset("SELECT * FROM proyecto WHERE id_proyecto_padre = " & IID)
+
+        Dim odr As New stArbol
+        Dim idAct As Integer = 0
+
+        Dim odtAct As New DataTable
+        odtAct = oActividad_proyecto.GetAllProyecto(CInt(IID))
+
+        ' If ds.Tables(0).Rows.Count > 0 Then
+        If odtAct.Rows.Count > 0 Then
+            ' For Each dr As DataRow In ds.Tables(0).Rows
+            For Each dr As DataRow In odtAct.Rows
+
+                Dim child As New TreeNode()
+                child.Text = dr("nombre_actividad").ToString().Trim()
+                Dim temp As String = dr("id_actividad").ToString()
+
+
+                odr.tipo = "a"
+                odr.id_proyecto = CInt(IID)
+                odr.id_actividad = CInt(dr("id_actividad"))
+                odr.icono = 1
+                odr.icono_seleccionado = 3
+
+                child.Tag = odr
+
+                child.Collapse()
+
+                ' parent.Nodes.Add(child)
+
+                child = parent.Nodes.Add(CStr(CDec(dr("id_actividad")) * -1), CStr(dr("nombre_actividad")), 1, 3)
+                child.Tag = odr
+
+
+                With oActividad
+                    .Cargar()
+                    .Insertar()
+                    .nombre_actividad = CStr(dr("nombre_actividad"))
+                    .id_tipo_actividad = CInt(dr("id_tipo_actividad"))
+                    .tiempo_standart = CDec(dr("tiempo_standart"))
+                    .Guardar()
+                    idAct = .id_actividad
+                End With
+
+                With oActividad_proyecto
+                    .Cargar()
+                    .Insertar()
+                    .id_actividad = idAct
+                    .id_proyecto = id_proyecto_copia
+                    .orden = CDec(dr("orden"))
+                    .Guardar()
+                End With
+
+
+                '  FillChildCopiar_actividad(child, temp)
+            Next
+            Return 0
+        Else
+            Return 0
+        End If
+    End Function
+
+
+    Private Sub TreeView1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TreeView1.MouseDown
+        Me.lblX.Text = CStr(e.X)
+        Me.lblY.Text = CStr(e.Y)
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            Me.TreeView1.SelectedNode = Me.TreeView1.GetNodeAt(e.X, e.Y)
+
+            Try
+                Me.lblid_proyecto.Text = Me.TreeView1.SelectedNode.Name
+            Catch ex As Exception
+                Me.lblid_proyecto.Text = CStr(0)
+            End Try
+        End If
+    End Sub
+
+
+    'Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    '    'look for a node with a text property value of 'Node3'
+    '    TreeView1.SelectedNode = GetNode("Node3", TreeView1.Nodes)
+    '    'ensure the focus set on the node
+    '    TreeView1.Select()
+    'End Sub
+
+    Private Function GetNode(ByVal text As String, ByVal parentCollection As TreeNodeCollection) As TreeNode
+        Dim ret As TreeNode
+        Dim child As TreeNode
+
+        For Each child In parentCollection 'step through the parentcollection
+            If child.Text = text Then
+                ret = child
+            ElseIf child.GetNodeCount(False) > 0 Then ' if there is child items then call this function recursively
+                ret = GetNode(text, child.Nodes)
+            End If
+
+            If Not ret Is Nothing Then Exit For 'if something was found, exit out of the for loop
+
+        Next
+
+        Return ret
+    End Function
+
+    'Private Function GetNodeKey(ByVal id_proyecto As Integer, ByVal id_actividad As Integer, ByVal parentCollection As TreeNodeCollection) As TreeNode
+    '    Dim ret As TreeNode
+    '    Dim child As TreeNode
+    '    Dim temp As New stArbol
+
+
+    '    For Each child In parentCollection 'step through the parentcollection
+    '        temp = CType(child.Tag, stArbol)
+    '        If CInt(child.Name) = id_actividad And temp.id_proyecto = id_proyecto Then
+    '            ret = child
+    '        ElseIf child.GetNodeCount(False) > 0 Then ' if there is child items then call this function recursively
+    '            ret = GetNodeKey(id_proyecto, id_actividad, child.Nodes)
+    '        End If
+
+    '        If Not ret Is Nothing Then Exit For 'if something was found, exit out of the for loop
+    '    Next
+    '    Return ret
+    'End Function
+
+    Private Function GetNodeKeyProyecto(ByVal id_proyecto As Integer, ByVal parentCollection As TreeNodeCollection) As TreeNode
+        Dim ret As TreeNode
+        Dim child As TreeNode
+
+        For Each child In parentCollection 'step through the parentcollection
+            If CInt(child.Name) = id_proyecto Then
+                ret = child
+            ElseIf child.GetNodeCount(False) > 0 Then ' if there is child items then call this function recursively
+                ret = GetNodeKeyProyecto(id_proyecto, child.Nodes)
+            End If
+
+            If Not ret Is Nothing Then Exit For 'if something was found, exit out of the for loop
+        Next
+        Return ret
+    End Function
+
+
+    Private Sub btnGuardarProyecto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Select Case Me.lblBanderaProyecto.Text
+            Case CStr(1)
+                Dim idP As Integer = 0
+                Dim srtPath As String = ""
+                Dim odtP As New DataTable
+                Dim odtP_2 As New DataTable
+
+                odtP = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+                idP = CInt(odtP.Rows(0).Item("id_proyecto_padre"))
+                ' srtPath = CStr(odtP.Rows(0).Item("nombre_proyecto")) & "-" & Me.txtnombre_proyecto.Text
+
+                While idP <> 1
+                    odtP_2 = oProyecto.GetOne(idP)
+                    idP = CInt(odtP_2.Rows(0).Item("id_proyecto_padre"))
+                    srtPath = CStr(odtP_2.Rows(0).Item("nombre_proyecto")) & "-" & srtPath
+                End While
+
+
+                'With oProyecto
+                '    .Cargar()
+                '    .Insertar()
+                '    .nombre_proyecto = Me.txtnombre_proyecto.Text
+                '    .path = srtPath
+                '    'If Me.chkProyectoInicial.Checked = True Then
+                '    '    .id_proyecto_padre = 1
+                '    '    .id_proyect_manager = CInt(Me.lblid_proyect_manager.Text)
+                '    '    .id_controlador_1 = CInt(Me.lblid_controlador_1.Text)
+                '    '    .id_controlador_2 = CInt(Me.lblid_controlador_2.Text)
+                '    'Else
+                '    '    .id_proyecto_padre = CInt(Me.lblid_proyecto.Text)
+                '    'End If
+
+                '    .id_cliente = 1
+                '    .id_proyect_manager = CInt(odtP.Rows(0).Item("id_proyect_manager"))
+                '    .id_estado = 1
+                '    .id_controlador_1 = CInt(odtP.Rows(0).Item("id_controlador_1"))
+                '    .id_controlador_2 = CInt(odtP.Rows(0).Item("id_controlador_2"))
+                '    .total_hora = CDec(Me.txttotal_hora.Text)
+                '    .Guardar()
+                'End With
+
+            Case CStr(2)
+
+                Dim idP As Integer = 0
+                Dim srtPath As String = ""
+                Dim odtP As New DataTable
+                Dim odtP_2 As New DataTable
+
+                odtP = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+                idP = CInt(odtP.Rows(0).Item("id_proyecto_padre"))
+                srtPath = CStr(odtP.Rows(0).Item("nombre_proyecto"))
+
+                While idP <> 1
+                    odtP_2 = oProyecto.GetOne(idP)
+                    idP = CInt(odtP_2.Rows(0).Item("id_proyecto_padre"))
+                    srtPath = CStr(odtP_2.Rows(0).Item("nombre_proyecto")) & "-" & srtPath
+                End While
+
+                'With oProyecto
+                '    .Cargar()
+                '    .Modificar(CInt(Me.lblid_proyecto.Text))
+                '    .nombre_proyecto = Me.txtnombre_proyecto.Text
+                '    .path = srtPath
+                '    .id_proyect_manager = CInt(odtP.Rows(0).Item("id_proyect_manager"))
+                '    .id_controlador_1 = CInt(odtP.Rows(0).Item("id_controlador_1"))
+                '    .id_controlador_2 = CInt(odtP.Rows(0).Item("id_controlador_2"))
+                '    .total_hora = CDec(Me.txttotal_hora.Text)
+                '    .Guardar()
+                'End With
+        End Select
+
+        Me.Load_tree()
+    End Sub
+
+    'Sub LimpiarControlesProyecto()
+    '    ' Me.txtdescripcion.Text = ""
+    '    Me.txtnombre_proyecto.Text = ""
+    '    ' Me.lblid_cliente.Text = "0"
+    '    '  Me.cmbCliente.Text = ""
+    '    ' Me.lblid_proyecto_padre.Text = "0"
+    '    ' Me.cmbProyecto_padre.Text = ""
+    '    Me.lblid_proyect_manager.Text = "0"
+    '    Me.cmbproyect_manager.Text = ""
+    '    ' Me.dtpfecha_inicio.Value = DateTime.Now
+    '    ' Me.dtpfecha_fin_prevista.Value = DateTime.Now
+    '    ' Me.dtpfecha_fin_real.Value = DateTime.Now
+    '    Me.txtOrden.Text = ""
+    '    ' Me.lblid_estado.Text = "0"
+    '    ' Me.cmbEstado.Text = ""
+    '    Me.txttotal_hora.Text = ""
+    '    '  Me.txtprioridad.Text = ""
+    '    '  Me.txtobservacion.Text = ""
+    '    Me.lblid_controlador_1.Text = "0"
+    '    Me.cmbcontrolador_1.Text = ""
+    '    Me.lblid_controlador_2.Text = "0"
+    '    Me.cmbcontrolador_2.Text = ""
+    '    ' Me.txtpath.Text = ""
+    'End Sub
+
+    Private Sub btnNuevoProyecto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        '  Me.LimpiarControlesProyecto()
+        Me.lblBanderaProyecto.Text = CStr(1)
+    End Sub
+
+    Private Sub btnModificarProyecto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Me.lblBanderaProyecto.Text = CStr(2)
+    End Sub
+
+    Private Sub btnBorrarProyecto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        If MessageBox.Show("Desea Realmente Eliminar el Registro ", "BORRAR", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        With oProyecto
+            .Cargar()
+            .Borrar(CInt(Me.lblid_proyecto.Text))
+            .Guardar()
+        End With
+
+        Me.Load_tree()
+    End Sub
+
+
+    'Sub LimpiarControlesActividad()
+    '    Me.txtNombre_actividad.Text = ""
+    '    'Me.txttiempo_standart.Text = ""
+    '    ' Me.txtcosto_standart.Text = ""
+    '    '  Me.lblid_tipo_actividad.Text = "0"
+    '    '  Me.cmbTipo_actividad.Text = ""
+    '    Me.txtOrden.Text = ""
+    'End Sub
+
+    'Sub LimpiarControlesActividad_proyecto()
+    '    ' Me.lblid_proyecto.Text = "0"
+    '    '  Me.cmbProyecto.Text = ""
+    '    Me.lblid_actividad.Text = "0"
+    '    '   Me.cmbActividad.Text = ""
+    '    '   Me.dtpfecha_inicio.Value = DateTime.Now
+    '    '   Me.dtpfecha_fin_previsto.Value = DateTime.Now
+    '    '   Me.dtpfecha_fin_real.Value = DateTime.Now
+    '    Me.txtcantidad_hora.Text = ""
+    '    '  Me.txtobjetivo.Text = ""
+    '    '  Me.txtprioridad.Text = ""
+    '    '  Me.txtcomplejidad.Text = ""
+    '    '  Me.txtavance.Text = ""
+    '    '  Me.txtobservacion.Text = ""
+    'End Sub
+
+    'Private Sub btnNuevoActividad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '    Me.LimpiarControlesActividad()
+    '    Me.LimpiarControlesActividad_proyecto()
+    '    Me.lblBanderaActividad.Text = CStr(1)
+
+    '    Dim odtAP As New DataTable
+    '    odtAP = oActividad_proyecto.GetMaxOrden(CInt(Me.lblid_proyecto.Text))
+
+    '    Me.txtOrden.Text = CStr(CDec(odtAP.Rows(0).Item("orden")) + 1)
+    '    Me.btnGuardarActividad.Enabled = True
+    'End Sub
+
+    'Private Sub btnModificarActividad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '    Me.lblBanderaActividad.Text = CStr(2)
+    '    Me.btnGuardarActividad.Enabled = True
+    'End Sub
+
+    Private Sub btnBorrarActividad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        If MessageBox.Show("Desea Realmente Eliminar el Registro ", "BORRAR", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        With oActividad
+            .Cargar()
+            .Borrar(CInt(Me.lblid_actividad.Text))
+            .Guardar()
+        End With
+
+        With oActividad_proyecto
+            .Cargar()
+            .Borrar(CInt(Me.lblid_actividad_proyecto.Text))
+            .Guardar()
+        End With
+
+        Me.Load_tree()
+    End Sub
+
+    'Private Sub btnGuardarActividad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '    Select Case Me.lblBanderaActividad.Text
+    '        Case CStr(1)
+    '            With oActividad
+    '                .Cargar()
+    '                .Insertar()
+    '                .nombre_actividad = Me.txtNombre_actividad.Text
+    '                .Guardar()
+    '                Me.lblid_actividad.Text = CStr(.id_actividad)
+    '            End With
+
+    '            With oActividad_proyecto
+    '                .Cargar()
+    '                .Insertar()
+    '                .id_actividad = CInt(Me.lblid_actividad.Text)
+    '                .id_proyecto = CInt(Me.lblid_proyecto.Text)
+    '                .orden = CDec(Me.txtOrden.Text)
+    '                .Guardar()
+    '            End With
+
+    '        Case CStr(2)
+    '            With oActividad
+    '                .Cargar()
+    '                .Modificar(CInt(Me.lblid_actividad.Text))
+    '                .nombre_actividad = Me.txtNombre_actividad.Text
+    '                .Guardar()
+    '            End With
+
+    '            With oActividad_proyecto
+    '                .Cargar()
+    '                .Modificar(CInt(Me.lblid_actividad_proyecto.Text))
+    '                .orden = CDec(Me.txtOrden.Text)
+    '                .Guardar()
+    '            End With
+    '    End Select
+
+    '    Me.Load_tree()
+    '    Me.btnGuardarActividad.Enabled = False
+    'End Sub
+
+    'Sub CargarProyect_manager()
+    '    Dim odt As New DataTable
+
+    '    odt = oUsuario.GetCmb
+    '    With Me.cmbProyect_manager
+    '        .DataSource = odt
+    '        .DisplayMember = "nombre_usuario"
+    '        .ValueMember = "id_usuario"
+    '    End With
+    '    If Me.cmbProyect_manager.SelectedIndex >= 0 Then
+    '        cmbProyect_manager.SelectedIndex = 0
+    '        Me.lblid_Proyect_manager.Text = cmbProyect_manager.SelectedValue.ToString
+    '    End If
+    'End Sub
+
+    'Sub CargarControlador_1()
+    '    Dim odt As New DataTable
+
+    '    odt = oUsuario.GetCmb
+    '    With Me.cmbControlador_1
+    '        .DataSource = odt
+    '        .DisplayMember = "nombre_usuario"
+    '        .ValueMember = "id_usuario"
+    '    End With
+    '    If Me.cmbControlador_1.SelectedIndex >= 0 Then
+    '        cmbControlador_1.SelectedIndex = 0
+    '        Me.lblid_Controlador_1.Text = cmbControlador_1.SelectedValue.ToString
+    '    End If
+    'End Sub
+
+    'Sub CargarControlador_2()
+    '    Dim odt As New DataTable
+
+    '    odt = oUsuario.GetCmb
+    '    With Me.cmbControlador_2
+    '        .DataSource = odt
+    '        .DisplayMember = "nombre_usuario"
+    '        .ValueMember = "id_usuario"
+    '    End With
+    '    If Me.cmbControlador_2.SelectedIndex >= 0 Then
+    '        cmbControlador_2.SelectedIndex = 0
+    '        Me.lblid_Controlador_2.Text = cmbControlador_2.SelectedValue.ToString
+    '    End If
+    'End Sub
+
+    'Private Sub cmbProyect_manager_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '    If Me.cmbProyect_manager.SelectedIndex >= 0 Then
+    '        Me.lblid_proyect_manager.Text = cmbProyect_manager.SelectedValue.ToString
+    '    End If
+    'End Sub
+
+    'Private Sub cmbControlador_1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '    If Me.cmbcontrolador_1.SelectedIndex >= 0 Then
+    '        Me.lblid_controlador_1.Text = cmbcontrolador_1.SelectedValue.ToString
+    '    End If
+    'End Sub
+
+    'Private Sub cmbControlador_2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '    If Me.cmbControlador_2.SelectedIndex >= 0 Then
+    '        Me.lblid_controlador_2.Text = cmbControlador_2.SelectedValue.ToString
+    '    End If
+    'End Sub
+
+
+    'Private Sub AdministrarToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AdministrarToolStripMenuItem.Click
+    '    Me.gbProyecto.Visible = True
+    '    Me.gbActividad.Visible = True
+    'End Sub
+
+    Private Sub AgregarProyectoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsAgregarProyecto.Click
+        Dim odt As New DataTable
+        odt = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+
+        Dim odtCopia As New DataTable
+        odtCopia = oProyecto.GetOne(CInt(Me.lblid_proyecto_copia.Text))
+
+        Dim odtUsuario As New DataTable
+        odtUsuario = oUsuario.GetCmbPM
+
+        Dim str As String
+        Dim n As Integer
+
+        With oProyecto
+            .Cargar()
+            .Insertar()
+            '.descripcion = CStr(odt.Rows(0).Item("descripcion")) & "_1"
+            .fecha_fin_real = DateTime.Now
+            .fecha_inicio = DateTime.Now
+            .id_cliente = CInt(odt.Rows(0).Item("id_cliente"))
+
+            If CInt(odt.Rows(0).Item("id_controlador_1")) = 1 Then
+                .id_controlador_1 = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+            Else
+                .id_controlador_1 = CInt(odt.Rows(0).Item("id_controlador_1"))
+            End If
+
+            If CInt(odt.Rows(0).Item("id_controlador_2")) = 1 Then
+                .id_controlador_2 = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+            Else
+                .id_controlador_2 = CInt(odt.Rows(0).Item("id_controlador_2"))
+            End If
+
+            .id_estado = CInt(odt.Rows(0).Item("id_estado"))
+            .id_proyect_manager = CInt(odt.Rows(0).Item("id_proyect_manager"))
+            .id_proyecto_padre = CInt(odt.Rows(0).Item("id_proyecto"))
+
+            str = CStr(odt.Rows(0).Item("nombre_proyecto"))
+
+            Dim tabla, tabla1 As New DataTable
+            tabla = oProyecto.GetAllExiste2(CInt(odt.Rows(0).Item("id_proyecto")), str)
+
+            If tabla.Rows.Count > 0 Then
+                For i As Integer = 1 To tabla.Rows.Count
+                    tabla1 = oProyecto.GetAllExiste2(CInt(odt.Rows(0).Item("id_proyecto")), CStr(odt.Rows(0).Item("nombre_proyecto")) & "_" & i)
+                    If tabla1.Rows.Count = 0 Then
+                        n = i
+                        Exit For
+                    End If
+                    i += 1
+                Next
+                If n <> 0 Then
+                    .descripcion = CStr(odt.Rows(0).Item("descripcion")) & "_" & n
+                    .nombre_proyecto = CStr(odt.Rows(0).Item("nombre_proyecto")) & "_" & n
+                Else
+                    .descripcion = CStr(odt.Rows(0).Item("descripcion")) & "_" & tabla.Rows.Count + 1
+                    .nombre_proyecto = CStr(odt.Rows(0).Item("nombre_proyecto")) & "_" & tabla.Rows.Count + 1
+                End If
+            Else
+                .descripcion = CStr(odt.Rows(0).Item("descripcion")) & "_1"
+                .nombre_proyecto = CStr(odt.Rows(0).Item("nombre_proyecto")) & "_1"
+            End If
+
+            .observacion = CStr(odt.Rows(0).Item("observacion"))
+            .orden = CStr(odt.Rows(0).Item("orden"))
+            .path = CStr(odt.Rows(0).Item("path")) & "-" & CStr(odt.Rows(0).Item("nombre_proyecto")) & "_1"
+            .prioridad = CDec(odt.Rows(0).Item("prioridad"))
+            .total_hora = CDec(odt.Rows(0).Item("total_hora"))
+            .Guardar()
+            Me.lblid_proyecto.Text = CStr(.id_proyecto)
+        End With
+
+        Dim frmDetalle As New frmDetalleProyecto
+
+        If Not IsNumeric(Me.lblid_proyecto.Text) Then
+            Exit Sub
+        End If
+
+        BanderaProyecto = 2
+        Me.AddOwnedForm(frmDetalle)
+
+
+        oProyecto.Modificar(CInt(Me.lblid_proyecto.Text))
+        frmDetalle.CargarCombos()
+        frmDetalle.ShowDialog()
+        If vgbanderaproyecto = True Then
+            TreeView1.SelectedNode.Nodes.Add(CStr(CDec(Me.lblid_proyecto.Text)), CStr(oProyecto.nombre_proyecto), 0, 5)
+
+            Dim odr As New stArbol
+
+            'Dim child As New TreeNode()
+            'child.Text = dr("nombre_actividad").ToString().Trim()
+            'Dim temp As String = dr("id_actividad").ToString()
+
+            odr.tipo = "p"
+            odr.id_proyecto = CInt(Me.lblid_proyecto.Text)
+            odr.id_actividad = 0
+            odr.icono = 0
+
+            TreeView1.SelectedNode.Tag = odr
+
+            ' Me.Load_tree()
+            vgbanderaproyecto = False
+        Else
+            oProyecto.Borrar(CInt(Me.lblid_proyecto.Text))
+
+            Try
+                Dim id_previo As String = ""
+                id_previo = Me.TreeView1.SelectedNode.Name
+                Me.lblid_proyecto.Text = id_previo
+                Me.lblNodoSeleccionado.Text = Me.lblid_proyecto.Text
+            Catch ex As Exception
+            End Try
+        End If
+    End Sub
+
+    Private Sub ContextMenuStrip1_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmsProyecto.Opening
+        Try
+            Select Case Me.TreeView1.SelectedNode.SelectedImageIndex
+                Case -1
+                    Me.lblid_proyecto.Text = Me.TreeView1.SelectedNode.Name
+                    Me.lblid_actividad.Text = CStr(0)
+                    '------------------------------------------
+                    ' permisos de menu contextual 19/03
+                    Me.tsSeparator1.Visible = True
+                    Me.tsSeparator2.Visible = True
+                    Me.tsSeparator3.Visible = True
+                    Me.tsModificarProyecto.Visible = True
+                    Me.tsModificarProyecto.Enabled = True
+                    Me.tsAgregarProyectoInicial.Visible = False
+                    Me.tsBorrarProyecto.Visible = True
+                    Me.tsBorrarProyecto.Enabled = True
+                    Me.tsAgregarActividad.Visible = True
+                    Me.tsAgregarActividad.Enabled = True
+                    Me.tsBorrarActividad.Visible = False
+                    Me.tsModificarActividad.Visible = False
+                    Me.tsAgregarControl.Visible = False
+                    Me.tsAgregarProyecto.Visible = True
+                    Me.tsAgregarProyecto.Enabled = True
+                    Me.tsPegarEstructura.Visible = True
+                    Me.tsPegarEstructuraProyectoInicial.Visible = False
+
+                    If banderacopiarestructura = 1 Then
+                        Me.tsPegarEstructura.Enabled = True
+                        Me.tsPegarEstructuraProyectoInicial.Enabled = True
+                        banderacopiarestructura = 0
+                    Else
+                        Me.tsPegarEstructura.Enabled = False
+                        Me.tsPegarEstructuraProyectoInicial.Enabled = False
+                    End If
+
+                    Me.tsCopiarEstructura.Visible = True
+                    Me.tsCopiarEstructura.Enabled = True
+                    Me.tsPegarProyecto.Visible = True
+
+                    If banderacopiarproyecto = 1 Then
+                        Me.tsPegarProyecto.Enabled = True
+                        banderacopiarproyecto = 0
+                    Else
+                        Me.tsPegarProyecto.Enabled = False
+                    End If
+
+                    Me.tsCopiarProyecto.Visible = True
+                    Me.tsCopiarProyecto.Enabled = True
+                    Me.tsModificarCadista.Visible = False
+                    '-------------------------------------------
+                Case 3
+                    Me.lblid_proyecto.Text = Me.TreeView1.SelectedNode.Parent.Name
+                    ' Me.lblid_proyecto.Text = CStr(Me.TreeView1.SelectedNode.Tag)
+
+                    Me.lblid_actividad.Text = Me.TreeView1.SelectedNode.Name
+                    '------------------------------------------
+                    'permisos de menu contextual 19/03
+                    Me.tsSeparator1.Visible = False
+                    Me.tsSeparator2.Visible = False
+                    Me.tsSeparator3.Visible = True
+                    Me.tsModificarProyecto.Visible = False
+                    Me.tsAgregarProyectoInicial.Visible = False
+                    Me.tsBorrarProyecto.Visible = False
+                    Me.tsAgregarActividad.Visible = False
+                    Me.tsModificarActividad.Visible = True
+                    Me.tsModificarActividad.Enabled = True
+                    Me.tsBorrarActividad.Visible = True
+                    Me.tsBorrarActividad.Enabled = True
+                    Me.tsAgregarControl.Visible = True
+                    Me.tsAgregarControl.Enabled = True
+                    Me.tsAgregarProyecto.Visible = False
+                    Me.tsPegarEstructura.Visible = False
+                    Me.tsCopiarEstructura.Visible = False
+                    Me.tsPegarEstructuraProyectoInicial.Visible = False
+                    Me.tsPegarProyecto.Visible = False
+                    Me.tsCopiarProyecto.Visible = False
+                    Me.tsModificarCadista.Visible = True
+                    '-------------------------------------------
+                    odtActividad_proyecto = oActividad_proyecto.GetOne_3(CInt(Me.lblid_proyecto.Text), Math.Abs(CInt(Me.lblid_actividad.Text)))
+                    With odtActividad_proyecto.Rows(0)
+                        Me.lblid_actividad_proyecto.Text = CStr(.Item("id_actividad_proyecto"))
+                    End With
+
+                    Dim id_path As Integer = 0
+                    Dim nom_path As String = ""
+                    id_path = CInt(Me.lblid_proyecto.Text)
+
+                    Dim odtProy As New DataTable
+                    odtProy = oProyecto.GetTree_2(CInt(id_path))
+
+                    Me.lblVariableProyecto.Text = CStr(2)
+
+
+                Case Else
+
+                    If Me.TreeView1.SelectedNode.ImageIndex = 0 Then
+                        Me.TreeView1.SelectedNode.SelectedImageIndex = -1
+                        Me.lblid_proyecto.Text = Me.TreeView1.SelectedNode.Name
+                        Me.lblid_actividad.Text = CStr(0)
+                        '------------------------------------------
+                        ' permisos de menu contextual 19/03
+                        Me.tsSeparator1.Visible = True
+                        Me.tsSeparator2.Visible = True
+                        Me.tsSeparator3.Visible = True
+                        Me.tsModificarProyecto.Visible = True
+                        Me.tsModificarProyecto.Enabled = True
+                        Me.tsAgregarProyectoInicial.Visible = True
+                        Me.tsBorrarProyecto.Visible = True
+                        Me.tsBorrarProyecto.Enabled = True
+                        Me.tsAgregarActividad.Visible = True
+                        Me.tsAgregarActividad.Enabled = True
+                        Me.tsBorrarActividad.Visible = False
+                        Me.tsModificarActividad.Visible = False
+                        Me.tsAgregarControl.Visible = False
+                        Me.tsAgregarProyecto.Visible = True
+                        Me.tsAgregarProyecto.Enabled = True
+                        Me.tsPegarEstructura.Visible = True
+                        Me.tsPegarEstructuraProyectoInicial.Visible = False
+
+                        If banderacopiarestructura = 1 Then
+                            Me.tsPegarEstructura.Enabled = True
+                            Me.tsPegarEstructuraProyectoInicial.Enabled = True
+                            banderacopiarestructura = 0
+                        Else
+                            Me.tsPegarEstructura.Enabled = False
+                            Me.tsPegarEstructuraProyectoInicial.Enabled = False
+                        End If
+
+                        Me.tsCopiarEstructura.Visible = True
+                        Me.tsCopiarEstructura.Enabled = True
+                        Me.tsPegarProyecto.Visible = True
+
+                        If banderacopiarproyecto = 1 Then
+                            Me.tsPegarProyecto.Enabled = True
+                            banderacopiarproyecto = 0
+                        Else
+                            Me.tsPegarProyecto.Enabled = False
+                        End If
+
+                        Me.tsCopiarProyecto.Visible = True
+                        Me.tsCopiarProyecto.Enabled = True
+                        Me.tsModificarCadista.Visible = False
+                    End If
+            End Select
+
+            Try
+                Me.lblNodo.Text = CStr(TreeView1.SelectedNode.Parent.Name)
+            Catch ex As Exception
+                Me.lblNodo.Text = Me.lblid_proyecto.Text 'CStr(TreeView1.SelectedNode.Name)
+            End Try
+        Catch
+            Me.tsSeparator1.Visible = False
+            Me.tsSeparator2.Visible = False
+            Me.tsSeparator3.Visible = True
+            Me.tsAgregarProyectoInicial.Visible = True
+            Me.tsAgregarProyectoInicial.Enabled = True
+            Me.tsModificarProyecto.Visible = False
+            Me.tsBorrarProyecto.Visible = False
+            Me.tsAgregarActividad.Visible = False
+            Me.tsModificarActividad.Visible = False
+            Me.tsBorrarActividad.Visible = False
+            Me.tsAgregarControl.Visible = False
+            Me.tsAgregarProyecto.Visible = False
+            Me.tsPegarEstructura.Visible = False
+            Me.tsCopiarEstructura.Visible = False
+            Me.tsPegarEstructuraProyectoInicial.Visible = True
+            If banderacopiarestructura = 1 Then
+                Me.tsPegarEstructura.Enabled = True
+                Me.tsPegarEstructuraProyectoInicial.Enabled = True
+                'banderacopiarestructura = 0
+            Else
+                Me.tsPegarEstructura.Enabled = False
+                Me.tsPegarEstructuraProyectoInicial.Enabled = False
+            End If
+
+            'Me.tsPegarEstructura.Enabled = False
+            'Me.tsPegarEstructuraProyectoInicial.Enabled = False
+            'End If
+            Me.tsPegarProyecto.Visible = False
+            Me.tsCopiarProyecto.Visible = False
+            Me.tsModificarCadista.Visible = False
+            Me.tsAsignarRecurso.Enabled = True
+        End Try
+
+        'If Me.lblVariableProyecto.Text = "1" Then
+        '    tsAgregarProyecto.Enabled = True
+        '    tsModificarProyecto.Enabled = True
+        '    tsBorrarProyecto.Enabled = True
+
+        '    tsAgregarActividad.Enabled = True
+        '    tsModificarActividad.Enabled = False
+        '    tsBorrarActividad.Enabled = False
+
+        '    ' Me.tsAgregarControl.Enabled = False
+        '    Me.tsAsignarRecurso.Enabled = False
+
+        '    Me.tsCopiarEstructura.Enabled = True
+        '    Me.tsPegarEstructura.Enabled = True
+        '    Me.tsCopiarProyecto.Enabled = True
+        '    Me.tsPegarProyecto.Enabled = True
+        '    Me.tsAgregarProyectoInicial.Enabled = True
+
+
+        'ElseIf Me.lblVariableProyecto.Text = "2" Then
+        '    tsAgregarActividad.Enabled = True
+        '    tsAgregarProyecto.Enabled = False
+        '    tsModificarActividad.Enabled = True
+        '    tsModificarProyecto.Enabled = False
+        '    tsBorrarActividad.Enabled = True
+        '    tsBorrarProyecto.Enabled = False
+
+        '    Me.tsAgregarControl.Enabled = True
+        '    Me.tsAsignarRecurso.Enabled = True
+        '    Me.tsCopiarEstructura.Enabled = False
+        '    Me.tsPegarEstructura.Enabled = False
+
+        '    Me.tsCopiarProyecto.Enabled = False
+        '    Me.tsPegarProyecto.Enabled = False
+        '    Me.tsAgregarProyectoInicial.Enabled = False
+
+        'End If
+
+        If vgCodigoUsuario = 4 Then
+            Me.tsAgregarControl.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub AdministrarToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub ModificarProyectoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsModificarProyecto.Click
+        Dim frmDetalle As New frmDetalleProyecto
+
+        If Not IsNumeric(Me.lblid_proyecto.Text) Then
+            Exit Sub
+        End If
+        BanderaProyecto = 2
+        Me.AddOwnedForm(frmDetalle)
+        oProyecto.Modificar(CInt(Me.lblid_proyecto.Text))
+        frmDetalle.CargarCombos()
+        frmDetalle.ShowDialog()
+        Dim odt As New DataTable
+        odt = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+        Me.TreeView1.SelectedNode.Text = odt.Rows(0).Item("nombre_proyecto").ToString    'oProyecto.nombre_proyecto
+
+        'Me.Load_tree()
+
+
+    End Sub
+
+    Private Sub BorrarProyectoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsBorrarProyecto.Click
+        If Not IsNumeric(Me.lblid_proyecto.Text) Then
+            Exit Sub
+        End If
+
+        If MessageBox.Show("Desea Realmente Eliminar el Registro ", "BORRAR", _
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+        = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        oProyecto.Borrar(CInt(Me.lblid_proyecto.Text))
+
+        Try
+            Dim id_previo As String = ""
+            id_previo = Me.TreeView1.SelectedNode.PrevNode.Name
+
+            Me.lblid_proyecto.Text = id_previo
+            Me.lblNodoSeleccionado.Text = Me.lblid_proyecto.Text
+        Catch ex As Exception
+        End Try
+
+        TreeView1.Nodes.Remove(TreeView1.SelectedNode)
+
+        'Me.Load_tree()
+    End Sub
+
+    Private Sub CopiarProyectoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsCopiarProyecto.Click
+        Me.lblid_proyecto_copia.Text = Me.lblid_proyecto.Text
+        banderacopiarproyecto = 1         'p/ menu context
+    End Sub
+
+
+
+    Private Sub NuevoProyectoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim odt As New DataTable
+        odt = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+
+        With oProyecto
+            .Cargar()
+            .Insertar()
+            .descripcion = CStr(odt.Rows(0).Item("descripcion")) & "_1"
+            .fecha_fin_real = CDate(odt.Rows(0).Item("fecha_fin_real"))
+            .fecha_inicio = CDate(odt.Rows(0).Item("fecha_inicio"))
+            .id_cliente = CInt(odt.Rows(0).Item("id_cliente"))
+            .id_controlador_1 = CInt(odt.Rows(0).Item("id_controlador_1"))
+            .id_controlador_2 = CInt(odt.Rows(0).Item("id_controlador_2"))
+            .id_estado = CInt(odt.Rows(0).Item("id_estado"))
+            .id_proyect_manager = CInt(odt.Rows(0).Item("id_proyect_manager"))
+            .id_proyecto_padre = CInt(odt.Rows(0).Item("id_proyecto_padre"))
+            .nombre_proyecto = CStr(odt.Rows(0).Item("nombre_proyecto")) & "_1"
+            .observacion = CStr(odt.Rows(0).Item("observacion"))
+            .orden = CStr(odt.Rows(0).Item("orden"))
+            .path = CStr(odt.Rows(0).Item("path"))
+            .prioridad = CDec(odt.Rows(0).Item("prioridad"))
+            .total_hora = CDec(odt.Rows(0).Item("total_hora"))
+            .Guardar()
+        End With
+
+        Me.Load_tree()
+    End Sub
+
+
+    Private Sub AgregarControlToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsAgregarControl.Click
+        Dim odtTempCont As New DataTable
+
+        odtTempCont = oMovimiento_voz.GetActividadProyecto(CInt(Me.lblid_actividad_proyecto.Text))
+        If odtTempCont.Rows.Count > 0 Then
+            MessageBox.Show("La actividad ya posee un control asignado")
+
+            odtTempCont = oMovimiento_voz.GetActividadProyectoPrimerControl(CInt(Me.lblid_actividad_proyecto.Text))
+            If odtTempCont.Rows.Count > 0 Then
+                MessageBox.Show("El primer control de la actividad ya fue realizada")
+            End If
+            Exit Sub
+        ElseIf lblid_actividad.Text = CStr(0) Then
+            Exit Sub
+        End If
+
+
+
+        Dim frmTemp As New frmAgregarControl
+
+        Me.AddOwnedForm(frmTemp)
+        frmTemp.ShowDialog()
+        If vgbanderacontrol = True Then
+            Me.TreeView1.SelectedNode.ImageIndex = 8
+
+            Dim odtUsuario As New DataTable
+            odtUsuario = oUsuario.ConsultarTodo
+
+            Try
+                For Each row As DataRow In odtUsuario.Rows
+
+                    If vgCodigoUsuario <> CInt(row("id_usuario")) Then
+                        With oModificacion_arbol
+                            .Cargar()
+                            .Insertar()
+                            .id_actividad = CInt(Me.lblid_actividad.Text)
+                            .id_actividad_proyecto = CInt(Me.lblid_actividad_proyecto.Text)
+                            .id_proyecto = CInt(Me.lblid_proyecto.Text)
+                            .id_usuario = CInt(row("id_usuario"))
+                            .nodo = Me.TreeView1.SelectedNode.Index
+                            .nodo_padre = CDec(Me.TreeView1.SelectedNode.Name)
+                            .nombre_modificacion_arbol = "tsAgregarControl"
+                            .realizado = False
+                            .tipo_nodo = "a"
+                            .Guardar()
+                        End With
+                    End If
+
+                Next
+            Catch ex As Exception
+            End Try
+
+
+            'Load_tree()
+            vgbanderacontrol = False
+        End If
+
+        Me.RefrescarControl()
+    End Sub
+
+    Sub CargarHora()
+        Dim dtHoraLogueo As DateTime
+
+        If opInicio = True Then
+            dtHoraLogueo = vgHoraIngreso
+
+            With oMovimiento_hora
+                .Cargar()
+                .Insertar()
+                .fecha = Date.Now
+                .id_dia = 1
+                .id_usuario = vgCodigoUsuario
+                .Guardar()
+
+                vgCodigoMovimientoHora = .id_movimiento_hora
+            End With
+        Else
+            dtHoraLogueo = DateTime.Now
+        End If
+
+        opInicio = False
+
+        If Me.lblid_cuerpo_movimiento_hora.Text = "0" Then
+            With oCuerpo_movimiento_hora
+                .Cargar()
+                .Insertar()
+                .entrada = dtHoraLogueo
+                .salida = dtHoraLogueo
+                .id_actividad_proyecto = CInt(Me.lblid_pk.Text)
+                .id_movimiento_hora = vgCodigoMovimientoHora
+                .Guardar()
+
+                Me.lblid_cuerpo_movimiento_hora.Text = CStr(.id_cuerpo_movimiento_hora)
+            End With
+        Else
+            If oCuerpo_movimiento_hora.salida = oCuerpo_movimiento_hora.entrada Then
+                With oCuerpo_movimiento_hora
+                    .Cargar()
+                    .Modificar(CInt(Me.lblid_cuerpo_movimiento_hora.Text))
+                    .salida = dtHoraLogueo
+                    .Guardar()
+                End With
+                With oCuerpo_movimiento_hora
+                    .Cargar()
+                    .Insertar()
+                    .entrada = dtHoraLogueo
+                    .salida = dtHoraLogueo
+                    .id_actividad_proyecto = CInt(Me.lblid_pk.Text)
+                    .id_movimiento_hora = vgCodigoMovimientoHora
+                    .Guardar()
+
+                    Me.lblid_cuerpo_movimiento_hora.Text = CStr(.id_cuerpo_movimiento_hora)
+                End With
+            Else
+                With oCuerpo_movimiento_hora
+                    .Cargar()
+                    .Insertar()
+                    .entrada = dtHoraLogueo
+                    .salida = dtHoraLogueo
+                    .id_actividad_proyecto = CInt(Me.lblid_pk.Text)
+                    .id_movimiento_hora = vgCodigoMovimientoHora
+                    .Guardar()
+
+                    Me.lblid_cuerpo_movimiento_hora.Text = CStr(.id_cuerpo_movimiento_hora)
+                End With
+            End If
+        End If
+
+        vgControlLogueo = True
+        Me.RefrescarLogueo()
+    End Sub
+
+    Private Sub btnRealizarControl_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRealizarControl.Click
+        'look for a node with a text property value of 'Node3'
+        Me.lblid_actividad_proyecto.Text = Me.lblid_pk.Text
+        Me.lblid_actividad.Text = Me.lblid_pk_actividad.Text
+        Me.lblid_proyecto.Text = Me.lblid_pk_proyecto.Text
+
+
+        If Me.dgvControl.RowCount <= 0 Then
+            Exit Sub
+        End If
+
+        If Me.chkP.Checked = False And Me.chk1.Checked = False And Me.chk2.Checked = False Then
+            With oMovimiento_voz
+                .Cargar()
+                .Modificar(CInt(Me.lblid_movimiento_voz.Text))
+                .id_cadista = vgCodigoUsuario
+                .Guardar()
+            End With
+        End If
+
+
+        'TreeView1.SelectedNode = GetNodeKey(CInt(Me.lblid_proyecto.Text), CInt(Me.lblid_actividad.Text), TreeView1.Nodes)
+        TreeView1.SelectedNode = GetNodeKeyProyecto(CInt("-" & Me.lblid_pk_actividad.Text), TreeView1.Nodes)
+
+        TreeView1.Select()
+
+        'If Me.TreeView1.SelectedNode Is Nothing Then
+        '    Exit Sub
+        'End If
+
+        Me.Visible = False
+
+        Me.CargarHora()
+
+
+        'If MessageBox.Show("Desea marcar todo el control como revisado? ", "Control", _
+        'MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = Windows.Forms.DialogResult.Yes Then
+        '    Dim odtCuerpoMov As New DataTable
+        '    odtCuerpoMov = oCuerpo_movimiento_voz.GetAllMovimiento(CInt(Me.lblid_movimiento_voz.Text))
+
+        '    For Each row As DataRow In odtCuerpoMov.Rows
+        '        With oCuerpo_movimiento_voz
+        '            .Cargar()
+        '            .Modificar(CInt(row("id cuerpo movimiento voz")))
+        '            .ok1 = True
+        '            .completado = True
+        '            .completado_pm = True
+        '            .Guardar()
+        '        End With
+        '    Next
+        'Else
+
+        'Dim odtTemp As New DataTable
+        'Dim blProduccion As Boolean = False
+        'Dim intCadista As Integer = 0
+
+        'odtTemp = oMovimiento_voz.GetOne(CInt(Me.lblid_movimiento_voz.Text))
+        'intCadista = CInt(odtTemp.Rows(0).Item("id_cadista"))
+
+
+
+        Dim frmTemp As New frmControlActividad
+        Me.AddOwnedForm(frmTemp)
+        frmTemp.ShowDialog()
+
+
+        Dim odtActividadenProceso As New DataTable
+        odtActividadenProceso = oMovimiento_voz.GetActividadProyectoEnProceso(CInt(Me.lblid_actividad_proyecto.Text))
+        Dim odtTempCont As New DataTable
+
+        odtTempCont = oMovimiento_voz.GetActividadProyecto(CInt(Me.lblid_actividad_proyecto.Text))
+        '_______________________________________________
+        'Dim a As Integer
+        'a = CInt(odtTempCont.Rows(0).Item("completado"))
+        'If a = 0 Then
+        '    Me.TreeView1.SelectedNode.ImageIndex = 8
+        'Else
+
+        '_______________________________________________
+        If odtTempCont.Rows.Count > 0 Then
+            odtTempCont = oMovimiento_voz.GetActividadProyectoCompleto(CInt(Me.lblid_actividad_proyecto.Text))
+
+            If odtTempCont.Rows.Count > 0 Then
+                Me.TreeView1.SelectedNode.ImageIndex = 8
+                If odtActividadenProceso.Rows.Count > 0 Then
+                    Me.TreeView1.SelectedNode.ImageIndex = 9
+                End If
+            Else
+                Me.TreeView1.SelectedNode.ImageIndex = 6
+            End If
+        Else
+            Me.TreeView1.SelectedNode.ImageIndex = 1
+        End If
+
+        'End If
+
+        '__________________________
+        'End If
+        '______________________
+        'Select Case vgPermisoUsuario
+        '    'administrador
+        '    Case 1
+        '        'usuario
+        '        'se agrego pq el usuario no podia realizar control
+        '        Me.CargarHora()
+
+        '        Dim frmTemp As New frmControlActividad
+        '        Me.AddOwnedForm(frmTemp)
+        '        frmTemp.ShowDialog()
+
+        '    Case 2
+
+        '        'proyect manager
+        '    Case 3
+        '        Dim frmTemp As New frmControlPM
+        '        Me.AddOwnedForm(frmTemp)
+        '        frmTemp.ShowDialog()
+
+
+
+        '        'cadista
+        '    Case 4
+        '        Me.CargarHora()
+
+        '        Dim frmTemp As New frmControlActividad
+        '        Me.AddOwnedForm(frmTemp)
+        '        frmTemp.ShowDialog()
+
+        '        'administrativos
+        '    Case 5
+        '        'agregado 
+        '        'no existia funcionalidad para realizar la actividad
+        '        'pero si la podia agregar
+        '        Me.CargarHora()
+
+        '        Dim frmTemp As New frmControlActividad
+        '        Me.AddOwnedForm(frmTemp)
+        '        frmTemp.ShowDialog()
+
+
+
+        '        'agregado reciente 
+        '        'Piloto Proyecta
+        '    Case 6
+        '        Me.CargarHora()
+
+        '        Dim frmTemp As New frmControlActividad
+        '        Me.AddOwnedForm(frmTemp)
+        '        frmTemp.ShowDialog()
+
+        'End Select
+
+        Me.Visible = True
+        vgControlLogueo = True
+        Me.RefrescarControl()
+    End Sub
+
+
+    Private Sub dgvControl_CurrentCellChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgvControl.CurrentCellChanged
+
+        Try
+            Me.lblid_pk.Text = CStr(Me.dgvControl.Item(0, Me.dgvControl.CurrentRow.Index).Value)
+            Me.lblid_pk_proyecto.Text = CStr(Me.dgvControl.Item("id_proyecto", Me.dgvControl.CurrentRow.Index).Value)
+            Me.lblid_pk_actividad.Text = CStr(Me.dgvControl.Item("id_actividad", Me.dgvControl.CurrentRow.Index).Value)
+            Me.lblid_control.Text = CStr(Me.dgvControl.Item("id_control", Me.dgvControl.CurrentRow.Index).Value)
+            Me.lblid_movimiento_voz.Text = CStr(Me.dgvControl.Item("id_movimiento_voz", Me.dgvControl.CurrentRow.Index).Value)
+
+            Me.chkP.Checked = CBool(Me.dgvControl.Item("P", Me.dgvControl.CurrentRow.Index).Value)
+            Me.chk1.Checked = CBool(Me.dgvControl.Item("1", Me.dgvControl.CurrentRow.Index).Value)
+            Me.chk2.Checked = CBool(Me.dgvControl.Item("2", Me.dgvControl.CurrentRow.Index).Value)
+
+            If Me.chkP.Checked = False And Me.chk1.Checked = False And Me.chk2.Checked = False Then
+                vgNumeroControl = 1
+            ElseIf Me.chkP.Checked = True And Me.chk1.Checked = False And Me.chk2.Checked = False Then
+                vgNumeroControl = 2
+            ElseIf Me.chkP.Checked = True And Me.chk1.Checked = True And Me.chk2.Checked = False Then
+                vgNumeroControl = 3
+            End If
+
+            TreeView1.SelectedNode = GetNodeKeyProyecto(CInt("-" & Me.lblid_pk_actividad.Text), TreeView1.Nodes)
+
+            TreeView1.Select()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+
+    Private Sub tsmiPegarProyecto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsPegarProyecto.Click
+        Dim odt As New DataTable
+        odt = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+
+        Dim odtCopia As New DataTable
+        odtCopia = oProyecto.GetOne(CInt(Me.lblid_proyecto_copia.Text))
+
+        With oProyecto
+            .Cargar()
+            .Insertar()
+            .descripcion = CStr(odtCopia.Rows(0).Item("descripcion")) & "_1"
+            .nombre_proyecto = CStr(odtCopia.Rows(0).Item("nombre_proyecto")) & "_1"
+            .id_cliente = CInt(odt.Rows(0).Item("id_cliente"))
+            .id_proyecto_padre = CInt(Me.lblid_proyecto.Text) 'CInt(odt.Rows(0).Item("id_proyecto_padre"))
+            .id_proyect_manager = CInt(odt.Rows(0).Item("id_proyect_manager"))
+            .fecha_inicio = CDate(odt.Rows(0).Item("fecha_inicio"))
+            .fecha_fin_prevista = CDate(odt.Rows(0).Item("fecha_fin_prevista"))
+            .fecha_fin_real = CDate(odt.Rows(0).Item("fecha_fin_real"))
+            .orden = CStr(odt.Rows(0).Item("orden"))
+            .id_estado = CInt(odt.Rows(0).Item("id_estado"))
+            .total_hora = CDec(odt.Rows(0).Item("total_hora"))
+            .prioridad = CDec(odt.Rows(0).Item("prioridad"))
+            .observacion = CStr(odt.Rows(0).Item("observacion"))
+            .id_controlador_1 = CInt(odt.Rows(0).Item("id_controlador_1"))
+            .id_controlador_2 = CInt(odt.Rows(0).Item("id_controlador_2"))
+            .path = vgProyectoSeleccionado
+            .Guardar()
+        End With
+
+        Me.Load_tree()
+    End Sub
+
+
+    Private Sub tsmiAgregarActividad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsAgregarActividad.Click
+        Dim odtAct As New DataTable
+        odtAct = oActividad.GetOne(CInt(Me.lblid_actividad.Text))
+        Dim odtProy As New DataTable
+        odtProy = oProyecto.GetOne(CInt(Me.lblid_proyecto.Text))
+        Dim n As Integer
+        Dim str As String
+
+        Dim rowAct As DataRow
+
+        If odtAct.Rows.Count > 0 Then
+            rowAct = odtAct.Rows(0)
+
+            Dim odtAP As New DataTable
+            odtAP = oActividad_proyecto.GetMaxOrden(CInt(Me.lblid_proyecto.Text))
+
+            Me.txtOrden.Text = CStr(CDec(odtAP.Rows(0).Item("orden")) + 1)
+
+            With oActividad
+                .Cargar()
+                .Insertar()
+                .nombre_actividad = CStr(rowAct.Item("nombre_actividad")) & "_1"
+                .id_tipo_actividad = CInt(rowAct.Item("id_tipo_actividad"))
+                .tiempo_standart = CDec(rowAct.Item("tiempo_standart"))
+                .Guardar()
+                Me.lblid_actividad.Text = CStr(.id_actividad)
+            End With
+
+            Dim odtUsuario As New DataTable
+            odtUsuario = oUsuario.GetCmbPM
+
+            With oActividad_proyecto
+                .Cargar()
+                .Insertar()
+                .id_actividad = CInt(Me.lblid_actividad.Text)
+
+                .Guardar()
+
+                .id_proyecto = CInt(Me.lblid_proyecto.Text)
+                .orden = CDec(Me.txtOrden.Text)
+
+                If odtProy.Rows.Count > 0 Then
+                    .id_controlador_1 = CInt(odtProy.Rows(0).Item("id_controlador_1"))
+                    .id_controlador_2 = CInt(odtProy.Rows(0).Item("id_controlador_2"))
+                Else
+                    If odtUsuario.Rows.Count > 0 Then
+                        .id_controlador_1 = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+                        .id_controlador_2 = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+                    Else
+                        .id_controlador_1 = 1
+                        .id_controlador_2 = 1
+                    End If
+                End If
+
+
+                .Guardar()
+                Me.lblid_actividad_proyecto.Text = CStr(.id_actividad_proyecto)
+            End With
+        Else
+            Dim odtUsuario As New DataTable
+            odtUsuario = oUsuario.GetCmbPM
+
+          
+            With oActividad
+                .Cargar()
+                .Insertar()
+                .nombre_actividad = "Nueva Actividad"
+                .id_tipo_actividad = 1
+                .tiempo_standart = 1
+                'acametercod
+
+                Me.lblid_actividad.Text = CStr(.id_actividad)
+                'Dim odtact2 As New DataTable
+                'odtact2 = oActividad.GetOne(CInt(Me.lblid_actividad.Text))
+                str = CStr(.nombre_actividad)
+                Dim tabla, tabla1 As New DataTable
+                tabla = oActividad.GetAllExiste2(CInt(odtProy.Rows(0).Item("id_proyecto")), str)
+
+                If tabla.Rows.Count > 0 Then
+                    For i As Integer = 1 To tabla.Rows.Count
+                        tabla1 = oActividad.GetAllExiste2(CInt(odtProy.Rows(0).Item("id_proyecto")), str & "_" & i)
+                        If tabla1.Rows.Count = 0 Then
+                            n = i
+                            Exit For
+                        End If
+                        i += 1
+                    Next
+                    If n <> 0 Then
+
+                        .nombre_actividad = str & "_" & n
+                    Else
+                        .nombre_actividad = CStr(odtAct.Rows(0).Item("nombre_actividad")) & "_" & tabla.Rows.Count + 1
+                    End If
+                Else
+
+                    .nombre_actividad = CStr(odtAct.Rows(0).Item("nombre_actividad")) & "_1"
+                End If
+
+
+               
+            End With
+
+            With oActividad_proyecto
+                .Cargar()
+                .Insertar()
+                .id_actividad = CInt(Me.lblid_actividad.Text)
+
+                .id_proyecto = CInt(Me.lblid_proyecto.Text)
+                .orden = 1
+
+                If odtProy.Rows.Count > 0 Then
+                    .id_controlador_1 = CInt(odtProy.Rows(0).Item("id_controlador_1"))
+                    .id_controlador_2 = CInt(odtProy.Rows(0).Item("id_controlador_2"))
+                Else
+                    If odtUsuario.Rows.Count > 0 Then
+                        .id_controlador_1 = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+                        .id_controlador_2 = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+                    Else
+                        .id_controlador_1 = 1
+                        .id_controlador_2 = 1
+                    End If
+                End If
+                .Guardar()
+                Me.lblid_actividad_proyecto.Text = CStr(.id_actividad_proyecto)
+            End With
+        End If
+
+
+
+
+        Dim frmDetalle As New frmDetalleActividad
+
+        If Not IsNumeric(Me.lblid_actividad.Text) Then
+            Exit Sub
+        End If
+
+        BanderaActividad = 2
+        Me.AddOwnedForm(frmDetalle)
+        oActividad.Modificar(CInt(Me.lblid_actividad.Text))
+        frmDetalle.CargarCombos()
+        frmDetalle.ShowDialog()
+        If vgbanderactividad = True Then
+            TreeView1.SelectedNode.Nodes.Add(CStr(CDec(Me.lblid_actividad.Text) * -1), CStr(oActividad.nombre_actividad), 1, 3)
+
+            Dim odr As New stArbol
+
+
+
+
+
+            'Dim child As New TreeNode()
+            'child.Text = dr("nombre_actividad").ToString().Trim()
+            'Dim temp As String = dr("id_actividad").ToString()
+
+            odr.tipo = "a"
+            odr.id_proyecto = CInt(Me.lblid_proyecto.Text)
+            odr.id_actividad = CInt(Me.lblid_actividad.Text)
+            odr.icono = 1
+            odr.icono_seleccionado = 3
+
+            TreeView1.SelectedNode.Tag = odr
+
+            'child.Tag = odr
+
+            'child.Collapse()
+
+            '' parent.Nodes.Add(child)
+
+            'child = Parent.Nodes.Add(CStr(CDec(dr("id_actividad")) * -1), CStr(dr("nombre_actividad")), intIconoActividad, 3)
+            'child.Tag = odr
+
+            ' Me.Load_tree()
+            vgbanderactividad = False
+        Else
+            oActividad.Borrar(CInt(Me.lblid_actividad.Text))
+
+            'Dim id_previo As String = ""
+            'id_previo = Me.TreeView1.SelectedNode.Parent.Name
+
+            'Me.lblid_proyecto.Text = id_previo
+            Me.lblNodoSeleccionado.Text = Me.lblid_proyecto.Text
+
+            'TreeView1.Nodes.Remove(TreeView1.SelectedNode)
+        End If
+    End Sub
+
+    Private Sub tsmiModificarActividad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsModificarActividad.Click
+        Dim frmDetalle As New frmDetalleActividad
+
+        If Not IsNumeric(Me.lblid_actividad.Text) Or Me.lblid_actividad.Text = CStr(0) Then
+            Exit Sub
+        End If
+        BanderaActividad = 2
+        Me.AddOwnedForm(frmDetalle)
+        oActividad.Modificar(Math.Abs(CInt(Me.lblid_actividad.Text)))
+
+        banderamodifact = 1
+
+        frmDetalle.CargarCombos()
+        frmDetalle.ShowDialog()
+
+        Me.TreeView1.SelectedNode.Text = oActividad.nombre_actividad
+        '   Me.Load_tree()
+
+
+    End Sub
+
+    Private Sub tsmiBorrarActividad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsBorrarActividad.Click
+        If Not IsNumeric(Me.lblid_actividad.Text) Or Me.lblid_actividad.Text = CStr(0) Then
+            Exit Sub
+        End If
+
+        If MessageBox.Show("Desea Realmente Eliminar el Registro ", "BORRAR", _
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+        = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        oActividad.Borrar(CInt(Me.lblid_actividad.Text))
+
+        Dim id_previo As String = ""
+        id_previo = Me.TreeView1.SelectedNode.Parent.Name
+
+        Me.lblid_proyecto.Text = id_previo
+        Me.lblNodoSeleccionado.Text = Me.lblid_proyecto.Text
+
+        TreeView1.Nodes.Remove(TreeView1.SelectedNode)
+        ' Me.Load_tree()
+    End Sub
+
+    Private Sub AdministrarToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsAdministrarSeguridad.Click
+        Dim frmTemp As New frmSeguridad
+        frmTemp.ShowDialog()
+    End Sub
+
+
+    Private Sub ReordenarVocesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsReordenarVoz.Click
+        oVoz.UpdateRandom()
+        MessageBox.Show("El orden aleatoreo de las voces ha cambiado correctamente")
+    End Sub
+
+    Private Sub Calendario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsCalendarioAnual.Click
+        Dim frmTemp As New frmAbmCalendario
+        frmTemp.ShowDialog()
+    End Sub
+
+    Private Sub AdministrarToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsAdministrarHora.Click
+        Dim frmTemp As New frmAbmMovimiento_hora
+        frmTemp.ShowDialog()
+    End Sub
+
+
+    Private Sub tsSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsSalir.Click
+        If MessageBox.Show("Desea Realmente Salir del Sistema ", "SALIR", _
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+        = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        If Me.lblid_cuerpo_movimiento_hora.Text = "0" Then
+            Me.Close()
+        End If
+        Try
+            With oCuerpo_movimiento_hora
+                .Cargar()
+                .Modificar(CInt(Me.lblid_cuerpo_movimiento_hora.Text))
+                .salida = DateTime.Now
+                .Guardar()
+            End With
+        Catch ex As Exception
+        End Try
+
+        Me.Close()
+    End Sub
+
+    Private Sub tsAdministrarControl_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsAdministrarControl.Click
+        Dim frmTemp As New frmMainControl
+        frmTemp.ShowDialog()
+    End Sub
+
+    'timer
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        Dim odtPendiente As New DataTable
+        odtPendiente = oModificacion_arbol.GetAllPendiente(vgCodigoUsuario)
+
+        For Each row As DataRow In odtPendiente.Rows
+            Select Case row("nombre modificacion arbol").ToString
+
+                'Case "tsAdministrarControl"
+                '    Me.tsAdministrarControl.Enabled = CBool(dr("habilitado"))
+                'Case "tsAdministrarCuentaCliente"
+                '    Me.tsAdministrarCuentaCliente.Enabled = CBool(dr("habilitado"))
+                'Case "tsAdministrarCuentaProveedor"
+                '    Me.tsAdministrarCuentaProveedor.Enabled = CBool(dr("habilitado"))
+                'Case "tsAdministrarIva"
+                '    Me.tsAdministrarIva.Enabled = CBool(dr("habilitado"))
+                'Case "tsAdministrarHora"
+                '    Me.tsAdministrarHora.Enabled = CBool(dr("habilitado"))
+                'Case "tsAdministrarSeguridad"
+                '    Me.tsAdministrarSeguridad.Enabled = CBool(dr("habilitado"))
+
+                'Case "tsAgregarActividad"
+                '    Me.tsAgregarActividad.Enabled = CBool(dr("habilitado"))
+                Case "tsAgregarControl"
+                    Dim var As Integer
+                    var = 0
+                    var = CInt(Me.lblid_actividad.Text)
+
+                    TreeView1.SelectedNode = GetNodeKeyProyecto(CInt("" & row("id actividad").ToString), TreeView1.Nodes)
+                    TreeView1.Select()
+                    Try
+                        Me.TreeView1.SelectedNode.ImageIndex = 8
+                    Catch ex As Exception
+
+                    End Try
+
+
+
+                    With oModificacion_arbol
+                        .Cargar()
+                        .Modificar(CInt(row("id modificacion arbol")))
+                        .realizado = True
+                        .Guardar()
+                    End With
+
+                    TreeView1.SelectedNode = GetNodeKeyProyecto(-var, TreeView1.Nodes)
+                    TreeView1.Select()
+
+
+                    '    Me.tsAgregarControl.Enabled = CBool(dr("habilitado"))
+                    'Case "tsAgregarFactura"
+                    '    Me.tsAgregarFactura.Enabled = CBool(dr("habilitado"))
+                    'Case "tsAgregarProyecto"
+                    '    Me.tsAgregarProyecto.Enabled = CBool(dr("habilitado"))
+                    'Case "tsAgregarProyectoInicial"
+                    '    Me.tsAgregarProyectoInicial.Enabled = CBool(dr("habilitado"))
+                    'Case "tsPegarEstructuraProyectoInicial"
+                    '    Me.tsPegarEstructuraProyectoInicial.Enabled = CBool(dr("habilitado")) 'agregado
+
+                    'Case "tsAsignarRecurso"
+                    '    Me.tsAsignarRecurso.Enabled = CBool(dr("habilitado"))
+                    'Case "tsBorrarActividad"
+                    '    Me.tsBorrarActividad.Enabled = CBool(dr("habilitado"))
+                    'Case "tsBorrarHoraDevolver"
+                    '    Me.tsBorrarHoraDevolver.Enabled = CBool(dr("habilitado"))
+                    'Case "tsBorrarProyecto"
+                    '    Me.tsBorrarProyecto.Enabled = CBool(dr("habilitado"))
+                    'Case "tsCalendarioAnual"
+                    '    Me.tsCalendarioAnual.Enabled = CBool(dr("habilitado"))
+                    'Case "tsCopiarEstructura"
+                    '    Me.tsCopiarEstructura.Enabled = CBool(dr("habilitado"))
+                    'Case "tsCopiarProyecto"
+                    '    Me.tsCopiarProyecto.Enabled = CBool(dr("habilitado"))
+                    'Case "tsHorasADevolver"
+                    '    Me.tsHorasADevolver.Enabled = CBool(dr("habilitado"))
+                    'Case "tsModificarActividad"
+                    '    Me.tsModificarActividad.Enabled = CBool(dr("habilitado"))
+                    'Case "tsModificarHoraDevolver"
+                    '    Me.tsModificarHoraDevolver.Enabled = CBool(dr("habilitado"))
+                    'Case "tsModificarProyecto"
+                    '    Me.tsModificarProyecto.Enabled = CBool(dr("habilitado"))
+                    'Case "tsMostrarProyectosOcultos"
+                    '    Me.tsMostrarProyectosOcultos.Enabled = CBool(dr("habilitado"))
+                    'Case "tsNuevoCalendario"
+                    '    Me.tsNuevoCalendario.Enabled = CBool(dr("habilitado"))
+                    'Case "tsPegarEstructura"
+                    '    Me.tsPegarEstructura.Enabled = CBool(dr("habilitado"))
+                    'Case "tsPegarProyecto"
+                    '    Me.tsPegarProyecto.Enabled = CBool(dr("habilitado"))
+                    'Case "tsReordenarVoz"
+                    '    Me.tsReordenarVoz.Enabled = CBool(dr("habilitado"))
+                    'Case "tsRevisarCalendario"
+                    '    Me.tsRevisarCalendario.Enabled = CBool(dr("habilitado"))
+
+                    'Case "tsCliente"
+                    '    Me.tsCliente.Enabled = CBool(dr("habilitado"))
+                    'Case "tsControl"
+                    '    Me.tsControl.Enabled = CBool(dr("habilitado"))
+                    'Case "tsFactura"
+                    '    Me.tsFactura.Enabled = CBool(dr("habilitado"))
+                    'Case "tsHora"
+                    '    Me.tsHora.Enabled = CBool(dr("habilitado"))
+                    'Case "tsIva"
+                    '    Me.tsIva.Enabled = CBool(dr("habilitado"))
+                    'Case "tsProveedor"
+                    '    Me.tsProveedor.Enabled = CBool(dr("habilitado"))
+                    'Case "tsProyecto"
+                    '    Me.tsProyecto.Enabled = CBool(dr("habilitado"))
+                    'Case "tsSeguridad"
+                    '    Me.tsSeguridad.Enabled = CBool(dr("habilitado"))
+            End Select
+
+        Next
+
+    End Sub
+
+
+    Private Sub VerProyectosOcultos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsVerProyectosOcultos.Click
+        Me.chkProyectoOculto.Checked = True
+        'agregado
+        Me.cbx_factura.Checked = False
+        Me.Load_tree()
+        Me.TreeView1.ContextMenuStrip = Me.cmsProyecto
+    End Sub
+
+    Private Sub MostrarProyectosOcultos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsMostrarProyectosOcultos.Click
+        Me.chkProyectoOculto.Checked = False
+        Me.cbx_factura.Checked = False
+        Me.Load_tree()
+        Me.TreeView1.ContextMenuStrip = Me.cmsProyecto
+    End Sub
+
+    Private Sub chkControlProyecto_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkControlProyecto.CheckedChanged
+        Try
+            Me.RefrescarControl()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub tsAsignarRecurso_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsAsignarRecurso.Click
+        Dim frmDetalle As New frmDetalleDetalle_recurso
+        oDetalle_recurso.Cargar()
+        oDetalle_recurso.Insertar()
+
+        If Not IsNumeric(Me.lblid_detalle_recurso.Text) Then
+            Exit Sub
+        End If
+        BanderaDetalle_recurso = 1
+        Me.AddOwnedForm(frmDetalle)
+
+
+        frmDetalle.CargarCombos()
+        frmDetalle.ShowDialog()
+
+        'Me.Load_tree()
+    End Sub
+
+    Private Sub tsAgregarProyectoInicial_Click(sender As System.Object, e As System.EventArgs) Handles tsAgregarProyectoInicial.Click
+        Dim idproy As Integer
+        Dim blExiste As Boolean = True
+        Dim odt As New DataTable
+        Dim strNombre As String = "PROYECTO_INICIAL"
+        Dim contador As Integer = 1
+        odt = oProyecto.GetAllExiste(strNombre)
+
+        While blExiste = True
+            If odt.Rows.Count <= 0 Then
+                blExiste = False
+            Else
+                strNombre = "PROYECTO_INICIAL_" & CStr(contador)
+                contador = contador + 1
+                odt = oProyecto.GetAllExiste(strNombre)
+            End If
+        End While
+
+        Dim odtUsuario As New DataTable
+        odtUsuario = oUsuario.GetCmbPM
+
+        With oProyecto
+            .Cargar()
+            .Insertar()
+            .descripcion = strNombre
+            .fecha_fin_real = DateTime.Now
+            .fecha_inicio = DateTime.Now
+            .id_cliente = 1
+
+            'If odtUsuario.Rows.Count > 0 Then
+            '    .id_controlador_1 = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+            '    .id_controlador_2 = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+            '    .id_proyect_manager = CInt(odtUsuario.Rows(0).Item("id_usuario"))
+            'Else
+            .id_controlador_1 = 9
+            .id_controlador_2 = 9
+            .id_proyect_manager = 9
+            ' End If
+
+            .id_estado = 1
+
+            .id_proyecto_padre = 1
+            .nombre_proyecto = strNombre
+            .observacion = "-"
+            .orden = "-"
+            .path = strNombre
+            .prioridad = 1
+            .total_hora = 1
+            .Guardar()
+        End With
+
+        Me.lblid_proyecto.Text = CStr(oProyecto.id_proyecto)
+        idproy = CInt(Me.lblid_proyecto.Text)
+
+        Dim frmDetalle As New frmDetalleProyecto
+
+        If Not IsNumeric(Me.lblid_proyecto.Text) Then
+            Exit Sub
+        End If
+        BanderaProyecto = 2
+        Me.AddOwnedForm(frmDetalle)
+        oProyecto.Modificar(CInt(Me.lblid_proyecto.Text))
+        frmDetalle.CargarCombos()
+        frmDetalle.ShowDialog()
+
+        If vgbanderaproyecto = True Then
+
+            TreeView1.Nodes.Add(CStr(idproy), CStr(oProyecto.nombre_proyecto), 0, 5)
+
+            Dim odr As New stArbol
+
+            'Dim child As New TreeNode()
+            'child.Text = dr("nombre_actividad").ToString().Trim()
+            'Dim temp As String = dr("id_actividad").ToString()
+
+            odr.tipo = "p"
+            odr.id_proyecto = CInt(Me.lblid_proyecto.Text)
+            odr.id_actividad = 0
+            odr.icono = 0
+
+            TreeView1.SelectedNode.Tag = odr
+
+            '  Me.Load_tree()
+
+            '  Me.TreeView1.CollapseAll()
+            '  Me.TreeView1.SelectedNode = Me.TreeView1.SelectedNode.LastNode
+            vgbanderaproyecto = False
+        Else
+            oProyecto.Borrar(CInt(oProyecto.id_proyecto))
+
+            Try
+                Dim id_previo As String = ""
+                id_previo = Me.TreeView1.SelectedNode.Name
+                Me.lblid_proyecto.Text = id_previo
+                Me.lblNodoSeleccionado.Text = Me.lblid_proyecto.Text
+            Catch ex As Exception
+            End Try
+        End If
+        Me.lblNodoSeleccionado.Text = Me.lblid_proyecto.Text
+    End Sub
+
+
+    Private Sub tsCopiarEstructura_Click(sender As System.Object, e As System.EventArgs) Handles tsCopiarEstructura.Click
+        'coloco el id del proyecto de origen que es el que se va ha copiar
+        Me.lblid_proyecto_origen.Text = Me.lblid_proyecto.Text
+        banderacopiarestructura = 1
+    End Sub
+
+    Private Sub tsPegarEstructura_Click(sender As System.Object, e As System.EventArgs) Handles tsPegarEstructura.Click
+        Me.Load_treeCopiar()
+        Me.Load_tree()
+    End Sub
+
+    Private Sub btnRealizarTarea_Click(sender As System.Object, e As System.EventArgs)
+        oDetalle_recurso.PonerRealizada(CInt(Me.lblid_detalle_recurso.Text))
+        Me.RefrescarTarea()
+    End Sub
+
+    Private Sub dgv1_CurrentCellChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgvTarea.CurrentCellChanged
+        Try
+            Me.lblid_detalle_recurso.Text = CStr(Me.dgvTarea.Item(0, Me.dgvTarea.CurrentRow.Index).Value)
+        Catch ex As Exception
+        End Try
+        If Not IsNumeric(Me.lblid_detalle_recurso.Text) Then
+            Exit Sub
+        End If
+
+        'Dim odt As New DataTable
+        'odt = oDetalle_recurso.GetOne(CInt(Me.lblid_detalle_recurso.Text))
+
+
+        Try
+            Me.TreeView1.CollapseAll()
+            Me.lblid_actividad.Text = CStr(Me.dgvTarea.Item("id_actividad", Me.dgvTarea.CurrentRow.Index).Value)
+            Me.TreeView1.SelectedNode = Me.GetNodeKeyProyecto(CInt(Me.lblid_actividad.Text) * -1, Me.TreeView1.Nodes)
+            Me.TreeView1.SelectedNode.ExpandAll()
+        Catch ex As Exception
+            ' MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub tsNuevoCalendario_Click(sender As System.Object, e As System.EventArgs) Handles tsNuevoCalendario.Click
+        Dim frmTemp As New frmNuevoCalendario
+        frmTemp.ShowDialog()
+    End Sub
+
+    Private Sub tsRevisarCalendario_Click(sender As System.Object, e As System.EventArgs) Handles tsRevisarCalendario.Click
+        Dim frmTemp As New frmAbmCalendario_usuario
+        frmTemp.ShowDialog()
+    End Sub
+
+
+    Private Sub tsHorasAdevolver_Click(sender As System.Object, e As System.EventArgs) Handles tsHorasADevolver.Click
+        Dim btnTemp As New Button
+        Dim frmDetalle As New frmDetalleHora_a_devolver
+
+        oHora_a_devolver.Cargar()
+
+
+        Try
+
+            BanderaHora_a_devolver = 1
+            Me.AddOwnedForm(frmDetalle)
+            oHora_a_devolver.Insertar()
+            frmDetalle.CargarCombos()
+            frmDetalle.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        RefrescarHoraADevolver()
+    End Sub
+
+    'Public Sub RefrescarGrilla()
+    '    Dim odt As DataTable
+
+    '    odt = oHora_a_devolver.ConsultarTodo()
+    '    Me.dgv1.DataSource = odt
+    '    Me.dgv1.Columns(0).Visible = False
+    '    Me.dgv1.Columns(1).Visible = False
+    'End Sub
+
+    Private Sub tsHora_Click(sender As System.Object, e As System.EventArgs) Handles tsHora.Click
+        RefrescarHoraADevolver()
+    End Sub
+
+    Private Sub tsFactura_Click(sender As System.Object, e As System.EventArgs)
+        'modificado
+        'Dim frmTemp As New frmAbmFactura
+        'frmTemp.ShowDialog()
+
+        'ahora tiene que llamar el arbol load_tree_factura
+        Me.cbx_factura.Checked = True
+        Me.Load_tree()
+        Me.TreeView1.ContextMenuStrip = Me.ctm_factura
+    End Sub
+
+
+
+
+
+    Private Sub AgregarFacturaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles tsAgregarFactura.Click
+        Dim frmTemp As New frmAbmFactura
+        'agregado para obtener referencia
+        Me.AddOwnedForm(frmTemp)
+        frmTemp.ShowDialog()
+    End Sub
+
+    Private Sub tsProyecto_Click(sender As System.Object, e As System.EventArgs) Handles tsProyecto.Click
+        Me.cbx_factura.Checked = False
+        'Me.Load_tree()
+        Me.TreeView1.ContextMenuStrip = Me.cmsProyecto
+    End Sub
+
+
+    Private Sub tsAdministrarIva_Click(sender As System.Object, e As System.EventArgs) Handles tsAdministrarIva.Click
+        Dim frmTemp As New frmAbmGestion_iva
+        frmTemp.ShowDialog()
+    End Sub
+
+    Private Sub tsAdministrarCuentaProveedor_Click(sender As System.Object, e As System.EventArgs) Handles tsAdministrarCuentaProveedor.Click
+        Dim frmTemp As New frmResumenProveedor
+        frmTemp.ShowDialog()
+    End Sub
+
+    Private Sub tsAdministrarCuentaCliente_Click(sender As System.Object, e As System.EventArgs) Handles tsAdministrarCuentaCliente.Click
+        Dim frmTemp As New frmResumenCliente
+        frmTemp.ShowDialog()
+    End Sub
+
+
+    Private Sub PegarEstructuraProyectoInicialToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles tsPegarEstructuraProyectoInicial.Click
+        copia1 = 1
+        Me.Load_treeCopiar()
+        Me.Load_tree()
+    End Sub
+
+    'agregado
+    Private Sub btn_mostrar_Click(sender As System.Object, e As System.EventArgs)
+        'Dim odt As New DataTable
+        'Dim decTot As Decimal = 0
+
+        'odt = oHora_a_devolver.GetAll_2(DateTime.Now)
+
+        'dgv1.DataSource = odt
+        'Me.dgv1.Columns(0).Visible = False
+        'Me.dgv1.Columns(1).Visible = False
+
+        'For Each row As DataRow In odt.Rows
+        '    decTot = decTot + CDec(row.Item("hora"))
+        'Next
+
+        'Me.lblTablero_1.Text = "Horas a Devolver por Usuario"
+        'Me.lblTableroTotal_1.Text = CStr(decTot)
+
+        ''agregado para mostrar botones
+        'Me.btn_cancelar.Visible = True
+        'Me.btn_modificar.Visible = True
+        RefrescarHoraADevolver()
+    End Sub
+
+    ' modifica horas pendientes
+    Private Sub btn_modificar_Click(sender As System.Object, e As System.EventArgs)
+        If lblid_horas_pendiente.Text = "0" Then
+            MsgBox("No selecciono el usuario a modificar Horas pendientes")
+        Else
+            Dim btnTemp As New Button
+            Dim frmDetalle As New frmDetalleHora_a_devolver
+            oHora_a_devolver.Cargar()
+            Try
+
+                BanderaHora_a_devolver = 2
+                Me.AddOwnedForm(frmDetalle)
+                oHora_a_devolver.Modificar(CInt(lblid_horas_pendiente.Text))
+                frmDetalle.CargarCombos()
+                frmDetalle.ShowDialog()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
+        RefrescarHoraADevolver()
+    End Sub
+
+    Private Sub dgv1_CurrentCellChanged_1(sender As System.Object, e As System.EventArgs) Handles dgv1.CurrentCellChanged
+        Try
+            Me.lblid_horas_pendiente.Text = CStr(Me.dgv1.Item(0, Me.dgv1.CurrentRow.Index).Value)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Sub RefrescarHoraADevolver()
+        Dim odt As New DataTable
+        Dim decTot As Decimal = 0
+
+        odt = oHora_a_devolver.GetAll_3(DateTime.Now, vgCodigoUsuario)
+
+        dgv1.DataSource = odt
+        Me.dgv1.Columns(0).Visible = False
+        Me.dgv1.Columns(1).Visible = False
+
+        For Each row As DataRow In odt.Rows
+            decTot = decTot + CDec(row.Item("hora"))
+        Next
+
+        Me.lblTablero_1.Text = "Horas a Devolver por Usuario"
+        Me.lblTableroTotal_1.Text = CStr(decTot)
+    End Sub
+
+    Private Sub btn_cancelar_Click(sender As System.Object, e As System.EventArgs)
+        If lblid_horas_pendiente.Text = "0" Then
+            MsgBox("Solecciono el usuario a borrar horas pendientes")
+        Else
+            oHora_a_devolver.Borrar(CInt(lblid_horas_pendiente.Text))
+        End If
+        RefrescarHoraADevolver()
+    End Sub
+
+    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
+        Try
+            With oCuerpo_movimiento_hora
+                .Cargar()
+                .Modificar(CInt(Me.lblid_cuerpo_movimiento_hora.Text))
+                .salida = DateTime.Now
+                .Guardar()
+            End With
+            Me.RefrescarLogueo()
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+
+    Private Sub tsModificarHoraDevolver_Click(sender As System.Object, e As System.EventArgs) Handles tsModificarHoraDevolver.Click
+        If lblid_horas_pendiente.Text = "0" Then
+            MsgBox("No selecciono el usuario a modificar Horas pendientes")
+        Else
+            Dim btnTemp As New Button
+            Dim frmDetalle As New frmDetalleHora_a_devolver
+            oHora_a_devolver.Cargar()
+            Try
+
+                BanderaHora_a_devolver = 2
+                Me.AddOwnedForm(frmDetalle)
+                oHora_a_devolver.Modificar(CInt(lblid_horas_pendiente.Text))
+                frmDetalle.CargarCombos()
+                frmDetalle.ShowDialog()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
+        RefrescarHoraADevolver()
+    End Sub
+
+    Private Sub tsBorrarHoraDevolver_Click(sender As System.Object, e As System.EventArgs) Handles tsBorrarHoraDevolver.Click
+        If lblid_horas_pendiente.Text = "0" Then
+            MsgBox("No selecciono el usuario a borrar horas pendientes")
+        Else
+            oHora_a_devolver.Borrar(CInt(lblid_horas_pendiente.Text))
+        End If
+        RefrescarHoraADevolver()
+    End Sub
+
+    Private Sub tsActualizarTareaPendiente_Click(sender As System.Object, e As System.EventArgs) Handles tsActualizarTareaPendiente.Click
+        Me.RefrescarTarea()
+    End Sub
+
+    Private Sub MarcarTareaComoRealizadaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles MarcarTareaComoRealizadaToolStripMenuItem.Click
+        oDetalle_recurso.PonerRealizada(CInt(Me.lblid_detalle_recurso.Text))
+        Me.RefrescarTarea()
+    End Sub
+
+
+    'agregado par actualizar arbol de logueados
+    Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Timer3.Tick
+        ' Me.Load_tree()
+    End Sub
+
+    'agregado para ver todas las tareas pendientes sin filtro de usuario
+
+    Sub ControlTarea_all()
+        Dim odtTarea As New DataTable
+
+        odtTarea = oDetalle_recurso.GetAllPendiente()
+
+        Me.dgvTarea.DataSource = odtTarea
+        Me.dgvTarea.Columns(0).Visible = False
+        Me.dgvTarea.Columns("id_proyecto").Visible = False
+        Me.dgvTarea.Columns("id_actividad_proyecto").Visible = False
+        Me.dgvTarea.Columns("id_actividad").Visible = False
+
+        If odtTarea.Rows.Count <= 0 Then
+            ' Me.txtEstado.Text = "CONTROLES REALIZADOS"
+            Me.txtEstadoTarea.BackColor = Color.YellowGreen
+        Else
+            ' Me.txtEstado.Text = "CONTROLES PENDIENTES"
+            Me.txtEstadoTarea.BackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub VerTodasLasTareasPendientesToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles VerTodasLasTareasPendientesToolStripMenuItem.Click
+        ControlTarea_all()
+    End Sub
+
+    'agregado recien para tareas por usuario
+    Private Sub tsTareasXUsuario_MouseHover(sender As System.Object, e As System.EventArgs) Handles tsTareasXUsuario.MouseHover
+        Me.tsTareasXUsuario.DropDownItems.Clear()
+        Dim odtUsuarios As New DataTable
+        odtUsuarios = oUsuario.GetActivo()
+
+        For Each row As DataRow In odtUsuarios.Rows
+            Dim menu As New ToolStripMenuItem
+            Dim img As Image = Nothing
+
+            menu.Name = "ts" & CStr(row.Item("Nombre_usuario"))
+            menu.Text = CStr(row.Item("Nombre_usuario"))
+            tsTareasXUsuario.DropDownItems.Add(menu.Text, img, New EventHandler(AddressOf crearEvento_Click))
+            'tsTareasXUsuario.DropDownItems.Add(menu)
+        Next
+    End Sub
+    Public Sub crearEvento_Click(ByVal sender As Object, ByVal e As System.EventArgs)
+        Dim odtTarea1 As New DataTable
+
+        odtTarea1 = oDetalle_recurso.GetPendienteUsuario(CType(sender, ToolStripMenuItem).Text)
+
+        Me.dgvTarea.DataSource = odtTarea1
+        Me.dgvTarea.Columns(0).Visible = False
+        Me.dgvTarea.Columns("id_proyecto").Visible = False
+        Me.dgvTarea.Columns("id_actividad_proyecto").Visible = False
+        Me.dgvTarea.Columns("id_actividad").Visible = False
+
+        If odtTarea1.Rows.Count <= 0 Then
+            ' Me.txtEstado.Text = "CONTROLES REALIZADOS"
+            Me.txtEstadoTarea.BackColor = Color.YellowGreen
+        Else
+            ' Me.txtEstado.Text = "CONTROLES PENDIENTES"
+            Me.txtEstadoTarea.BackColor = Color.Red
+        End If
+    End Sub
+
+    'agregado para TsAgregar_control
+    'Private Sub tsAgregar_control_Click(sender As System.Object, e As System.EventArgs) Handles tsAgregar_control.Click
+    '    'agrega un control nuevo
+    '    'solo habilitado para usuarios cadistas
+    '    Dim blExiste As Boolean = True
+    '    Dim odt As New DataTable
+    '    Dim strNombre As String = "CONTROL_NUEVO"
+    '    Dim contador As Integer = 1
+    '    odt = oControl.GetAllExiste(strNombre)
+
+    '    While blExiste = True
+    '        If odt.Rows.Count <= 0 Then
+    '            blExiste = False
+    '        Else
+    '            strNombre = "CONTROL_NUEVO_" & CStr(contador)
+    '            contador = contador + 1
+    '            odt = oControl.GetAllExiste(strNombre)
+    '        End If
+    '    End While
+
+    '    With oControl
+    '        .Cargar()
+    '        .Insertar()
+    '        .nombre_control = strNombre
+    '        .Guardar()
+    '    End With
+
+    '    'Me.lblid_control.Text = CStr(oControl.id_control)
+    '    Dim frm As New frmMainControl
+    '    frm.ShowDialog()
+    'End Sub
+
+    Private Sub btnBorrarControl_Click(sender As System.Object, e As System.EventArgs) Handles btnBorrarControl.Click
+        If Not IsNumeric(Me.lblid_movimiento_voz.Text) Then
+            Exit Sub
+        End If
+
+        If MessageBox.Show("Desea Realmente Eliminar el Registro ", "BORRAR", _
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+        = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        oMovimiento_voz.Borrar(CInt(Me.lblid_movimiento_voz.Text))
+        Me.RefrescarControl()
+    End Sub
+
+
+    Private Sub btnRefrescarControl_Click(sender As System.Object, e As System.EventArgs) Handles btnRefrescarControl.Click
+        Me.RefrescarControl()
+    End Sub
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        Dim intFuente As Integer = 0
+        intFuente = CInt(Me.TreeView1.Font.Size)
+
+        If intFuente < 30 Then
+            Me.TreeView1.Font = New Font(Me.TreeView1.Font.Name, intFuente + 1)
+        End If
+
+    End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        Dim intFuente As Integer = 0
+        intFuente = CInt(Me.TreeView1.Font.Size)
+        If intFuente > 5 Then
+            Me.TreeView1.Font = New Font(Me.TreeView1.Font.Name, intFuente - 1)
+        End If
+
+    End Sub
+
+    'coloca el rojo en la celdas negativas
+    Private Sub dgvControl_CellFormatting(ByVal sender As Object, _
+    ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) _
+        Handles dgvControl.CellFormatting
+
+        Try
+            If Me.dgvControl.Columns(e.ColumnIndex).Name = "2" Then
+                If CBool(e.Value) = True Then
+                    dgvControl.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Green
+                    Exit Sub
+                End If
+            End If
+            If Me.dgvControl.Columns(e.ColumnIndex).Name = "1" Then
+                If CBool(e.Value) = True Then
+                    dgvControl.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.GreenYellow
+                    Exit Sub
+                End If
+            End If
+            If Me.dgvControl.Columns(e.ColumnIndex).Name = "P" Then
+                If CBool(e.Value) = True Then
+                    dgvControl.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Yellow
+                    Exit Sub
+                End If
+            End If
+
+
+
+            If dgvControl.Columns(e.ColumnIndex).Name.Equals("Segundo_control") = True Then
+                If CBool(e.Value) = True Then
+                    dgvControl.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Green
+
+                ElseIf dgvControl.Columns(e.ColumnIndex).Name.Equals("Primer_control") = True Then
+                    If CBool(e.Value) = True Then
+                        dgvControl.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.YellowGreen
+
+                    ElseIf dgvControl.Columns(e.ColumnIndex).Name.Equals("Produccion") = True Then
+                        If CBool(e.Value) = True Then
+                            dgvControl.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Yellow
+                        End If
+                    End If
+
+                End If
+            End If
+
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub tsModificarCadista_Click(sender As System.Object, e As System.EventArgs) Handles tsModificarCadista.Click
+        Dim odtTempCont As New DataTable
+
+        odtTempCont = oMovimiento_voz.GetActividadProyecto(CInt(Me.lblid_actividad_proyecto.Text))
+        If odtTempCont.Rows.Count > 0 Then
+            With oMovimiento_voz
+                .Cargar()
+                .Modificar(CInt(odtTempCont.Rows(0).Item("id_movimiento_voz")))
+                .id_cadista = vgCodigoUsuario
+                .Guardar()
+            End With
+            MessageBox.Show("se modifico el cadista al usuario actual")
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+        Me.Load_tree()
+
+    End Sub
+
+    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+        MessageBox.Show("proyecto: " & Me.lblid_proyecto.Text & vbCr &
+                        "actividad: " & Me.lblid_actividad.Text & vbCr & _
+                        "actividad_proyecto: " & Me.lblid_actividad_proyecto.Text & vbCr & _
+                        "control: " & Me.lblid_control.Text)
+    End Sub
+
+    Private Sub tsAdministrarCaja_Click(sender As System.Object, e As System.EventArgs) Handles tsAdministrarCaja.Click
+        Dim frmTemp As New frmResumenCaja
+        frmTemp.ShowDialog()
+    End Sub
+
+    Private Sub tsAdministrarBanco_Click(sender As System.Object, e As System.EventArgs) Handles tsAdministrarBanco.Click
+        Dim frmTemp As New Frmmovbancos
+        frmTemp.ShowDialog()
+    End Sub
+
+
+   
+    Private Sub RecorrerNodos(treeNode As TreeNode)
+        Try
+            'Si el nodo que recibimos tiene hijos se recorrerá
+            'para luego verificar si esta o no checado
+            For Each tn As TreeNode In treeNode.Nodes
+                Dim odr As New stArbol
+                odr = CType(tn.Tag, stArbol)
+                MessageBox.Show(tn.Name + " " + tn.Text)
+                If odr.tipo = "a" Then
+                    MessageBox.Show(tn.Name + " " + tn.Text)
+
+                End If
+                ''Se Verifica si esta marcado...
+                'If tn.Checked = True Then
+                '    'Si esta marcado mostramos el texto del nodo
+                '    'descomentar
+                '    MessageBox.Show(TreeView1.Text)
+                'End If
+                ''Ahora hago verificacion a los hijos del nodo actual            
+                ''Esta iteración no acabara hasta llegar al ultimo nodo principal
+                RecorrerNodos(treeNode)
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub RecorrerTreeView(ByRef Nodos As TreeNodeCollection)
+        Dim odtTemp As New DataTable
+
+        'un nodo solo
+        If Nodos.Count = 0 Then
+            Dim nodo_act As TreeNode
+
+            nodo_act = Me.TreeView1.SelectedNode
+
+            Dim odr As New stArbol
+            odr = CType(nodo_act.Tag, stArbol)
+            If odr.tipo = "a" Then
+                With oTemp_actividad_proyecto
+                    .Cargar()
+                    .Insertar()
+                    .id_actividad = odr.id_actividad
+                    .id_proyecto = odr.id_proyecto
+
+                    odtTemp = oActividad_proyecto.GetOne_3(.id_proyecto, .id_actividad)
+
+                    .id_actividad_proyecto = CInt(odtTemp.Rows(0).Item("id_actividad_proyecto"))
+
+                    .id_usuario = vgCodigoUsuario
+                    .Guardar()
+                End With
+                ' MessageBox.Show("actividad: " + Nodo.Name + " " + Nodo.Text)
+            ElseIf odr.tipo = "p" Then
+                ' MessageBox.Show("proyecto: " + Nodo.Name + " " + Nodo.Text)
+            End If
+            Exit Sub
+        End If
+
+
+        For Each Nodo As TreeNode In Nodos
+            'If Nodo.Nodes.Count = 0 Then
+            '    ' Nodo.Text = "Hijo"
+            'Else
+            '    ' Nodo.Text = "Padre"
+            '    RecorrerTreeView(Nodo.Nodes)
+            'End If
+
+            Dim odr As New stArbol
+            odr = CType(Nodo.Tag, stArbol)
+            If odr.tipo = "a" Then
+                With oTemp_actividad_proyecto
+                    .Cargar()
+                    .Insertar()
+                    .id_actividad = odr.id_actividad
+                    .id_proyecto = odr.id_proyecto
+
+                    odtTemp = oActividad_proyecto.GetOne_3(.id_proyecto, .id_actividad)
+
+                    .id_actividad_proyecto = CInt(odtTemp.Rows(0).Item("id_actividad_proyecto"))
+
+                    .id_usuario = vgCodigoUsuario
+                    .Guardar()
+                End With
+                ' MessageBox.Show("actividad: " + Nodo.Name + " " + Nodo.Text)
+            ElseIf odr.tipo = "p" Then
+                ' MessageBox.Show("proyecto: " + Nodo.Name + " " + Nodo.Text)
+            End If
+            RecorrerTreeView(Nodo.Nodes)
+            'MessageBox.Show(Nodo.Name + " " + Nodo.Text)
+        Next
+    End Sub
+
+    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
+        ''Se Declara una colección de nodos apartir de tu Treeview
+        ''del que se va a recorrer
+        'Dim nodes As TreeNodeCollection = Me.TreeView1.Nodes
+        ''Se recorren los nodos principales
+        'For Each n As TreeNode In nodes
+        '    'Se Declara un metodo para que recorra los hijos de los principales
+        '    'Y los hijos de los hijos....Recorrido Total en pocas palabras
+        '    'Para ello se envía el nodo actual para evaluar si tiene hijos
+        '    RecorrerNodos(n)
+        'Next
+
+        'Me.RecorrerNodos(Me.TreeView1.SelectedNode)
+
+        Me.Cursor = Cursors.WaitCursor
+
+        With oTemp_actividad_proyecto
+            .Cargar()
+            .BorrarTemporal(vgCodigoUsuario)
+        End With
+
+
+        Me.RecorrerTreeView(Me.TreeView1.SelectedNode.Nodes)
+
+        Dim odt As New DataTable
+        odt = oCuerpo_movimiento_hora.GetAllConsumida(vgCodigoUsuario)
+        Me.dgvHorasConsumidas.DataSource = odt
+
+        Dim decHora As Decimal = 0
+        For Each row As DataRow In odt.Rows
+            decHora = decHora + CDec(row("horas"))
+        Next
+
+        Me.txtHoraConsumida.Text = FormatNumber(decHora)
+
+        Me.Cursor = Cursors.Default
+    End Sub
+
+
+End Class

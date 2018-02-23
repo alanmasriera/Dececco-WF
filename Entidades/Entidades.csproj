@@ -1,0 +1,3855 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94DC587E-20A0-4845-952F-AB8A39AE4BF3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entidades</RootNamespace>
+    <AssemblyName>Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actividad.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Actividad_proyecto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACTIVIDAD_TIPO_SUBPROYECTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALMACEN.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Anotaciones_Proyecto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Asiento_modelo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ASIGNACION_Iva.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AvanceSubproyecto.cs" />
+    <Compile Include="BANCO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Calendario.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Calendario_Laboral.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Calendario_usuario.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Calle.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria_voz.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHEQUERA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHEQUES_LIBRADOS.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHEQUES_RECIBIDOS.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHEQUE_LIBRADO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHEQUE_PROVEEDOR.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHEQUE_PROVEEDOR_2.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHEQUE_RECIBIDO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHEQUE_TEMPORAL.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClaseExpGantt.cs" />
+    <Compile Include="Cliente.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CLIENTE_MAESTRO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Codigo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONDICION.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONDICION_EXPORTA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Condicion_iva.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="condicion_venta.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Consultar_Errores_X_Fecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta_saldo_cliente.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta_saldo_proveedor.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contacto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Control.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL_SUBPROYECTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllDeSubproyectoAsignados_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllProyectoActivoOrdenHorasSinasignar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllProyectoConHijos_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllProyecto_conCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllProyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllSubProyectoConHijos_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllSubProyectoOrdenHorasSinasignar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllSubProyectoSinHijosHorasRealesActuales_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAllSubProyectoSinHijos_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetControl_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_1act_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_4_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_5_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_6_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_7_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_8_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Actividad_proyecto_GetOne_subproyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Almacen_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Almacen_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Almacen_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Almacen_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Anotaciones_Proyecto_GetFromProyectoAdmin_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Anotaciones_Proyecto_GetFromProyectoCadista_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Anotaciones_Proyecto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asiento_modelo_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asiento_modelo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asiento_modelo_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asiento_modelo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asiento_modelo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asiento_modelo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asignacion_iva_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asignacion_Iva_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asignacion_iva_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asignacion_iva_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asignacion_iva_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Asignacion_Iva_GetPrint_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_BANCO_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Banco_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_BANCO_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Banco_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Banco_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Banco_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calendario_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calendario_GetAllAnio_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calendario_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calendario_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calendario_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calendario_usuario_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calendario_usuario_GetDia_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calendario_usuario_GetMiembrosAnio_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_calendario_usuario_HorasTotalesEntreFechasPorUsuario_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_calendario_usuario_HorasTotalesEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_calendario_usuario_ObtenerPorFechausuario_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calle_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calle_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calle_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Calle_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_voz_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_voz_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_voz_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_voz_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_voz_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Categoria_voz_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeLibradoConsultar2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeLibradoConsultarEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeLibradoConsultarPorCheque_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeLibradoConsultarPorFechaLibrado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeLibradoConsultarPorFechaPago_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeLibradoConsultarPorProveedor_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeLibradoConsultar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeLibrado_GetReporte_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Chequeras_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Chequeras_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Chequeras_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Chequeras_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Chequeras_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Chequeras_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Chequeras_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeRecibidoConsultar2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeRecibidoConsultar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeRecibidoEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeRecibidoPorCheque_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeRecibidoPorCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeRecibidoPorFechaCobro_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_ChequeRecibidoPorFechaRecibido_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_librados_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_librados_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_librados_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_librados_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_librados_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_recibidos_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_recibidos_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_recibidos_GetCheque_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_recibidos_GetCmbCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_recibidos_GetCmbFacturaCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_recibidos_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheques_recibidos_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_librado_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_librado_GetAllGrilla_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_librado_GetAllGrilla_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_librado_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_librado_GetCmbProveedor_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_librado_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_librado_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_2_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_2_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_2_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_2_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_2_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_GetAllRecibo_proveedor_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_recibido_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_recibido_GetAllGrilla_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_recibido_GetAllGrilla_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_recibido_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_recibido_GetCmbFacturaCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_recibido_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_recibido_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_recibido_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_temporal_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_temporal_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_temporal_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cheque_temporal_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_GetCmb_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_maestro_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_maestro_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_maestro_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cliente_maestro_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Codigo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Codigo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Codigo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Codigo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Condicion_iva_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Condicion_iva_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Condicion_iva_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Condicion_iva_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Condicion_venta_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Condicion_venta_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Condicion_venta_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Condicion_venta_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_cliente_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_cliente_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_cliente_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_cliente_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_cliente_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_proveedor_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Consulta_saldo_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Contacto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Contacto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Contacto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Contacto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Control_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Control_GetAllControl_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Control_GetAllExiste_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Control_GetAllVoz_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Control_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Control_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Control_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_control_subproyecto_getAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_control_subproyecto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_control_subproyecto_GetFromSubproyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_control_subproyecto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_CreditoConsultarEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_CreditoConsultarPorFecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_CreditoConsultarPorNumero_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_CreditoConsultar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Creditos_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Creditos_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Creditos_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Creditos_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Creditos_GetQuery_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_CuentaBuscarBanco_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_CUENTAS_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuentas_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_CUENTAS_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuentas_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuentas_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuentas_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuentas_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuenta_imputable_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuenta_imputable_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuenta_imputable_GetAllCuentaImputable_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuenta_imputable_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuenta_imputable_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuenta_imputable_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuenta_imputable_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_exporta_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_exporta_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_exporta_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_exporta_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_exporta_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_proveedor_GetAllFacturaOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_proveedor_GetAllFacturaTotal_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_proveedor_GetAllFactura_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_proveedor_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_factura_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_EstaLogueado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAllConsumida_ActividadProyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAllConsumida_Actividad_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAllConsumida_detalleRecurso_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAllConsumida_Proyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAllConsumida_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAllConsumida_Subproyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAllMovimientoControl_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAllMovimiento_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_cuerpo_movimiento_hora_GetHorasConsumidas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_cuerpo_movimiento_hora_getLogueoDia_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_cuerpo_movimiento_hora_getLogueosActuales_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetOne_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_hora_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_cuerpo_movimiento_hora_obtenerPorUsuarioYFecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_libro_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_libro_GetAllMovimiento_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_libro_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_libro_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_libro_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllControl_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllGrilla_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllInicioPM_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllInicio_2_PM_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllInicio_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllInicio_4_PM_Completado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllInicio_4_PM_ConPendientes_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllInicio_4_PM_EnEspera_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllInicio_4_PM_Todos_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllInicio_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllMovimientoCerrado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllMovimientoGetRevision_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllMovimientoTipoVoz_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAllMovimiento_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetInformacion_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_getObservaciones_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_movimiento_voz_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_orden_compra_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_orden_compra_GetAllMovimiento2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_orden_compra_GetAllMovimiento_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_orden_compra_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_orden_compra_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_orden_compra_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_presupuesto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_presupuesto_GetAllMovimiento_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_presupuesto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_presupuesto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_presupuesto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_remito_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_remito_GetAllMovimiento_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_remito_GetAllMovimiento_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_remito_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_remito_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_remito_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Cuerpo_remito_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DebitoConsultarEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DebitoConsultarPorFecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DebitoConsultarPorNumero_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DebitoConsultar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Debitos_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Debitos_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Debitos_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Debitos_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Debitos_GetQuery_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Departamento_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Departamento_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Departamento_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Departamento_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Departamento_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DepositoConsultarEfectivo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DepositoConsultarEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DepositoConsultarPorFecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DepositoConsultarPorNumero_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_DepositoConsultar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Depositos_efectivo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Depositos_efectivo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Depositos_efectivo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Depositos_efectivo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Deposito_GetQuery_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Detalle_recurso_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Detalle_recurso_GetAllPendiente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Detalle_recurso_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Detalle_recurso_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_detalle_recurso_getFromActividad_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Detalle_recurso_GetOneIngreso_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Detalle_recurso_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Detalle_recurso_GetPendienteUsuario_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Detalle_recurso_GetPendiente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_detalle_recurso_HorasAsignadasEntreFechasPorUsuario_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_detalle_recurso_obtenerCandidatosActividadSinTiempo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_detalle_recurso_obtenerCandidatosActividad_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_detalle_recurso_TodaInformacion_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_detalle_recurso_verificarNoTrabajaEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_tarde_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_tarde_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_tarde_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Dia_tarde_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_GetAllEntreFecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_GetAllGrilla_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_GetAllRecibo_proveedor_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_proveedor_GetAllEgreso_efectivo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_proveedor_GetAllRecibo_proveedor_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_proveedor_GetImporte_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Egreso_efectivo_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_renglon_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_renglon_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_renglon_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empleado_renglon_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empresa_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empresa_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empresa_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Empresa_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Estado_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Estado_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Estado_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Estado_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Estado_Subproyecto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_estado_subproyecto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_estado_subproyecto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_estado_subproyecto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_exporta_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_exporta_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_exporta_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_exporta_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_FindCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_GetAll_VencidaBD_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetCmbFacturaCliente_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetCmbFacturaCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetCmbFacturaProveedor_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetExist1_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetExist_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_GetPrint_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_Find_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_proveedor_GetAllEstado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_proveedor_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_GetAll_BPBD_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_proveedor_GetAll_Entre_Fechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_GetAll_Recibo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_GetAll_VencidaBD1_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_GetAll_VencidaBD_All_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_GetAll_VencidaBD_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_factura_proveedor_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_recibo_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_recibo_proveedor_GetAllFacturaProveedor_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_recibo_proveedor_GetAllRecibo_proveedor_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_Recibo_proveedor_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_recibo_proveedor_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_recibo_proveedor_GetAll_4_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_recibo_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_recibo_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Factura_recibo_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Forma_pago_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Forma_pago_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Forma_pago_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Forma_pago_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_GastoConsultarEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_GastoConsultarPorFecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_GastoConsultar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Gastos_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Gastos_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Gastos_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Gastos_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Gastos_GetQuery_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_permiso_Exist_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_permiso_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_permiso_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_permiso_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_permiso_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_permiso_GetPermiso_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_producto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_producto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_producto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_producto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_usuario_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_usuario_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_usuario_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Grupo_usuario_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Hora_a_devolver_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Hora_a_devolver_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Hora_a_devolver_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Hora_a_devolver_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Hora_a_devolver_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Hora_a_devolver_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_hora_tipo_subproyecto_getOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Ingreso_efectivo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Ingreso_efectivo_GetAllEntreFecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Ingreso_efectivo_GetAllGrilla_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Ingreso_efectivo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Ingreso_efectivo_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Ingreso_efectivo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Ingreso_efectivo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Item_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Item_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Item_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Item_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_GetOneDate_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_temp_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_temp_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_temp_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_temp_GetCierre_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_temp_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_compra_temp_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_GetAll_Asignacion_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_GetAll_Pagos_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_GetPrint_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_GetAllPeriodo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_GetOneDate_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_temp_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_temp_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_temp_GetCierre_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_temp_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Iva_venta_temp_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Libro_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Libro_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Libro_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Libro_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Libro_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Libro_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Limite_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Limite_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Limite_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Limite_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Limite_GetLimit_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Limite_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_LOCALIDAD_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Localidad_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_LOCALIDAD_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Localidad_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Localidad_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Localidad_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Localidad_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Logueo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Logueo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Logueo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Logueo_GetLogueado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Logueo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Log_error_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Log_error_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Log_error_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Log_error_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_contacto_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_contacto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_contacto_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_contacto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_contacto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_contacto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Mail_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Marca_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Marca_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Marca_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Marca_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Medio_entrega_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Medio_entrega_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Medio_entrega_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Medio_entrega_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Modificacion_arbol_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Modificacion_arbol_GetAllPendiente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Modificacion_arbol_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Modificacion_arbol_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Modificacion_arbol_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Moneda_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Moneda_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Moneda_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Moneda_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_GetAllControl_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_GetAllControl_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_GetAll_4_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_GetAll_6_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_hora_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_libro_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_libro_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_libro_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_libro_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_libro_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_GetAllControlUnCodigo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_GetAllControl_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_GetAllControl_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_manual_GetYaExiste_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_voz_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_voz_GetActividadProyectoCompleto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_voz_GetActividadProyectoEnProceso_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_voz_GetActividadProyectoPrimerControl_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_voz_GetActividadProyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_voz_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_voz_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Movimiento_voz_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_movimiento_voz_obtenerDetallesExtras_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_movimiento_voz_obtenerEstados_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel1_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel1_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel1_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel1_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel2_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel2_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel2_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel2_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel3_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel3_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel3_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Nivel3_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_GetOne_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_social_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_social_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_social_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Obra_social_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Orden_compra_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Orden_compra_GetAll2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Orden_compra_GetAll3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Orden_compra_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Orden_compra_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Orden_compra_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Orden_compra_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_cliente_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_cliente_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_cliente_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_cliente_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_cliente_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_cliente_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_cliente_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_iva_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_Iva_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_iva_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_iva_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_iva_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_Iva_GetPrint_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_proveedor_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_proveedor_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Pago_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Periodo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Periodo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Periodo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Periodo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Permiso_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Permiso_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Permiso_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Permiso_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Persona_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Persona_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Persona_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Persona_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precedencia_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precedencia_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precedencia_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precedencia_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_GetProductoId_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_GetProductoProducto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Precio_GetProducto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Presupuesto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Presupuesto_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Presupuesto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Presupuesto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Presupuesto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_Find_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_GetCmb2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_GetOneCodigo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Producto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Provincia_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Provincia_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Provincia_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Provincia_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetAllExiste_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetAllFirst_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetAllProyectos_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetAll_facturas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetClientes_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetCmbArchivado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetCmbAsignados_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_getProyectosHijos_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetTreeArchivado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetTreePadre_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetTreePadre_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetTree_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetTree_conCliente_nvaImpl_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetTree_conCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Proyecto_GetTree_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerActividadesControles_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerAvanceConcepto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerAvanceDetallado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerAvancePreparacion_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerClienteProyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerLogueadoDiaActual_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerPorOT_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_obtenerResponsables_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_proyecto_proyectoLogueadoAhora_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_2_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_2_GetAllPagoCliente_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_2_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_2_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_2_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_GetAllPagoCliente_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_GetAllPagoCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_cheque_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_GetAllFactura_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_GetAllIngeso_factura_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_GetAllPagoCliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_GetOne_factura_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_ingreso_efectivo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_ingreso_efectivo_GetAllIngeso_efectivo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_ingreso_efectivo_GetAllPagoCliente_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_ingreso_efectivo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_ingreso_efectivo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_ingreso_efectivo_GetImporte2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_cliente_ingreso_efectivo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_proveedor_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_proveedor_GetAll_4_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_sueldo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_sueldo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_sueldo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_sueldo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_sueldo_temporal_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_sueldo_temporal_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_sueldo_temporal_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Recibo_sueldo_temporal_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Remito_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Remito_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Remito_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Remito_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Remito_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Renglon_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Renglon_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Renglon_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Renglon_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Renglon_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Renglon_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_caja_temporal_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_caja_temporal_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_caja_temporal_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_caja_temporal_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_Set_BD_All_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_Set_BD_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_Set_Month_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_Set_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_temporal_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_temporal_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_temporal_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cliente_temporal_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_2_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_2_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_2_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_2_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_2_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_2_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_2_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_2_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_ConsultarResumenCuenta2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_caja_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_ConsultarResumenCuenta2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_cuenta_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_iva_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_iva_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_iva_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_iva_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_Iva_GetPrint_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_Iva_Set_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_iva_temporal_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_iva_temporal_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_iva_temporal_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_iva_temporal_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_Iva_temporal_GetPrint_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_Set_BD_All_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_Set_BD_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_Set_Month_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_Set_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_Set_SP_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_temporal_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_temporal_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_temporal_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_proveedor_temporal_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_temporal_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_temporal_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_temporal_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Resumen_temporal_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldos_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldos_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldos_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldos_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_bancos_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_bancos_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_bancos_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_bancos_GetMax_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_bancos_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_caja_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_caja_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_caja_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_caja_GetMax_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_caja_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_cliente_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_cliente_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_cliente_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_cliente_GetMax_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_cliente_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_iva_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_iva_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_iva_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_Iva_GetMax_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_iva_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_Iva_GetPrint_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_proveedor_GetMax_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Saldo_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sereno_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sereno_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sereno_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sereno_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetAllProducto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetAlmacen_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetCodigo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetProductoAlmacen_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetStockAlmacenID_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Stock_GetStockAlmacen_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_getAllFromProyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_getFromProyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_obtenerActividadesControles_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_obtenerAvanceConcepto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_obtenerAvanceDetallado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_obtenerAvancePreparacion_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_obtenerHijos_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_obtenerPadres_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_obtenerPorOT_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_subproyecto_obtenerProyectopath_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_SUBTIPO_PRODUCTO_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Subtipo_producto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_SUBTIPO_PRODUCTO_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Subtipo_producto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Subtipo_producto_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Subtipo_producto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Subtipo_producto_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Subtipo_producto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sucursal_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sucursal_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sucursal_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sucursal_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sucursal_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Sucursal_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp1_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp1_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp1_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp1_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp1_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp_actividad_proyecto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp_actividad_proyecto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp_actividad_proyecto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp_actividad_proyecto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp_grilla_pago_cliente_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp_grilla_pago_cliente_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp_grilla_pago_cliente_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Temp_grilla_pago_cliente_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_actividad_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_actividad_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_actividad_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_actividad_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_tipo_actividad_usuario_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_tipo_actividad_usuario_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_Actividad_Usuario_GetFromTipoActividad_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_Actividad_Usuario_GetFromUsuario_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_tipo_actividad_usuario_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_asiento_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_asiento_GetAllModelo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_asiento_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_asiento_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_asiento_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_comprobante_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_comprobante_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_comprobante_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_comprobante_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_dni_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_dni_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_dni_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_dni_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_egreso_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_egreso_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_egreso_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_egreso_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_empleado_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_empleado_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_empleado_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_empleado_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_hora_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_hora_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_hora_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_hora_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_moneda_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_moneda_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_moneda_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_moneda_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_periodo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_periodo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_periodo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_periodo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_TIPO_PRODUCTO_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_producto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_TIPO_PRODUCTO_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_producto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_producto_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_producto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_producto_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_producto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_proveedor_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_proveedor_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_proveedor_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_proveedor_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_renglon_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_renglon_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_renglon_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_renglon_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_tipo_subproyecto_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_tipo_subproyecto_getCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_tipo_subproyecto_obtenerActividades_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_tipo_subproyecto_obtenerHORAS_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_ExisVoz_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetAllArbol_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetAllArbol_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetAllArbol_4_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetAllArbol_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetAllExiste_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Tipo_voz_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_tipo_voz_verificarIntegridadPorcentaje_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Total_sueldo_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Total_sueldo_GetAguinaldo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Total_sueldo_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Total_sueldo_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Total_sueldo_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Total_sueldo_GetReporte_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_TransferenciaConsultarEntreFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_TransferenciaConsultarPorFecha_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_TransferenciaConsultarPorNumero_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_TransferenciaConsultar_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Transferencias_bancarias_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Transferencias_bancarias_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Transferencias_bancarias_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Transferencias_bancarias_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Transferencia_GetQuery_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Unidad_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Unidad_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Unidad_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Unidad_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_USUARIO_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetActivo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_usuario_getAllNombres_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_USUARIO_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetCmbPM_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetCmb_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetCmb_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetOne_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetOne_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetPermiso_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetPermiso_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetPorGrupo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_GetUser_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_permiso_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_permiso_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_permiso_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_permiso_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_permiso_GetOne_Usuario_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_usuario_proyecto_EsPMoPiloto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_usuario_proyecto_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_usuario_proyecto_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_usuario_proyecto_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Usuario_tienePermiso_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Versionado_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Versionado_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Versionado_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Versionado_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_cop_Voz_GetNextCode_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_GetAllExiste_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_ExisVoz_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_Find_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_Find_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetAll_2_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetAll_3_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetAll_4_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetAll_5_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetAll_6_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetAll_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetCmb_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetDuplicado_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_GetOne_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cop_Voz_tipo_voz_verificarIntegridadPorcentaje_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUENTA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta_imputable.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUERPO_FACTURA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUERPO_FACTURA_EXPORTA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUERPO_FACTURA_PROVEEDOR.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cuerpo_movimiento_hora.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cuerpo_movimiento_libro.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cuerpo_movimiento_voz.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cuerpo_orden_compra.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cuerpo_presupuesto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cuerpo_remito.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Prueba_hora.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatosTarea.cs" />
+    <Compile Include="DEBITO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Definicion_Calendario_Laboral.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DEPARTAMENTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DEPOSITOS_EFECTIVO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DescarModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Detalle_Calendario_Laboral.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Detalle_recurso.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dia.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dia_tarde.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EGRESO_EFECTIVO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Egreso_efectivo_proveedor.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado_renglon.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPRESA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estado.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoTarea.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estado_Proyecto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ESTADO_SUBPROYECTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Excepcion_Calendario.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FACTURA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FACTURA_EXPORTA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FACTURA_PROVEEDOR.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Factura_recibo_proveedor.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_obtenerHijo_Subproyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_obtenerMiembros_Subproyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_obtenerPadres_Proyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_obtenerPadres_Subproyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forma_pago.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GASTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getCuerpoMovimientoObservaciones_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getCuerpoMovimientoPorTipo_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getRPPMovimiento_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="GRUPO_PERMISO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GRUPO_PRODUCTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GRUPO_USUARIO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hora_a_devolver.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HORA_TIPO_SUBPROYECTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INGRESO_EFECTIVO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITEM.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Iva.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Iva_compra.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Iva_compra_temp.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Iva_venta.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Iva_venta_temp.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Libro.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LIMITE.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOCALIDAD.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logueo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log_Error.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mail.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mail_contacto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MARCA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medio_entrega.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modificacion_arbol.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Moneda.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento_hora.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento_libro.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento_manual.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento_voz.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nivel1.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nivel2.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nivel3.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Obra.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Obra_social.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Orden_compra.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDEN_TRABAJO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pago_cliente.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAGO_Iva.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pago_proveedor.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Periodo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PERMISO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persona.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Precedencia.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRECIO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prepago.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presupuesto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Programacion_Actividad.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROVEEDOR.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROVINCIA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proyecto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recibo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recibo_cliente.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recibo_cliente_cheque.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recibo_cliente_cheque_2.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recibo_cliente_ingreso_efectivo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recibo_proveedor.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recibo_sueldo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recibo_sueldo_temporal.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Remito.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Renglon.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporte_obtenerEficiencia_Actividad_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporte_obtenerEficiencia_Cliente_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporte_obtenerEficiencia_Control_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporte_obtenerEficiencia_EmpresaFechas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporte_obtenerEficiencia_Proyecto_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporte_obtenerEficiencia_Usuario_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporte_obtenerEficiencia_Voz_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESUMEN_CAJA_TEMPORAL.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resumen_cliente.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resumen_cliente_temporal.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESUMEN_CUENTA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESUMEN_CUENTA_2.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESUMEN_CUENTA_CAJA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESUMEN_CUENTA_CAJA_2.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESUMEN_Iva.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESUMEN_Iva_TEMPORAL.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resumen_proveedor.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resumen_proveedor_temporal.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESUMEN_TEMPORAL.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALDO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALDO_BANCOS.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALDO_CAJA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Saldo_cliente.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALDO_Iva.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Saldo_proveedor.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sereno.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUBPROYECTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUBTIPO_PRODUCTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sucursal.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUGERENCIA.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Temp1.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Temp_actividad_proyecto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Temp_grilla_pago_cliente.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_actividad.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Actividad_usuario.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_asiento.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_comprobante.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_dni.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_egreso.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_empleado.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_hora.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPO_LOGUEO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_moneda.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_periodo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPO_PRODUCTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_proveedor.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_renglon.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPO_SUBPROYECTO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_voz.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Total_sueldo.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSFERENCIAS_BANCARIAS.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UNIDAD.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_SUBPROYECTOInsert_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_SUBPROYECTOSelect_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_SUBPROYECTOUpdate_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIO_PERMISO.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario_Proyecto.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Versionado.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Voz.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="voz_getNotas_Result.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Voz_ponderacion.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Voz_tipo_voz.cs">
+      <DependentUpon>DescarModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DescarModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DescarModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
