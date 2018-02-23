@@ -67,7 +67,6 @@ Public Class frmLoginInicio
     End Sub
 
     Private Sub frmLoginInicio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MessageBox.Show("Hola")
         Me.es_admin = Me.verificarPermiso()
 
         Me.Load_tree()
