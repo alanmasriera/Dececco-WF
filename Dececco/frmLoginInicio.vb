@@ -45,6 +45,7 @@ Public Class frmLoginInicio
     Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Integer, ByVal wMsg As Integer, ByVal wParam As Integer, ByVal lParam As Integer) As Integer
 
     Public Sub New()
+
         ' This call is required by the designer.
         InitializeComponent()
 
